@@ -1,0 +1,176 @@
+body {
+    font-family: Ubuntu, "times new roman", times, roman, serif !important;
+}
+
+/* HEADERS */
+
+#subheader-1 {
+    background-color: #3942B7;
+    padding: 10px 100px;
+    color: #FFFFFF;
+}
+
+#subheader-2 {
+    background-color: #37E4AE;
+    padding: 10px 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold !important;
+}
+
+.primary {
+    color: #37E4AE;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #312F2F;
+    color: #FFFFFF;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+/* BUTTONS */
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-left: 30px;
+}
+
+.search-button {
+    background-color: #312F2F !important;
+    color: #FFFFFF !important;
+    border: 1px solid #312F2F !important;
+}
+
+.primary-button {
+    color: #FFFFFF;
+    background-color: #3942B7;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.secondary-button {
+    color: #FFFFFF;
+    background-color: #37E4AE;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+/* FORMS */
+
+input,
+textarea {
+    border: 1px solid #C5C5C5;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.icon-button-form {
+    color: #3942B7;
+    background-color: transparent;
+    border: none;
+    font-size: 32px;
+}
+
+.input-title {
+    border: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+/* LINKS */
+
+.side-link {
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}
+
+.side-link:hover {
+    color: #3942B7;
+}
+
+.active-link {
+    color: #3942B7;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+}
+
+/* ICONS */
+
+.profile-icon {
+    color: rgba(57, 66, 183, 0.51);
+}
+
+.icon-delete {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+/* TABS */
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.tab button.active {
+    color: #3942B7;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+}
+
+.tabcontent {
+    display: none;
+}
+
+/* LISTS */
+
+#summary li::marker {
+    content: "\f0eb";
+    color: #3942B7;
+    font-family: FontAwesome;
+    font-size: var(--icon--size);
+}
+
+#interests li::marker {
+    content: "\f00c";
+    color: #3942B7;
+    font-family: FontAwesome;
+    font-size: var(--icon--size);
+}
+
+/* BOT */
+
+#chancebot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#chancebot button {
+    border-radius: 50%;
+    color: #FFFFFF;
+    background-color: #3942B7;
+    border: 2px solid #37E4AE;
+    padding: 15px;
+    font-size: 30px;
+}
