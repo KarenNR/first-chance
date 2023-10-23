@@ -11,7 +11,11 @@ def loadIndex():
 
 @app.route('/trabajos')
 def loadJobs():
-    return render_template('/student/trabajos.html')
+    # Get Job Offers
+    jobOffers = ((1, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo", "/static/images/jobOffer1.png"),
+                 (2, "Practicante Desarrollo de Software", "Neorem", "Monterrey, Nuevo León", "Remoto", "Tiempo completo", "/static/images/jobOffer2.png"),
+                 (3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png"))
+    return render_template('/student/trabajos.html', jobOffers=jobOffers)
 
 @app.route('/solicitudes')
 def loadRequests():

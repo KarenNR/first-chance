@@ -61,6 +61,12 @@ footer {
     padding: 10px;
 }
 
+.stretched-btn {
+    background-color: transparent;
+    text-align: left;
+    border: none;
+}
+
 .secondary-button {
     color: #FFFFFF;
     background-color: #37E4AE;
@@ -89,6 +95,13 @@ textarea {
     border: none;
     font-size: 1.75rem;
     font-weight: bold;
+}
+
+.filter {
+    border-radius: 10px;
+    color: #3942B7;
+    border: 2px solid #3942B7;
+    padding: 5px;
 }
 
 /* LINKS */
