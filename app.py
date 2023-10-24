@@ -35,16 +35,15 @@ def getJobDescription(id):
             "Medio tiempo",
             "$6,000 - $9,000",
             False,
-            '''
-            Como Practicante de Diseño UI/UX, serás parte de nuestro equipo de diseño y desempeñarás un papel fundamental en 
+            '''Como Practicante de Diseño UI/UX, serás parte de nuestro equipo de diseño y desempeñarás un papel fundamental en 
             la creación de experiencias de usuario atractivas y funcionales. Contribuirás al diseño de interfaces de usuario 
             intuitivas y atractivas, mejorando la usabilidad de nuestras aplicaciones y sitios web.
             ''',
-            ["Diseño de Interfaces de Usuario", "Colabora en la creación de diseños de interfaces de usuario atractivas y funcionales para aplicaciones web y móviles, asegurando una experiencia de usuario intuitiva.",
-             "Pruebas y Evaluación", "Participa en pruebas de usabilidad y evaluación de la experiencia del usuario para identificar áreas de mejora en el diseño y la navegación.",
-             "Prototipado Interactivo", "Ayuda en la creación de prototipos interactivos que representen las funcionalidades y la navegación de las aplicaciones.",
-             "Colaboración en Equipos", "Trabaja en estrecha colaboración con diseñadores, desarrolladores y otros miembros del equipo.",
-             "Investigación de Usuario", "Contribuye a la investigación de usuario mediante la recopilación y el análisis de comentarios de los usuarios."]
+            [["Diseño de Interfaces de Usuario", "Colabora en la creación de diseños de interfaces de usuario atractivas y funcionales para aplicaciones web y móviles, asegurando una experiencia de usuario intuitiva."],
+             ["Pruebas y Evaluación", "Participa en pruebas de usabilidad y evaluación de la experiencia del usuario para identificar áreas de mejora en el diseño y la navegación."],
+             ["Prototipado Interactivo", "Ayuda en la creación de prototipos interactivos que representen las funcionalidades y la navegación de las aplicaciones."],
+             ["Colaboración en Equipos", "Trabaja en estrecha colaboración con diseñadores, desarrolladores y otros miembros del equipo."],
+             ["Investigación de Usuario", "Contribuye a la investigación de usuario mediante la recopilación y el análisis de comentarios de los usuarios."]]
         ),
         (
             2,
@@ -57,16 +56,15 @@ def getJobDescription(id):
             "Tiempo completo - Horarios flexibles",
             "$6,000 - $9,000",
             True,
-            '''
-            Como Practicante Desarrollador de Software, te unirás a nuestro equipo de desarrollo y tendrás la oportunidad de 
+            '''Como Practicante Desarrollador de Software, te unirás a nuestro equipo de desarrollo y tendrás la oportunidad de 
             adquirir experiencia práctica en el emocionante mundo del desarrollo de software. Tu papel será fundamental para 
             contribuir al desarrollo, prueba y mantenimiento de nuestras aplicaciones y sistemas de software.
             ''',
-            ["Desarrollo de Código", "Participa en la escritura, modificación y depuración de código para nuevas características o mejoras en las aplicaciones y sistemas existentes.",
-             "Pruebas y Depuración", "Colabora en pruebas unitarias y de integración para garantizar que el código funcione de manera eficiente y cumpla con los requisitos.",
-             "Mantenimiento de Código", "Ayuda en la identificación y resolución de problemas de código, así como en la aplicación de actualizaciones y correcciones.",
-             "Investigación y Aprendizaje", "Realiza investigaciones independientes para estar al tanto de las mejores prácticas y las tendencias actuales en el desarrollo de software.",
-             "Colaboración en Equipos", "Trabaja en estrecha colaboración con otros miembros del equipo de desarrollo, participando en reuniones y colaborando en proyectos conjuntos."]
+            [["Desarrollo de Código", "Participa en la escritura, modificación y depuración de código para nuevas características o mejoras en las aplicaciones y sistemas existentes."],
+             ["Pruebas y Depuración", "Colabora en pruebas unitarias y de integración para garantizar que el código funcione de manera eficiente y cumpla con los requisitos."],
+             ["Mantenimiento de Código", "Ayuda en la identificación y resolución de problemas de código, así como en la aplicación de actualizaciones y correcciones."],
+             ["Investigación y Aprendizaje", "Realiza investigaciones independientes para estar al tanto de las mejores prácticas y las tendencias actuales en el desarrollo de software."],
+             ["Colaboración en Equipos", "Trabaja en estrecha colaboración con otros miembros del equipo de desarrollo, participando en reuniones y colaborando en proyectos conjuntos."]]
         ),
         (
             3,
@@ -79,16 +77,15 @@ def getJobDescription(id):
             "Medio tiempo",
             "$6,000 - $9,000",
             True,
-            '''
-            Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
+            '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
             datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
             emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
             ''',
-            ["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones.",
-             "Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad.",
-             "Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad.",
-             "Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes.",
-             "Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]
+            [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
+             ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
+             ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
+             ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
+             ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
         )
     )
     for item in data:

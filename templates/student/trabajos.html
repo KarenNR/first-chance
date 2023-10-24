@@ -131,77 +131,54 @@
                     </div>
                     <div class="col-7" id="job-description">
                         <div class="row m-0 mb-4">
-                            <h3 class="mb-2">Practicante Desarrollo de Software</h3>
+                            <h3 class="mb-2" id="job-title"></h3>
                             <div class="col-4">
-                                <img src="/static/images/neorem.png" class="w-100">
+                                <img src="" class="w-100" id="job-image">
                             </div>
                             <div class="col-8">
-                                <p class="mb-1"><i
-                                        class="fa-solid fa-building profile-icon"></i>&nbsp;Neorem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
-                                        class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i>&nbsp;4.5/5
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-building profile-icon"></i>
+                                    &nbsp;<span id="company-name"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i>&nbsp;<span id="rating"></span>/5
                                 </p>
-                                <p class="mb-1"><i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;Monterrey,
-                                    Nuevo León</p>
-                                <p class="mb-1"><i class="fa-solid fa-briefcase profile-icon"></i>&nbsp;Remoto</p>
-                                <p class="mb-1"><i class="fa-solid fa-clock profile-icon"></i>&nbsp;Tiempo completo -
-                                    Horarios flexibles</p>
-                                <p class="mb-1"><i class="fa-solid fa-wallet profile-icon"></i>&nbsp;$6,000 - $9,000</p>
-                                <p><i class="fa-solid fa-circle-check profile-icon"></i>&nbsp;Eres un buen candidato
-                                    para esta vacante</p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;<span id="location"></span></p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-briefcase profile-icon"></i>&nbsp;<span id="mode"></span>
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-clock profile-icon"></i>&nbsp;<span id="time"></span>
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-wallet profile-icon"></i>&nbsp;<span id="salary"></span>
+                                </p>
+                                <p class="d-none" id="candidate">
+                                    <i class="fa-solid fa-circle-check profile-icon"></i>&nbsp;Eres un buen candidato para esta vacante.</span>
+                                </p>
                                 <div class="row m-0">
                                     <div class="col-4 ps-0">
-                                        <button class="primary-button w-100">Aplicar</button>
+                                        <button class="primary-button w-100" id="apply">Aplicar</button>
                                     </div>
                                     <div class="col-4 ps-0">
-                                        <button class="secondary-button w-100"><i
-                                                class="fa-regular fa-bookmark icon-letter"></i></button>
+                                        <button class="secondary-button w-100" id="save">
+                                            <i class="fa-regular fa-bookmark icon-letter"></i>
+                                        </button>
                                     </div>
                                     <div class="col-4 ps-0">
-                                        <button class="tertiary-button w-100"><i
-                                                class="fa-solid fa-message icon-letter"></i></button>
+                                        <button class="tertiary-button w-100" id="chat">
+                                            <i class="fa-solid fa-message icon-letter"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row m-0 mb-3">
                             <h4>Detalles del empleo</h4>
-                            <p>
-                                Como Practicante Desarrollador de Software, te unirás a nuestro equipo de desarrollo y
-                                tendrás la oportunidad de adquirir
-                                experiencia práctica en el emocionante mundo del desarrollo de software. Tu papel será
-                                fundamental para contribuir al desarrollo,
-                                prueba y mantenimiento de nuestras aplicaciones y sistemas de software.
-                            </p>
+                            <p id="job-detail"></p>
                         </div>
                         <div class="row m-0">
                             <h4>Responsabilidades</h4>
-                            <ol class="ms-2">
-                                <li>
-                                    <strong>Desarrollo de Código:</strong> Participa en la escritura, modificación y
-                                    depuración de código para nuevas características
-                                    o mejoras en las aplicaciones y sistemas existentes.
-                                </li>
-                                <li>
-                                    <strong>Pruebas y Depuración:</strong> Colabora en pruebas unitarias y de
-                                    integración para garantizar que el código funcione de
-                                    manera eficiente y cumpla con los requisitos.
-                                </li>
-                                <li>
-                                    <strong>Mantenimiento de Código:</strong> Ayuda en la identificación y resolución de
-                                    problemas de código, así como en la
-                                    aplicación de actualizaciones y correcciones.
-                                </li>
-                                <li>
-                                    <strong>Investigación y Aprendizaje:</strong> Realiza investigaciones independientes
-                                    para estar al tanto de las mejores prácticas
-                                    y las tendencias actuales en el desarrollo de software.
-                                </li>
-                                <li>
-                                    <strong>Colaboración en Equipos:</strong> Trabaja en estrecha colaboración con otros
-                                    miembros del equipo de desarrollo,
-                                    participando en reuniones y colaborando en proyectos conjuntos.
-                                </li>
-                            </ol>
+                            <ol class="ms-2" id="job-responsibilities"></ol>
                         </div>
                     </div>
                 </div>
@@ -219,9 +196,49 @@
             fetch("/get-job-description/" + id)
                 .then(response => response.json())
                 .then(data => {
+                    let job = data.message;
                     document.getElementById("job-description").style.display = "block";
-                    console.log(data);
+                    document.getElementById("job-title").textContent = job[1];
+                    document.getElementById("job-image").src = job[2];
+                    document.getElementById("company-name").textContent = job[3];
+                    document.getElementById("rating").textContent = job[4];
+                    document.getElementById("location").textContent = job[5];
+                    document.getElementById("mode").textContent = job[6];
+                    document.getElementById("time").textContent = job[7];
+                    document.getElementById("salary").textContent = job[8];
+                    if (job[9]) {
+                        document.getElementById("candidate").style.display = "block";
+                    }
+                    document.getElementById("apply").onclick = function () {
+                        apply(job[0]);
+                    };
+                    document.getElementById("save").onclick = function () {
+                        save(job[0]);
+                    }
+                    document.getElementById("chat").onclick = function () {
+                        chat(job[0]);
+                    }
+                    document.getElementById("job-detail").textContent = job[10];
+                    let jobResponsibilities = document.getElementById("job-responsibilities");
+                    jobResponsibilities.innerHTML = "";
+                    job[11].forEach((responsibility) => {
+                        let li = document.createElement("li");
+                        li.innerHTML = "<strong>" + responsibility[0] + ":</strong> " + responsibility[1];
+                        jobResponsibilities.appendChild(li);
+                    });
                 })
+        }
+
+        function apply(id) {
+            console.log("Apply");
+        }
+
+        function save(id) {
+            console.log("Save");
+        }
+
+        function chat(id) {
+            console.log("Chat");
         }
 
         // Redirections
