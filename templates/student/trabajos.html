@@ -152,10 +152,10 @@
                                 <p class="mb-1">
                                     <i class="fa-solid fa-wallet profile-icon"></i>&nbsp;<span id="salary"></span>
                                 </p>
-                                <p class="d-none" id="candidate">
+                                <p id="candidate" class="mb-1">
                                     <i class="fa-solid fa-circle-check profile-icon"></i>&nbsp;Eres un buen candidato para esta vacante.</span>
                                 </p>
-                                <div class="row m-0">
+                                <div class="row m-0 mt-2">
                                     <div class="col-4 ps-0">
                                         <button class="primary-button w-100" id="apply">Aplicar</button>
                                     </div>
@@ -196,6 +196,7 @@
             fetch("/get-job-description/" + id)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     let job = data.message;
                     document.getElementById("job-description").style.display = "block";
                     document.getElementById("job-title").textContent = job[1];
@@ -208,6 +209,9 @@
                     document.getElementById("salary").textContent = job[8];
                     if (job[9]) {
                         document.getElementById("candidate").style.display = "block";
+                    }
+                    else {
+                        document.getElementById("candidate").style.display = "none";
                     }
                     document.getElementById("apply").onclick = function () {
                         apply(job[0]);
