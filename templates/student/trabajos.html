@@ -62,7 +62,7 @@
                     <h2>Explorar</h2>
                 </div>
 
-                <div class="row m-0 mb-3 align-items-center">
+                <div class="row m-0 mb-4 align-items-center">
                     <div class="col-auto">
                         <span>Filtrar por</span>
                     </div>
@@ -112,7 +112,10 @@
                         {% for job in jobOffers %}
                         <div class="card p-3 mb-2">
                             <div class="row m-0 align-items-start">
-                                <button class="stretched-link card-title stretched-btn" onclick="showDetail('{{ job[0] }}')"><h4>{{ job[1] }}</h4></button>
+                                <button class="stretched-link card-title stretched-btn"
+                                    onclick="showDetail('{{ job[0] }}')">
+                                    <h4>{{ job[1] }}</h4>
+                                </button>
                                 <div class="col-3">
                                     <img src="{{ job[6] }}" class="w-100">
                                 </div>
@@ -126,8 +129,80 @@
                         </div>
                         {% endfor %}
                     </div>
-                    <div class="col-7">
-                        Descripción
+                    <div class="col-7" id="job-description">
+                        <div class="row m-0 mb-4">
+                            <h3 class="mb-2">Practicante Desarrollo de Software</h3>
+                            <div class="col-4">
+                                <img src="/static/images/neorem.png" class="w-100">
+                            </div>
+                            <div class="col-8">
+                                <p class="mb-1"><i
+                                        class="fa-solid fa-building profile-icon"></i>&nbsp;Neorem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                                        class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i>&nbsp;4.5/5
+                                </p>
+                                <p class="mb-1"><i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;Monterrey,
+                                    Nuevo León</p>
+                                <p class="mb-1"><i class="fa-solid fa-briefcase profile-icon"></i>&nbsp;Remoto</p>
+                                <p class="mb-1"><i class="fa-solid fa-clock profile-icon"></i>&nbsp;Tiempo completo -
+                                    Horarios flexibles</p>
+                                <p class="mb-1"><i class="fa-solid fa-wallet profile-icon"></i>&nbsp;$6,000 - $9,000</p>
+                                <p><i class="fa-solid fa-circle-check profile-icon"></i>&nbsp;Eres un buen candidato
+                                    para esta vacante</p>
+                                <div class="row m-0">
+                                    <div class="col-4 ps-0">
+                                        <button class="primary-button w-100">Aplicar</button>
+                                    </div>
+                                    <div class="col-4 ps-0">
+                                        <button class="secondary-button w-100"><i
+                                                class="fa-regular fa-bookmark icon-letter"></i></button>
+                                    </div>
+                                    <div class="col-4 ps-0">
+                                        <button class="tertiary-button w-100"><i
+                                                class="fa-solid fa-message icon-letter"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0 mb-3">
+                            <h4>Detalles del empleo</h4>
+                            <p>
+                                Como Practicante Desarrollador de Software, te unirás a nuestro equipo de desarrollo y
+                                tendrás la oportunidad de adquirir
+                                experiencia práctica en el emocionante mundo del desarrollo de software. Tu papel será
+                                fundamental para contribuir al desarrollo,
+                                prueba y mantenimiento de nuestras aplicaciones y sistemas de software.
+                            </p>
+                        </div>
+                        <div class="row m-0">
+                            <h4>Responsabilidades</h4>
+                            <ol class="ms-2">
+                                <li>
+                                    <strong>Desarrollo de Código:</strong> Participa en la escritura, modificación y
+                                    depuración de código para nuevas características
+                                    o mejoras en las aplicaciones y sistemas existentes.
+                                </li>
+                                <li>
+                                    <strong>Pruebas y Depuración:</strong> Colabora en pruebas unitarias y de
+                                    integración para garantizar que el código funcione de
+                                    manera eficiente y cumpla con los requisitos.
+                                </li>
+                                <li>
+                                    <strong>Mantenimiento de Código:</strong> Ayuda en la identificación y resolución de
+                                    problemas de código, así como en la
+                                    aplicación de actualizaciones y correcciones.
+                                </li>
+                                <li>
+                                    <strong>Investigación y Aprendizaje:</strong> Realiza investigaciones independientes
+                                    para estar al tanto de las mejores prácticas
+                                    y las tendencias actuales en el desarrollo de software.
+                                </li>
+                                <li>
+                                    <strong>Colaboración en Equipos:</strong> Trabaja en estrecha colaboración con otros
+                                    miembros del equipo de desarrollo,
+                                    participando en reuniones y colaborando en proyectos conjuntos.
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
 
@@ -141,7 +216,12 @@
 
     <script>
         function showDetail(id) {
-            console.log(id);
+            fetch("/get-job-description/" + id)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("job-description").style.display = "block";
+                    console.log(data);
+                })
         }
 
         // Redirections

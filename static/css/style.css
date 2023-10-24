@@ -61,18 +61,26 @@ footer {
     padding: 10px;
 }
 
-.stretched-btn {
-    background-color: transparent;
-    text-align: left;
-    border: none;
-}
-
 .secondary-button {
     color: #FFFFFF;
     background-color: #37E4AE;
     border-radius: 10px;
     border: none;
     padding: 10px;
+}
+
+.tertiary-button {
+    color: #FFFFFF;
+    background-color: #535050;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.stretched-btn {
+    background-color: transparent;
+    text-align: left;
+    border: none;
 }
 
 /* FORMS */
@@ -134,6 +142,10 @@ textarea {
     font-size: 20px;
 }
 
+.icon-letter {
+    font-size: 24px;
+}
+
 /* TABS */
 
 .tab button {
@@ -186,4 +198,16 @@ textarea {
     border: 2px solid #37E4AE;
     padding: 15px;
     font-size: 30px;
+}
+
+/* JOBS STYLES */
+
+#job-description {
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid #D2D2D2;
+    padding: 15px 10px;
+    border-radius: 5px;
+    display: none;
 }
