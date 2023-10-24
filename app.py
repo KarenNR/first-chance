@@ -42,7 +42,8 @@ def getJobDescription(id):
             [["Diseño de Interfaces de Usuario", "Colabora en la creación de diseños de interfaces de usuario atractivas y funcionales para aplicaciones web y móviles, asegurando una experiencia de usuario intuitiva."],
              ["Pruebas y Evaluación", "Participa en pruebas de usabilidad y evaluación de la experiencia del usuario para identificar áreas de mejora en el diseño y la navegación."],
              ["Prototipado Interactivo", "Ayuda en la creación de prototipos interactivos que representen las funcionalidades y la navegación de las aplicaciones."],
-             ["Colaboración en Equipos", "Trabaja en estrecha colaboración con diseñadores, desarrolladores y otros miembros del equipo."],
+             ["Colaboración en Equipos",
+                 "Trabaja en estrecha colaboración con diseñadores, desarrolladores y otros miembros del equipo."],
              ["Investigación de Usuario", "Contribuye a la investigación de usuario mediante la recopilación y el análisis de comentarios de los usuarios."]]
         ),
         (
@@ -113,11 +114,6 @@ def loadProfile():
     # Get projects
     projects = (('Proyecto 1', 'Prueba'), ('Proyecto 2', 'Prueba'))
     return render_template('/student/perfil.html', posts=posts, education=education, projects=projects)
-
-
-@app.route('/perfil/informacion')
-def loadProfileInformation():
-    return render_template('/student/informacion.html')
 
 
 @app.route('/chancebot')
