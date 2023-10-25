@@ -94,6 +94,26 @@ def getJobDescription(id):
             return jsonify({"message": item})
 
 
+@app.route('/trabajos/aplicaciones')
+def loadApplications():
+    return render_template('/student/aplicaciones.html')
+
+
+@app.route('/trabajos/guardados')
+def loadSaved():
+    return render_template('/student/guardados.html')
+
+
+@app.route('/trabajos/alertas-empleo')
+def loadAlerts():
+    return render_template('/student/alertas.html')
+
+
+@app.route('/trabajos/busquedas-recientes')
+def loadRecentSearches():
+    return render_template('/student/busquedas-recientes.html')
+
+
 @app.route('/solicitudes')
 def loadRequests():
     return render_template('/student/solicitudes.html')
