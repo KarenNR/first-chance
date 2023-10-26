@@ -127,12 +127,28 @@ def loadChat():
 @app.route('/perfil')
 def loadProfile():
     # Get posts
-    posts = (('Post 1', 'Prueba'), ('Post 2', 'Prueba'))
+    posts = (
+                ("Reconocimiento Alumno Distinguido PR2023", 
+                 '''Orgulloso de haber recibido este reconocimiento que se le otorga al 1% de la carrera. Este tipo de premios
+                 me motivan a seguir dando lo mejor de mí mismo y a aplicar todo lo que sé en buscando ser un agente de cambio.''',
+                 "/static/images/post1.jpg",
+                 "25/10/2023", 12, 5), 
+                ("Un pensamiento",
+                 "Una interfaz es como un chiste. Si tienes que explicarlo, no es bueno.", 
+                 None,
+                 "24/10/2023", 25, 10)
+            )
     # Get education items
     education = (('UDEM', 'ITC', '2023'),
                  ('Regio Cumbres', 'Preparatoria', '2020'))
     # Get projects
-    projects = (('Proyecto 1', 'Prueba'), ('Proyecto 2', 'Prueba'))
+    projects = (
+                ("Aplicación First Chance", 
+                 "Plataforma de búsqueda de empleos para estudiantes universitarios.", 
+                 "https://github.com/KarenNR/first-chance"), 
+                ("Aplicación web para registro de asistencias de profesores", 
+                 "Proyecto realizado para la UDEM. Utilicé tecnologías como HTML, JavaScript, ASP.NET y React.", 
+                 "https://github.com/emi7595/integrador-front"))
     return render_template('/student/perfil.html', posts=posts, education=education, projects=projects)
 
 

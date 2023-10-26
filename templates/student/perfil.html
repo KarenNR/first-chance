@@ -18,6 +18,54 @@
 </head>
 
 <body>
+    <!--Create post modal-->
+    <div class="modal fade" tabindex="-1" id="post-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3>Crear post</h3>
+                    <form>
+                        <input type="text" placeholder="Título" class="w-100 mb-2">
+                        <textarea placeholder="Contenido" class="w-100 mb-2"></textarea>
+                        <input type="file" id="image" class="w-100 mb-2" accept="image/*">
+                        <div class="row m-0 mt-2 justify-content-end">
+                            <div class="col-3">
+                                <input type="submit" value="Crear" class="primary-button w-100">
+                            </div>
+                            <div class="col-3">
+                                <button type="button" data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Create project modal-->
+    <div class="modal fade" tabindex="-1" id="project-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3>Crear proyecto</h3>
+                    <form>
+                        <input type="text" placeholder="Nombre del proyecto" class="w-100 mb-2">
+                        <textarea placeholder="Escribe una pequeña descripción de tu proyecto" class="w-100 mb-2"></textarea>
+                        <input type="url" class="w-100 mb-2" placeholder="Escribe una URL donde se puedan ver más detalles de tu proyecto">
+                        <div class="row m-0 mt-2 justify-content-end">
+                            <div class="col-3">
+                                <input type="submit" value="Crear" class="primary-button w-100">
+                            </div>
+                            <div class="col-3">
+                                <button type="button" data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -79,10 +127,10 @@
                 <div class="row m-0 mt-4">
                     <!--Tab-->
                     <div class="tab mb-3">
-                        <button class="tablinks active" onclick="openCity(event, 'about-me')">Sobre mí</button>
-                        <button class="tablinks" onclick="openCity(event, 'posts')">Posts</button>
-                        <button class="tablinks" onclick="openCity(event, 'education')">Educación</button>
-                        <button class="tablinks" onclick="openCity(event, 'projects')">Proyectos</button>
+                        <button class="tablinks active" onclick="openSection(event, 'about-me')">Sobre mí</button>
+                        <button class="tablinks" onclick="openSection(event, 'posts')">Posts</button>
+                        <button class="tablinks" onclick="openSection(event, 'education')">Educación</button>
+                        <button class="tablinks" onclick="openSection(event, 'projects')">Proyectos</button>
                     </div>
                     <!--Content-->
                     <div id="about-me" class="tabcontent" style="display: block;">
@@ -106,14 +154,54 @@
                                 <h3 class="mb-0">Posts</h3>
                             </div>
                             <div class="col-3">
-                                <button class="w-100 primary-button">Crear post</button>
+                                <button class="w-100 primary-button" onclick="createPost()">Crear post</button>
                             </div>
                         </div>
                         {% for post in posts %}
                         <div class="card mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">{{ post[0] }}</h5>
-                                <p class="card-text">{{ post[1] }}</p>
+                                <div class="row m-0 mb-3">
+                                    {% if post[2] %}
+                                    <div class="col-6">
+                                        <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
+                                        <h5 class="card-title">{{ post[0] }}</h5>
+                                        <p class="card-text">{{ post[1] }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{{ post[2] }}" class="w-100" id="modal-image">
+                                    </div>
+                                    {% else %}
+                                    <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
+                                    <h5 class="card-title">{{ post[0] }}</h5>
+                                    <p class="card-text">{{ post[1] }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="row m-0 justify-content-between">
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp;{{ post[4] }} me gusta
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-message profile-icon"></i>&nbsp;{{ post[5] }} comentarios
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row m-0">
+                                    <div class="col-4 border-end text-center">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
+                                        </button>
+                                    </div>
+                                    <div class="col-4 border-end">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-message"></i>&nbsp;Comentar
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -122,9 +210,6 @@
                         <div class="row m-0 mb-4 justify-content-between align-items-center">
                             <div class="col-auto">
                                 <h3 class="mb-0">Educación</h3>
-                            </div>
-                            <div class="col-3">
-                                <button class="w-100 primary-button">Añadir contenido</button>
                             </div>
                         </div>
                         {% for item in education %}
@@ -148,7 +233,7 @@
                                 <h3 class="mb-0">Proyectos</h3>
                             </div>
                             <div class="col-3">
-                                <button class="w-100 primary-button">Añadir proyecto</button>
+                                <button class="w-100 primary-button" onclick="createProject()">Añadir proyecto</button>
                             </div>
                         </div>
                         {% for project in projects %}
@@ -156,6 +241,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ project[0] }}</h5>
                                 <p class="card-text">{{ project[1] }}</p>
+                                <p><i class="fa-solid fa-link profile-icon"></i>&nbsp;<a href="{{ project[2] }}" target="_blank">Ver más</a></p>
                             </div>
                         </div>
                         {% endfor %}
@@ -175,7 +261,7 @@
     </footer>
 
     <script>
-        function openCity(evt, tabName) {
+        function openSection(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -195,6 +281,16 @@
 
         function goChanceBot() {
             window.location.href = "/chancebot";
+        }
+
+        function createPost() {
+            var myModal = new bootstrap.Modal(document.getElementById("post-modal"));
+            myModal.show();
+        }
+
+        function createProject() {
+            var myModal = new bootstrap.Modal(document.getElementById("project-modal"));
+            myModal.show();
         }
 
         // Redirections
