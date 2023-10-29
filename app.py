@@ -6,6 +6,11 @@ app = Flask(__name__)
 app.secret_key = 'f1rstch4nc3'
 
 
+@app.route('/iniciar-sesion')
+def loadLogin():
+    return render_template('login.html')
+
+
 @app.route('/')
 def loadIndex():
     return render_template('student/index.html')
@@ -159,7 +164,18 @@ def loadChancebot():
 
 @app.route('/perfil/cv')
 def loadProfileCV():
-    return render_template('/student/cv.html')
+    cv = (
+        "/static/images/student-profile.png",
+        "Pablo", "Gutiérrez", "pablo.gtz@udem.edu", "1234567890", "pgutierrez.com",
+        "Soy un estudiante de Ingeniería en Tecnologías Computacionales apasionado por la programación y la resolución de problemas.",
+        ("Regio", "UDEM"),
+        ("Preparatoria", "ITC"),
+        (2020, 2023),
+        ("Resiliencia", "Dedicación", "Esfuerzo", "Organización"),
+        ("Idiomas",),
+        ("Alemán A2 | Inglés C1",)
+    )
+    return render_template('/student/cv.html', cv=cv, zip=zip)
 
 
 @app.route('/perfil/configuracion')

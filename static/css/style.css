@@ -1,8 +1,9 @@
 body {
     font-family: Ubuntu, "times new roman", times, roman, serif !important;
+    min-height: 100vh;
 }
 
-/* HEADERS */
+/* HEADERS AND TEXT */
 
 #subheader-1 {
     background-color: #3942B7;
@@ -28,6 +29,31 @@ h6 {
     color: #37E4AE;
 }
 
+.cv-section {
+    overflow: hidden;
+}
+
+.cv-section::before,
+.cv-section::after {
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    content: "";
+    border-top: 5px solid #37E4AE;
+    width: 50%;
+}
+
+.cv-section::before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.cv-section::after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
 /* FOOTER */
 
 footer {
@@ -35,6 +61,8 @@ footer {
     color: #FFFFFF;
     padding: 20px;
     margin-top: 60px;
+    position: sticky;
+    top: 100%;
 }
 
 /* BUTTONS */

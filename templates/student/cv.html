@@ -51,14 +51,68 @@
                     <li class="nav-item mb-4"><a href="/perfil" class="side-link">Perfil</a></li>
                     <li class="nav-item mb-4"><a href="/perfil/cv" class="side-link active-link">CV</a></li>
                     <li class="nav-item mb-4"><a href="/perfil/configuracion" class="side-link">Configuración</a></li>
-                    <li class="nav-item mb-4"><a href="/" class="side-link">Cerrar Sesión</a></li>
+                    <li class="nav-item mb-4"><a href="/iniciar-sesion" class="side-link">Cerrar Sesión</a></li>
                 </ul>
             </div>
             <!--Content-->
             <div class="col-10">
-                <h1>Pendiente</h1>
-                <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg"><br>
-                <button onclick="goEdit()">Editar CV</button>
+                <div class="row m-0 mb-4">
+                    <h1 class="mb-3">Mi Currículum Vitae</h1>
+                    <div class="col-2">
+                        <img src="{{ cv[0] }}" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <h3>{{ cv[1] }} {{ cv[2] }}</h3>
+                        <p class="mb-0"><i class="fa-solid fa-envelope profile-icon"></i>&nbsp;&nbsp;{{ cv[3] }}</p>
+                        <p class="mb-0"><i class="fa-solid fa-phone profile-icon"></i>&nbsp;&nbsp;{{ cv[4] }}</p>
+                        <p class="mb-0"><i class="fa-solid fa-globe profile-icon"></i>&nbsp;&nbsp;{{ cv[5] }}</p>
+                    </div>
+                </div>
+                <div class="row m-0 mb-4">
+                    <h4 class="cv-section text-center">Perfil</h4>
+                    <div class="col-12">
+                        <p class="card p-3 bg-light">{{ cv[6] }}</p>
+                    </div>
+                </div>
+                <div class="row m-0 mb-4">
+                    <h4 class="cv-section text-center">Educación</h4>
+                    {% for education in zip(cv[7], cv[8], cv[9]) %}
+                    <div class="row m-0 justify-content-between px-0">
+                        <h5><i class="fa-solid fa-graduation-cap"></i>&nbsp;{{ education[0] }} | {{ education[1] }}</h5>
+                        <p>{{ education[2] }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row m-0 mb-4">
+                    <h4 class="cv-section text-center">Skills técnicas</h4>
+                    <div class="row m-0 gy-3">
+                        {% for skill in cv[10] %}
+                        <div class="col-4 ps-0">
+                            <div class="card">
+                                <div class="card-body">{{ skill }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row m-0 mb-4">
+                    <h4 class="cv-section text-center mb-3">Algunas cosas más sobre mí</h4>
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            {% for extra in zip(cv[11], cv[12]) %}
+                            <tr>
+                                <th><h4 class="mb-0">{{ extra[0] }}</h4></th>
+                                <td class="p-2"><p class="mb-0 p-2">{{ extra[1] }}</p></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-4">
+                        <button onclick="goEdit()" class="primary-button w-100">Editar CV</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
