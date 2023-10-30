@@ -58,9 +58,23 @@
             <!--Content-->
             <div class="col-10">
 
-                <h1>Pendiente</h1>
-                <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg">
-
+                <div class="row m-0">
+                    <h2 class="mb-4">Búsquedas recientes</h2>
+                    {% for term in recentSearches %}
+                    <div class="row m-0 mb-2 mt-2 justify-content-between">
+                        <div class="col-auto px-0">
+                            <p>{{ term }}</p>
+                        </div>
+                        <div class="col-auto px-0">
+                            <button class="transparent-btn cta-txt" onclick="goJobs()">
+                                Continuar recorrido&nbsp;<i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+                
             </div>
         </div>
     </div>

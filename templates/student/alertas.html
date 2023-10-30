@@ -18,6 +18,30 @@
 </head>
 
 <body>
+    <!--Interests modal-->
+    <div class="modal fade" tabindex="-1" id="interests-modal" role="dialog" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <div class="row m-0 mb-3 align-items-center">
+                        <div class="col-8">
+                            <input type="text" placeholder="Añadir un interés" class="w-100" id="interest-input">
+                        </div>
+                        <div class="col-4 px-0">
+                            <button class="primary-button w-100" onclick="addInterest()">Añadir</button>
+                        </div>
+                    </div>
+                    <div id="interests-container"></div>
+                    <div class="row m-0 mt-3 justify-content-end">
+                        <div class="col-3 px-0">
+                            <button data-bs-dismiss="modal" class="w-100 tertiary-button">Salir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -51,8 +75,10 @@
                     <li class="nav-item mb-4"><a href="/trabajos" class="side-link">Explorar</a></li>
                     <li class="nav-item mb-4"><a href="/trabajos/aplicaciones" class="side-link">Aplicaciones</a></li>
                     <li class="nav-item mb-4"><a href="/trabajos/guardados" class="side-link">Guardados</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/alertas-empleo" class="side-link active-link">Alertas de empleo</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/busquedas-recientes" class="side-link">Búsquedas recientes</a></li>
+                    <li class="nav-item mb-4"><a href="/trabajos/alertas-empleo" class="side-link active-link">Alertas
+                            de empleo</a></li>
+                    <li class="nav-item mb-4"><a href="/trabajos/busquedas-recientes" class="side-link">Búsquedas
+                            recientes</a></li>
                 </ul>
             </div>
             <!--Content-->
@@ -65,7 +91,7 @@
                             <h4 class="mb-0">Puestos recientes en base a tus intereses</h4>
                         </div>
                         <div class="col-3">
-                            <button class="primary-button w-100">Mis intereses</button>
+                            <button class="primary-button w-100" onclick="openInterests()">Mis intereses</button>
                         </div>
                     </div>
                     {% for job in alerts %}
@@ -77,14 +103,14 @@
                                     <p class="mb-0">{{ job[3] }} | {{ job[4] }}, {{ job[5] }}</p>
                                 </div>
                                 <div class="col-auto">
-                                    <button class="transparent-btn" onclick="goDetail('{{ job[0] }}')">
+                                    <button class="transparent-btn cta-txt" onclick="goDetail('{{ job[0] }}')">
                                         Detalles&nbsp;<i class="fa-solid fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}                    
+                    {% endfor %}
                 </div>
 
             </div>
@@ -96,8 +122,41 @@
     </footer>
 
     <script>
+        interests = JSON.parse('{{ interests|tojson|safe }}');
+        
         function goDetail(id) {
             window.location.href = "/detalle/" + id;
+        }
+        
+        function openInterests() {
+            const container = document.getElementById("interests-container");
+            container.innerHTML = "";
+            interests.forEach((i) => {
+                const chip = document.createElement("div");
+                chip.className = "chip";
+                chip.innerHTML = i + "<span class='closebtn' onclick='deleteChip(this, \"" + i + "\")'>&times;</span>";
+                container.appendChild(chip);
+            }) 
+            var myModal = new bootstrap.Modal(document.getElementById("interests-modal"));
+            myModal.show();
+        }
+
+        function addInterest() {
+            let newInterest = document.getElementById("interest-input").value;
+            interests.push(newInterest);
+            const container = document.getElementById("interests-container");
+            const chip = document.createElement("div");
+            chip.className = "chip";
+            chip.innerHTML = newInterest + "<span class='closebtn' onclick='deleteChip(this, \"" + newInterest + "\")'>&times;</span>";
+            container.appendChild(chip);
+            document.getElementById("interest-input").value = "";
+        }
+
+        function deleteChip(event, element) {
+            event.parentElement.style.display='none';
+            interests = interests.filter(function(item) {
+                return item !== element;
+            });
         }
 
         // Redirections

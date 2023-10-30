@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, session, flash, jsonify
 from flask_mysqldb import MySQL
 import variables
+import json
 
 app = Flask(__name__)
 app.secret_key = 'f1rstch4nc3'
@@ -54,12 +55,14 @@ def loadSaved():
 @app.route('/trabajos/alertas-empleo')
 def loadAlerts():
     alerts = variables.alerts
-    return render_template('/student/alertas.html', alerts=alerts)
+    interests = variables.interests
+    return render_template('/student/alertas.html', alerts=alerts, interests=interests)
 
 
 @app.route('/trabajos/busquedas-recientes')
 def loadRecentSearches():
-    return render_template('/student/busquedas-recientes.html')
+    recentSearches = variables.recentSearches
+    return render_template('/student/busquedas-recientes.html', recentSearches=recentSearches)
 
 
 @app.route('/solicitudes')

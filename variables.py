@@ -266,3 +266,9 @@ cv = (
 # Get user information - loadProfileConfiguration
 email = "pablo.gtz@udem.edu"
 username = "pgutierrez"
+
+# Get interests - loadAlerts
+interests = ("Frontend", "Apps Móviles")
+
+# Get recent searches - loadRecentSearches
+recentSearches = ("Desarrollo Web", "Aplicaciones Móviles", "Ciberseguridad")
