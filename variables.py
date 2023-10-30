@@ -73,7 +73,7 @@ jobDescription = (
     (
         4,
         "Ingeniero de Software",
-        "/static/images/armazen.png",
+        "/static/images/acmeinc.png",
         "Acme Inc.",
         4.2,
         "Monterrey, Nuevo León",
@@ -94,7 +94,7 @@ jobDescription = (
     (
         5,
         "Desarrollador Frontend",
-        "/static/images/cisce.png",
+        "/static/images/techsolutions.png",
         "Tech Solutions",
         4.8,
         "Monterrey, Nuevo León",
@@ -115,7 +115,7 @@ jobDescription = (
     (
         6,
         "Analista de Datos",
-        "/static/images/armazen.png",
+        "/static/images/abccorp.png",
         "ABC Corporation",
         3.9,
         "Monterrey, Nuevo León",
@@ -134,7 +134,7 @@ jobDescription = (
     (
         7,
         "Arquitecto de Nube",
-        "/static/images/cisce.png",
+        "/static/images/cloudinnovators.png",
         "Cloud Innovators",
         4,
         "Monterrey, Nuevo León",
@@ -156,7 +156,7 @@ jobDescription = (
     (
         8,
         "Desarrollador de Aplicaciones Móviles",
-        "/static/images/cisce.png",
+        "/static/images/startech.png",
         "Startech",
         4.8,
         "Monterrey, Nuevo León",
@@ -188,17 +188,17 @@ applications = (
 
 # Get application information - getApplicationInfo
 applicationInfo = (
-    (1, "Practicante Diseño UI/UX", "/static/images/neorem.png",
+    (1, "Practicante Diseño UI/UX", "/static/images/armazen.png",
      "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo"),
-    (4, "Ingeniero de Software", "/static/images/armazen.png",
+    (4, "Ingeniero de Software", "/static/images/acmeinc.png",
      "Acme Inc.", "Monterrey, Nuevo León", "Presencial", "Medio tiempo"),
-    (5, "Desarrollador Frontend", "/static/images/cisce.png",
+    (5, "Desarrollador Frontend", "/static/images/techsolutions.png",
      "Tech Solutions", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (6, "Analista de Datos", "/static/images/armazen.png",
+    (6, "Analista de Datos", "/static/images/abccorp.png",
      "ABC Corporation", "Monterrey, Nuevo León", "Mixto", "Medio tiempo"),
-    (7, "Arquitecto de Nube", "/static/images/cisce.png",
+    (7, "Arquitecto de Nube", "/static/images/cloudinnovators.png",
      "Cloud Innovators", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (8, "Desarrollador de Aplicaciones Móviles", "/static/images/armazen.png",
+    (8, "Desarrollador de Aplicaciones Móviles", "/static/images/startech.png",
      "Startech", "Monterrey, Nuevo León", "Remoto", "Medio tiempo")
 )
 
