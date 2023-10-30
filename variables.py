@@ -86,72 +86,93 @@ jobDescription = (
             ''',
         [["Desarrollo de Software", "Crea, codifica y programa aplicaciones y sistemas de software, garantizando que cumplan con los requisitos y las especificaciones del proyecto."],
          ["Pruebas y Depuración", "Realizar pruebas exhaustivas de software para identificar errores y problemas de funcionamiento."],
-         ["Diseño de Arquitectura", "Diseña la arquitectura de software y propón soluciones técnicas para garantizar un rendimiento óptimo."],
+         ["Diseño de Arquitectura",
+             "Diseña la arquitectura de software y propón soluciones técnicas para garantizar un rendimiento óptimo."],
          ["Mantenimiento y Actualización", "Proporciona mantenimiento continuo y actualizaciones de software para asegurar que las aplicaciones estén actualizadas y funcionen sin problemas."],
          ["Colaboración en Equipos", "Trabaja en estrecha colaboración con otros miembros del equipo de desarrollo, como diseñadores de UI/UX, analistas de calidad y gerentes de proyectos, para garantizar el éxito del proyecto."]]
     ),
     (
-        3,
-        "Practicante de Ciberseguridad",
+        5,
+        "Desarrollador Frontend",
         "/static/images/cisce.png",
-        "Cisce",
-        4,
-        "Escobedo, Nuevo León",
-        "Presencial",
+        "Tech Solutions",
+        4.8,
+        "Monterrey, Nuevo León",
+        "Remoto",
         "Medio tiempo",
-        "$6,000 - $9,000",
+        "$5,000 - $8,000",
         True,
-        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
-            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
-            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
+        '''Un Desarrollador Frontend es un profesional de TI especializado en la creación y el mantenimiento de la interfaz de usuario 
+            de aplicaciones web y móviles. Como practicane, tu enfoque principal será garantizar que los usuarios experimenten una 
+            interfaz atractiva, interactiva y fácil de usar.
             ''',
-        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
-         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
-         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
-         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
-         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+        [["Desarrollo de UI", "Diseña y desarrolla la interfaz de usuario de aplicaciones web y móviles utilizando tecnologías como HTML, CSS y JavaScript."],
+         ["Compatibilidad Multiplataforma", "Asegurarse de que la interfaz de usuario sea compatible con múltiples navegadores y dispositivos para garantizar una experiencia uniforme para los usuarios."],
+         ["Optimización de Rendimiento", "Optimizar la velocidad y el rendimiento de las aplicaciones frontend para que se carguen rápidamente y respondan de manera eficiente a las interacciones del usuario."],
+         ["Interacción de Usuario", "Implementa elementos interactivos, como formularios, botones y animaciones, para mejorar la usabilidad y la participación del usuario."],
+         ["Colaboración en Equipos", "rabajar en estrecha colaboración con otros miembros del equipo de desarrollo para garantizar que la interfaz de usuario cumpla con los requisitos del proyecto."]]
     ),
     (
-        3,
-        "Practicante de Ciberseguridad",
-        "/static/images/cisce.png",
-        "Cisce",
-        4,
-        "Escobedo, Nuevo León",
-        "Presencial",
+        6,
+        "Analista de Datos",
+        "/static/images/armazen.png",
+        "ABC Corporation",
+        3.9,
+        "Monterrey, Nuevo León",
+        "Mixto",
         "Medio tiempo",
-        "$6,000 - $9,000",
-        True,
-        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
-            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
-            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
-            ''',
-        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
-         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
-         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
-         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
-         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+        "$7,000 - $10,000",
+        False,
+        '''Utiliza herramientas y técnicas de análisis de datos para convertir datos brutos en información valiosa.''',
+        [["Recopilación de Datos", "Recolecta datos precisos y confiables de diversas fuentes, incluyendo bases de datos, encuestas, redes sociales y otros medios."],
+         ["Limpieza y Preprocesamiento de Datos",
+             "Limpia y prepara los datos para el análisis, eliminando valores atípicos, duplicados y datos irrelevantes."],
+         ["Análisis Estadístico", "Realiza análisis estadísticos y matemáticos para identificar patrones, tendencias y relaciones en los datos."],
+         ["Visualización de Datos", "Crea visualizaciones efectivas, como gráficos y tablas, para comunicar resultados y hallazgos de manera clara y comprensible."],
+         ["Generación de Informes y Recomendaciones", "Prepara informes y presentaciones que resuman los resultados del análisis de datos y proporcionen recomendaciones para la toma de decisiones."]]
     ),
     (
-        3,
-        "Practicante de Ciberseguridad",
+        7,
+        "Arquitecto de Nube",
         "/static/images/cisce.png",
-        "Cisce",
+        "Cloud Innovators",
         4,
-        "Escobedo, Nuevo León",
-        "Presencial",
+        "Monterrey, Nuevo León",
+        "Remoto",
+        "Medio tiempo",
+        "$6,000 - $9,000",
+        False,
+        '''Trabaja en estrecha colaboración con equipos de TI y desarrollo para garantizar que las soluciones en la nube sean seguras, eficientes y 
+        cumplan con los objetivos empresariales.
+            ''',
+        [["Diseño de Arquitectura en la Nube", "Colabora con las partes interesadas para diseñar arquitecturas de nube que cumplan con los requisitos de la organización."],
+         ["Implementación y Migración",
+             "Supervisa la implementación de soluciones en la nube y migraciones desde entornos locales o heredados."],
+         ["Seguridad en la Nube",
+             "Garantiza que las soluciones en la nube sean seguras y cumplan con los estándares de seguridad."],
+         ["Optimización de costos", "Administra los costos asociados con la infraestructura en la nube, identificando áreas donde se pueden realizar ahorros sin comprometer el rendimiento."],
+         ["Gobernanza de la Nube", "Establece políticas y procedimientos para garantizar un uso eficiente de los recursos en la nube y para cumplir con los requisitos de cumplimiento y regulación."]]
+    ),
+    (
+        8,
+        "Desarrollador de Aplicaciones Móviles",
+        "/static/images/cisce.png",
+        "Startech",
+        4.8,
+        "Monterrey, Nuevo León",
+        "Remoto",
         "Medio tiempo",
         "$6,000 - $9,000",
         True,
-        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
-            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
-            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
+        '''Como Practicante Desarrollador de Aplicaciones Móviles, tendrás la oportunidad de aprender y adquirir experiencia práctica en el emocionante mundo del 
+        desarrollo de aplicaciones móviles. Trabajarás en colaboración con un equipo de desarrollo experimentado y contribuirás al diseño, implementación y prueba de 
+        aplicaciones móviles innovadoras.
             ''',
-        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
-         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
-         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
-         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
-         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+        [["Desarrollo de Código", "Participa en la escritura de código para nuevas características o mejoras en aplicaciones móviles. Colabora en la implementación de funcionalidades utilizando lenguajes de programación como Java, Kotlin o Swift."],
+         ["Pruebas y depuración", "Ayuda en la realización de pruebas unitarias y de integración para garantizar que las aplicaciones funcionen de manera eficiente."],
+         ["UI/UX", "Colabora en la creación de interfaces de usuario atractivas y fáciles de usar. Contribuye al diseño de experiencias de usuario intuitivas y efectivas."],
+         ["Adaptación a Múltiples Plataformas", "Aprende a desarrollar aplicaciones móviles para múltiples plataformas, como Android e iOS, y comprende las diferencias en la programación y diseño de cada plataforma."],
+         ["Investigación y Aprendizaje", " Realiza investigaciones independientes para mantenerte al tanto de las mejores prácticas y las tendencias actuales en el desarrollo de aplicaciones móviles."]]
     ),
 )
 
