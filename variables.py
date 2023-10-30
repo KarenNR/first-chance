@@ -69,32 +69,115 @@ jobDescription = (
          ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
          ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
          ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
-    )
+    ),
+    (
+        4,
+        "Ingeniero de Software",
+        "/static/images/armazen.png",
+        "Acme Inc.",
+        4.2,
+        "Monterrey, Nuevo León",
+        "Presencial",
+        "Medio tiempo",
+        "$6,000 - $9,000",
+        True,
+        '''Trabaja en colaboración con otros miembros del equipo de desarrollo y utiliza sus habilidades técnicas para crear 
+        aplicaciones y programas de software eficientes y funcionales.
+            ''',
+        [["Desarrollo de Software", "Crea, codifica y programa aplicaciones y sistemas de software, garantizando que cumplan con los requisitos y las especificaciones del proyecto."],
+         ["Pruebas y Depuración", "Realizar pruebas exhaustivas de software para identificar errores y problemas de funcionamiento."],
+         ["Diseño de Arquitectura", "Diseña la arquitectura de software y propón soluciones técnicas para garantizar un rendimiento óptimo."],
+         ["Mantenimiento y Actualización", "Proporciona mantenimiento continuo y actualizaciones de software para asegurar que las aplicaciones estén actualizadas y funcionen sin problemas."],
+         ["Colaboración en Equipos", "Trabaja en estrecha colaboración con otros miembros del equipo de desarrollo, como diseñadores de UI/UX, analistas de calidad y gerentes de proyectos, para garantizar el éxito del proyecto."]]
+    ),
+    (
+        3,
+        "Practicante de Ciberseguridad",
+        "/static/images/cisce.png",
+        "Cisce",
+        4,
+        "Escobedo, Nuevo León",
+        "Presencial",
+        "Medio tiempo",
+        "$6,000 - $9,000",
+        True,
+        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
+            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
+            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
+            ''',
+        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
+         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
+         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
+         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
+         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+    ),
+    (
+        3,
+        "Practicante de Ciberseguridad",
+        "/static/images/cisce.png",
+        "Cisce",
+        4,
+        "Escobedo, Nuevo León",
+        "Presencial",
+        "Medio tiempo",
+        "$6,000 - $9,000",
+        True,
+        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
+            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
+            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
+            ''',
+        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
+         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
+         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
+         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
+         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+    ),
+    (
+        3,
+        "Practicante de Ciberseguridad",
+        "/static/images/cisce.png",
+        "Cisce",
+        4,
+        "Escobedo, Nuevo León",
+        "Presencial",
+        "Medio tiempo",
+        "$6,000 - $9,000",
+        True,
+        '''Como Practicante de Ciberseguridad, formarás parte de nuestro equipo encargado de proteger la infraestructura y los 
+            datos críticos de la organización. Esta pasantía te brindará la oportunidad de adquirir experiencia práctica en el 
+            emocionante campo de la ciberseguridad y contribuir a la defensa de la información de la empresa.
+            ''',
+        [["Monitoreo de seguridad", "Colabora en el monitoreo constante de la seguridad de la red y los sistemas para identificar posibles amenazas o intrusiones."],
+         ["Análisis de Vulnerabilidades", "Ayuda en la identificación y evaluación de vulnerabilidades en sistemas y aplicaciones, y participa en la implementación de soluciones de seguridad."],
+         ["Gestión de Incidentes", "Participa en la respuesta a incidentes de seguridad, incluida la documentación y la comunicación de eventos de seguridad."],
+         ["Pruebas de Penetración", "Contribuye en la realización de pruebas de penetración en la infraestructura y las aplicaciones para identificar debilidades y puntos de entrada potenciales para atacantes."],
+         ["Concientización en Ciberseguridad", "Colabora en programas de concientización y capacitación en ciberseguridad para los empleados."]]
+    ),
 )
 
 # Get applications - loadApplications
 applications = (
-    (0, "Armazen", "Practicante Diseño UI/UX", 1),
-    (1, "Acme Inc.", "Ingeniero de Software", 2),
-    (2, "Tech Solutions", "Desarrollador Frontend", 3),
-    (3, "ABC Corporation", "Analista de Datos", 4),
-    (4, "Cloud Innovators", "Arquitecto de Nube", 2),
-    (5, "Startech", "Desarrollador de Aplicaciones Móviles", 1)
+    (1, "Armazen", "Practicante Diseño UI/UX", 1),
+    (4, "Acme Inc.", "Ingeniero de Software", 2),
+    (5, "Tech Solutions", "Desarrollador Frontend", 3),
+    (6, "ABC Corporation", "Analista de Datos", 4),
+    (7, "Cloud Innovators", "Arquitecto de Nube", 2),
+    (8, "Startech", "Desarrollador de Aplicaciones Móviles", 1)
 )
 
 # Get application information - getApplicationInfo
 applicationInfo = (
-    (0, "Practicante Diseño UI/UX", "/static/images/neorem.png",
+    (1, "Practicante Diseño UI/UX", "/static/images/neorem.png",
      "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo"),
-    (1, "Ingeniero de Software", "/static/images/armazen.png",
+    (4, "Ingeniero de Software", "/static/images/armazen.png",
      "Acme Inc.", "Monterrey, Nuevo León", "Presencial", "Medio tiempo"),
-    (2, "Desarrollador Frontend", "/static/images/cisce.png",
+    (5, "Desarrollador Frontend", "/static/images/cisce.png",
      "Tech Solutions", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (3, "Analista de Datos", "/static/images/armazen.png",
+    (6, "Analista de Datos", "/static/images/armazen.png",
      "ABC Corporation", "Monterrey, Nuevo León", "Mixto", "Medio tiempo"),
-    (4, "Arquitecto de Nube", "/static/images/cisce.png",
+    (7, "Arquitecto de Nube", "/static/images/cisce.png",
      "Cloud Innovators", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (5, "Desarrollador de Aplicaciones Móviles", "/static/images/armazen.png",
+    (8, "Desarrollador de Aplicaciones Móviles", "/static/images/armazen.png",
      "Startech", "Monterrey, Nuevo León", "Remoto", "Medio tiempo")
 )
 
@@ -106,17 +189,17 @@ saved = ((1, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Re
 
 # Get job alerts - loadAlerts
 alerts = (
-    (0, "Practicante Diseño UI/UX", "Armazen",
+    (1, "Practicante Diseño UI/UX", "Armazen",
      "Apodaca, Nuevo León", "Remoto", "Medio tiempo"),
-    (1, "Ingeniero de Software", "Acme Inc.",
+    (4, "Ingeniero de Software", "Acme Inc.",
      "Monterrey, Nuevo León", "Presencial", "Medio tiempo"),
-    (2, "Desarrollador Frontend", "Tech Solutions",
+    (5, "Desarrollador Frontend", "Tech Solutions",
      "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (3, "Analista de Datos", "ABC Corporation",
+    (6, "Analista de Datos", "ABC Corporation",
      "Monterrey, Nuevo León", "Mixto", "Medio tiempo"),
-    (4, "Arquitecto de Nube", "Cloud Innovators",
+    (7, "Arquitecto de Nube", "Cloud Innovators",
      "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
-    (5, "Desarrollador de Aplicaciones Móviles", "Startech",
+    (8, "Desarrollador de Aplicaciones Móviles", "Startech",
      "Monterrey, Nuevo León", "Remoto", "Medio tiempo")
 )
 

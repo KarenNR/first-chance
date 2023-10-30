@@ -74,7 +74,10 @@ def loadChat():
 
 @app.route('/detalle/<int:id>')
 def loadDetail(id):
-    return render_template('/student/detalle.html')
+    data = variables.jobDescription
+    for item in data:
+        if item[0] == id:
+            return render_template('/student/detalle.html', job=item)
 
 
 @app.route('/perfil')
