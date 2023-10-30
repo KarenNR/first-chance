@@ -18,6 +18,66 @@
 </head>
 
 <body>
+    <!--Application modal-->
+    <div class="modal fade" tabindex="-1" id="application-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-4">
+                    <div class="row m-0 justify-content-center">
+                        <h4 class="text-center" id="application-title"></h4>
+                        <div class="col-4">
+                            <img src="" id="application-img" class="w-100">
+                        </div>
+                        <div class="col-8">
+                            <p class="mb-0" id="application-txt1"></p>
+                            <p class="mb-0" id="application-txt2"></p>
+                            <p class="mb-0" id="application-txt3"></p>
+                            <p class="mb-0" id="application-txt4"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Cancel application modal-->
+    <div class="modal fade" tabindex="-1" id="cancel-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-body container p-4">
+                    <div class="row m-0 justify-content-center">
+                        <h4 class="text-center">¿Estás seguro de que quieres cancelar esta aplicación?</h4>
+                        <p class="text-center">Esta acción no podrá ser revertida, pero puedes aplicar nuevamente a la
+                            empresa si así lo deseas.</p>
+                    </div>
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-4">
+                            <button type="button" data-bs-dismiss="modal" class="primary-button w-100"
+                                onclick="cancel()">Continuar</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" data-bs-dismiss="modal"
+                                class="tertiary-button w-100">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Application canceled toast-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cancel-toast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">Su aplicación ha sido cancelada</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -49,17 +109,59 @@
             <div class="col-2">
                 <ul class="navbar-nav">
                     <li class="nav-item mb-4"><a href="/trabajos" class="side-link">Explorar</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/aplicaciones" class="side-link active-link">Aplicaciones</a></li>
+                    <li class="nav-item mb-4"><a href="/trabajos/aplicaciones"
+                            class="side-link active-link">Aplicaciones</a></li>
                     <li class="nav-item mb-4"><a href="/trabajos/guardados" class="side-link">Guardados</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/alertas-empleo" class="side-link">Alertas de empleo</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/busquedas-recientes" class="side-link">Búsquedas recientes</a></li>
+                    <li class="nav-item mb-4"><a href="/trabajos/alertas-empleo" class="side-link">Alertas de empleo</a>
+                    </li>
+                    <li class="nav-item mb-4"><a href="/trabajos/busquedas-recientes" class="side-link">Búsquedas
+                            recientes</a></li>
                 </ul>
             </div>
             <!--Content-->
             <div class="col-10">
 
-                <h1>Pendiente</h1>
-                <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg">
+                <h2 class="mb-3">Aplicaciones</h2>
+
+                <table class="table table-striped">
+                    <tr class="table-dark">
+                        <th>Empresa</th>
+                        <th>Puesto</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                    {% for application in applications %}
+                    <tr>
+                        <td class="py-3">{{ application[1] }}</td>
+                        <td class="py-3">{{ application[2] }}</td>
+                        {% if application[3]==1 %}
+                        <td class="py-3 text-primary"><i class="fa-solid fa-paper-plane"></i>&nbsp;Solicitud enviada
+                        </td>
+                        {% else %}
+                        {% if application[3]==2 %}
+                        <td class="py-3 text-secondary"><i class="fa-solid fa-clock"></i>&nbsp;En revisión</td>
+                        {% else %}
+                        {% if application[3]==3 %}
+                        <td class="py-3 text-success"><i class="fa-solid fa-check"></i>&nbsp;Solicitud aceptada</td>
+                        {% else %}
+                        <td class="py-3 text-danger"><i class="fa-solid fa-xmark"></i>&nbsp;Solicitud rechazada</td>
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+                        <td class="py-3">
+                            <button class="icon-button text-dark" onclick="openApplication('{{ application[0] }}')">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            {% if application[3]==1 %}
+                            <button class="icon-button text-dark ps-2"
+                                onclick="cancelApplication('{{ application[0] }}')">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
 
             </div>
         </div>
@@ -70,6 +172,32 @@
     </footer>
 
     <script>
+        function openApplication(id) {
+            fetch("/get-application-info/" + id)
+                .then(response => response.json())
+                .then(data => {
+                    let application = data.message;
+                    document.getElementById("application-title").textContent = application[1];
+                    document.getElementById("application-img").src = application[2];
+                    document.getElementById("application-txt1").textContent = application[3];
+                    document.getElementById("application-txt2").textContent = application[4];
+                    document.getElementById("application-txt3").textContent = application[5];
+                    document.getElementById("application-txt4").textContent = application[6];
+                    var myModal = new bootstrap.Modal(document.getElementById("application-modal"));
+                    myModal.show();
+                })
+        }
+
+        function cancelApplication(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("cancel-modal"));
+            myModal.show();
+        }
+
+        function cancel() {
+            var toast = new bootstrap.Toast(document.getElementById("cancel-toast"));
+            toast.show();
+        }
+
         // Redirections
         function goHome() { window.location.href = "/"; }
         function goJobs() { window.location.href = "/trabajos"; }

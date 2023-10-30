@@ -101,17 +101,52 @@ def getJobDescription(id):
 
 @app.route('/trabajos/aplicaciones')
 def loadApplications():
-    return render_template('/student/aplicaciones.html')
+    applications = (
+        (0, "Armazen", "Practicante Diseño UI/UX", 1),
+        (1, "Acme Inc.", "Ingeniero de Software", 2),
+        (2, "Tech Solutions", "Desarrollador Frontend", 3),
+        (3, "ABC Corporation", "Analista de Datos", 4),
+        (4, "Cloud Innovators", "Arquitecto de Nube", 2),
+        (5, "Startech", "Desarrollador de Aplicaciones Móviles", 1)
+    )
+    return render_template('/student/aplicaciones.html', applications=applications)
+
+
+@app.route('/get-application-info/<int:id>')
+def getApplicationInfo(id):
+    data = (
+        (0, "Practicante Diseño UI/UX", "/static/images/neorem.png", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo"),
+        (1, "Ingeniero de Software", "/static/images/armazen.png", "Acme Inc.", "Monterrey, Nuevo León", "Presencial", "Medio tiempo"),
+        (2, "Desarrollador Frontend", "/static/images/cisce.png", "Tech Solutions", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
+        (3, "Analista de Datos", "/static/images/armazen.png", "ABC Corporation", "Monterrey, Nuevo León", "Mixto", "Medio tiempo"),
+        (4, "Arquitecto de Nube", "/static/images/cisce.png", "Cloud Innovators", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
+        (5, "Desarrollador de Aplicaciones Móviles", "/static/images/armazen.png", "Startech", "Monterrey, Nuevo León", "Remoto", "Medio tiempo")
+    )
+    for item in data:
+        if item[0] == id:
+            return jsonify({"message": item})
 
 
 @app.route('/trabajos/guardados')
 def loadSaved():
-    return render_template('/student/guardados.html')
+    saved = ((1, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo", "/static/images/jobOffer1.png"),
+                 (2, "Practicante Desarrollo de Software", "Neorem", "Monterrey, Nuevo León",
+                  "Remoto", "Tiempo completo", "/static/images/jobOffer2.png"),
+                 (3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png"))
+    return render_template('/student/guardados.html', saved=saved)
 
 
 @app.route('/trabajos/alertas-empleo')
 def loadAlerts():
-    return render_template('/student/alertas.html')
+    alerts = (
+        (0, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo"),
+        (1, "Ingeniero de Software", "Acme Inc.", "Monterrey, Nuevo León", "Presencial", "Medio tiempo"),
+        (2, "Desarrollador Frontend", "Tech Solutions", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
+        (3, "Analista de Datos", "ABC Corporation", "Monterrey, Nuevo León", "Mixto", "Medio tiempo"),
+        (4, "Arquitecto de Nube", "Cloud Innovators", "Monterrey, Nuevo León", "Remoto", "Medio tiempo"),
+        (5, "Desarrollador de Aplicaciones Móviles", "Startech", "Monterrey, Nuevo León", "Remoto", "Medio tiempo")
+    )
+    return render_template('/student/alertas.html', alerts=alerts)
 
 
 @app.route('/trabajos/busquedas-recientes')
@@ -129,31 +164,36 @@ def loadChat():
     return render_template('/student/chat.html')
 
 
+@app.route('/detalle/<int:id>')
+def loadDetail(id):
+    return render_template('/student/detalle.html')
+
+
 @app.route('/perfil')
 def loadProfile():
     # Get posts
     posts = (
-                ("Reconocimiento Alumno Distinguido PR2023", 
-                 '''Orgulloso de haber recibido este reconocimiento que se le otorga al 1% de la carrera. Este tipo de premios
+        ("Reconocimiento Alumno Distinguido PR2023",
+         '''Orgulloso de haber recibido este reconocimiento que se le otorga al 1% de la carrera. Este tipo de premios
                  me motivan a seguir dando lo mejor de mí mismo y a aplicar todo lo que sé en buscando ser un agente de cambio.''',
-                 "/static/images/post1.jpg",
-                 "25/10/2023", 12, 5), 
-                ("Un pensamiento",
-                 "Una interfaz es como un chiste. Si tienes que explicarlo, no es bueno.", 
-                 None,
-                 "24/10/2023", 25, 10)
-            )
+         "/static/images/post1.jpg",
+         "25/10/2023", 12, 5),
+        ("Un pensamiento",
+         "Una interfaz es como un chiste. Si tienes que explicarlo, no es bueno.",
+         None,
+         "24/10/2023", 25, 10)
+    )
     # Get education items
     education = (('UDEM', 'ITC', '2023'),
                  ('Regio Cumbres', 'Preparatoria', '2020'))
     # Get projects
     projects = (
-                ("Aplicación First Chance", 
-                 "Plataforma de búsqueda de empleos para estudiantes universitarios.", 
-                 "https://github.com/KarenNR/first-chance"), 
-                ("Aplicación web para registro de asistencias de profesores", 
-                 "Proyecto realizado para la UDEM. Utilicé tecnologías como HTML, JavaScript, ASP.NET y React.", 
-                 "https://github.com/emi7595/integrador-front"))
+        ("Aplicación First Chance",
+         "Plataforma de búsqueda de empleos para estudiantes universitarios.",
+         "https://github.com/KarenNR/first-chance"),
+        ("Aplicación web para registro de asistencias de profesores",
+         "Proyecto realizado para la UDEM. Utilicé tecnologías como HTML, JavaScript, ASP.NET y React.",
+         "https://github.com/emi7595/integrador-front"))
     return render_template('/student/perfil.html', posts=posts, education=education, projects=projects)
 
 
@@ -180,7 +220,9 @@ def loadProfileCV():
 
 @app.route('/perfil/configuracion')
 def loadProfileConfiguration():
-    return render_template('/student/configuracion.html')
+    email = "pablo.gtz@udem.edu"
+    username = "pgutierrez"
+    return render_template('/student/configuracion.html', email=email, username=username)
 
 
 @app.route('/editar-cv')
