@@ -153,6 +153,16 @@ def loadJobsEnterprise():
     return render_template('/enterprise/trabajos.html')
 
 
+@app.route('/enterprise/trabajos/guardados')
+def loadSavedEnterprise():
+    return render_template('/enterprise/guardados.html')
+
+
+@app.route('/enterprise/trabajos/busquedas-recientes')
+def loadRecenSearchesEnterprise():
+    return render_template('/enterprise/busquedas-recientes.html')
+
+
 @app.route('/enterprise/chat')
 def loadChatEnterprise():
     return render_template('/enterprise/chat.html')

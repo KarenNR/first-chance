@@ -1,1 +1,294 @@
-Trabajos
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar</title>
+
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <script src="https://kit.fontawesome.com/98c42d1474.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Apply modal-->
+    <div class="modal fade" tabindex="-1" id="apply-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Confirmar aplicación</h2>
+                            <p>¿Estás seguro de aplicar a la siguiente vacante?</p>
+                            <h5 id="modal-title"></h5>
+                            <div class="row m-0 justify-content-center">
+                                <div class="col-7">
+                                    <div class="row m-0">
+                                        <div class="col-5">
+                                            <img src="" id="modal-img" class="w-100">
+                                        </div>
+                                        <div class="col-7">
+                                            <p class="mb-0 text-start" id="modal-txt1"></p>
+                                            <p class="mb-0 text-start" id="modal-txt2"></p>
+                                            <p class="mb-0 text-start" id="modal-txt3"></p>
+                                            <p class="mb-0 text-start" id="modal-txt4"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3">Se enviarán los datos de contacto de tu perfil y tu Currículum Vitae.</p>
+                            <div class="row m-0 justify-content-center">
+                                <div class="col-6">
+                                    <div class="row m-0">
+                                        <div class="col-6">
+                                            <button type="button" data-bs-dismiss="modal" id="modal-applybtn"
+                                                class="primary-button w-100">Aplicar</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" data-bs-dismiss="modal"
+                                                class="tertiary-button w-100">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Successful application modal-->
+    <div class="modal fade" tabindex="-1" id="success-application-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-10 text-center">
+                            <h2 class="mb-4">Aplicación enviada exitosamente</h2>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Saved modal-->
+    <div class="modal fade" tabindex="-1" id="saved-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Oportunidad guardada exitosamente</h2>
+                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.
+                            </p>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="container-fluid px-0 mb-3">
+        <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
+            <div class="col-auto">
+                <h3><span class="primary">First</span> Chance</h3>
+            </div>
+            <div class="col-auto">
+                <nav>
+                    <button class="icon-button" onclick="goHome()"><i class="fas fa-home"></i></button>
+                    <button class="icon-button" onclick="goJobs()"><i class="fas fa-suitcase"></i></button>
+                    <button class="icon-button" onclick="goChat()"><i class="fas fa-comment-alt"></i></button>
+                    <button class="icon-button" onclick="goProfile()"><i class="fas fa-user-circle"></i></button>
+                </nav>
+            </div>
+        </div>
+        <div id="subheader-2" class="row m-0 justify-content-end">
+            <div class="col-4">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <button class="input-group-text search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container px-0">
+        <div class="row m-0">
+            <!--Sidebar-->
+            <div class="col-2">
+                <ul class="navbar-nav">
+                    <li class="nav-item mb-4"><a href="/enterprise/trabajos" class="side-link active-link">Explorar</a>
+                    </li>
+                    <li class="nav-item mb-4"><a href="/enterprise/trabajos/guardados" class="side-link">Guardados</a>
+                    </li>
+                    <li class="nav-item mb-4"><a href="/enterprise/trabajos/busquedas-recientes"
+                            class="side-link">Búsquedas recientes</a></li>
+                </ul>
+            </div>
+            <!--Content-->
+            <div class="col-10">
+
+                <div class="row m-0 mb-2">
+                    <h2>Explorar</h2>
+                </div>
+
+                <div class="row m-0 mb-4 align-items-center">
+                    <div class="col-auto">
+                        <span>Filtrar por</span>
+                    </div>
+                    <div class="col-auto px-1">
+                        <select class="filter">
+                            <option value="" selected disabled hidden>Ubicación</option>
+                            <option value="1">Monterrey</option>
+                            <option value="2">San Pedro</option>
+                            <option value="3">Apodaca</option>
+                            <option value="4">Escobedo</option>
+                        </select>
+                    </div>
+                    <div class="col-auto px-1">
+                        <select class="filter">
+                            <option value="" selected disabled hidden>Modalidad</option>
+                            <option value="1">Presencial</option>
+                            <option value="2">Remoto</option>
+                            <option value="3">Mixto</option>
+                        </select>
+                    </div>
+                    <div class="col-auto px-1">
+                        <select class="filter">
+                            <option value="" selected disabled hidden>Tiempo</option>
+                            <option value="1">Medio Tiempo</option>
+                            <option value="2">Tiempo Completo</option>
+                        </select>
+                    </div>
+                    <div class="col-auto px-1">
+                        <select class="filter">
+                            <option value="" selected disabled hidden>Nivel de experiencia</option>
+                            <option value="1">Bajo</option>
+                            <option value="2">Medio</option>
+                            <option value="3">Alto</option>
+                        </select>
+                    </div>
+                    <div class="col-auto px-1">
+                        <select class="filter">
+                            <option value="" selected disabled hidden>Otro</option>
+                            <option value="1">Relevancia</option>
+                            <option value="2">Tiempo de publicación</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row m-0">
+                    <div class="col-5">
+                        {% for job in jobOffers %}
+                        <div class="card p-3 mb-2">
+                            <div class="row m-0 align-items-start">
+                                <button class="stretched-link card-title transparent-btn text-start"
+                                    onclick="showDetail('{{ job[0] }}')">
+                                    <h4>{{ job[1] }}</h4>
+                                </button>
+                                <div class="col-3">
+                                    <img src="{{ job[6] }}" class="w-100">
+                                </div>
+                                <div class="col-9">
+                                    <p class="mb-0">{{ job[2] }}</p>
+                                    <p class="mb-0">{{ job[3] }}</p>
+                                    <p class="mb-0">{{ job[4] }}</p>
+                                    <p class="mb-0">{{ job[5] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-7" id="job-description">
+                        <div class="row m-0 mb-4">
+                            <h3 class="mb-2" id="job-title"></h3>
+                            <div class="col-4">
+                                <img src="" class="w-100" id="job-image">
+                            </div>
+                            <div class="col-8">
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-building profile-icon"></i>
+                                    &nbsp;<span id="company-name"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i>&nbsp;<span
+                                        id="rating"></span>/5
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;<span
+                                        id="location"></span>
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-briefcase profile-icon"></i>&nbsp;<span id="mode"></span>
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-clock profile-icon"></i>&nbsp;<span id="time"></span>
+                                </p>
+                                <p class="mb-1">
+                                    <i class="fa-solid fa-wallet profile-icon"></i>&nbsp;<span id="salary"></span>
+                                </p>
+                                <p id="candidate" class="mb-1">
+                                    <i class="fa-solid fa-circle-check profile-icon"></i>&nbsp;Eres un buen candidato
+                                    para esta vacante.</span>
+                                </p>
+                                <div class="row m-0 mt-2">
+                                    <div class="col-4 ps-0">
+                                        <button class="primary-button w-100" id="apply">Aplicar</button>
+                                    </div>
+                                    <div class="col-4 ps-0">
+                                        <button class="secondary-button w-100" id="save">
+                                            <i class="fa-regular fa-bookmark icon-letter"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-4 ps-0">
+                                        <button class="tertiary-button w-100" id="chat">
+                                            <i class="fa-solid fa-message icon-letter"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-0 mb-3">
+                            <h4>Detalles del empleo</h4>
+                            <p id="job-detail"></p>
+                        </div>
+                        <div class="row m-0">
+                            <h4>Responsabilidades</h4>
+                            <ol class="ms-2" id="job-responsibilities"></ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        First Chance
+    </footer>
+
+    <script>
+        // Redirections
+        function goHome() { window.location.href = "/enterprise/"; }
+        function goJobs() { window.location.href = "/enterprise/trabajos"; }
+        function goChat() { window.location.href = "/enterprise/chat"; }
+        function goProfile() { window.location.href = "/enterprise/perfil"; }
+    </script>
+</body>
+
+</html>
