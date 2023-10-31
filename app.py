@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, session, flash, jsonify
 from flask_mysqldb import MySQL
 import variables
+import variablesEnterprise
 import json
 
 app = Flask(__name__)
@@ -140,3 +141,34 @@ def designCV():
 
     flash("Currículum creado exitosamente")
     return redirect('/editar-cv')
+
+
+@app.route('/enterprise/')
+def loadIndexEnterprise():
+    return render_template('/enterprise/index.html')
+
+
+@app.route('/enterprise/trabajos')
+def loadJobsEnterprise():
+    return render_template('/enterprise/trabajos.html')
+
+
+@app.route('/enterprise/chat')
+def loadChatEnterprise():
+    return render_template('/enterprise/chat.html')
+
+
+@app.route('/enterprise/perfil')
+def loadProfileEnterprise():
+    posts = variablesEnterprise.posts
+    return render_template('/enterprise/perfil.html', posts=posts)
+
+
+@app.route('/enterprise/perfil/vacantes')
+def loadVacanciesEnterprise():
+    return render_template('/enterprise/vacantes.html')
+
+
+@app.route('/enterprise/perfil/configuracion')
+def loadProfileConfigurationEnterprise():
+    return render_template('/enterprise/configuracion.html')
