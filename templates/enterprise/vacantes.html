@@ -18,6 +18,52 @@
 </head>
 
 <body>
+    <!--See vacancy modal-->
+    <div class="modal fade" tabindex="-1" id="see-vacancy-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container px-5 py-3">
+                    <h4 id="vacancy-title">Lorem ipsum</h4>
+                    <p class="mb-0"><strong>Ubicación:</strong> <span id="vacancy-txt1"></span></p>
+                    <p class="mb-0"><strong>Modalidad:</strong> <span id="vacancy-txt2"></span></p>
+                    <p class="mb-0"><strong>Tiempo:</strong> <span id="vacancy-txt3"></span></p>
+                    <p><strong>Remuneración:</strong> <span id="vacancy-txt4"></span></p>
+                    <h5>Descripción del puesto</h5>
+                    <p id="vacancy-txt5"></p>
+                    <h5>Responsabilidades</h5>
+                    <ol id="vacancy-res-list"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--See applicants modal-->
+    <div class="modal fade" tabindex="-1" id="see-applicants-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container px-5 py-3">
+                    <div class="row m-0 gy-3" id="applicants-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete vacancy toast-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="deleted-toast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">Vacante eliminada.</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -48,14 +94,50 @@
             <div class="col-2">
                 <ul class="navbar-nav">
                     <li class="nav-item mb-4"><a href="/enterprise/perfil" class="side-link">Perfil</a></li>
-                    <li class="nav-item mb-4"><a href="/enterprise/perfil/vacantes" class="side-link active-link">Vacantes</a></li>
-                    <li class="nav-item mb-4"><a href="/enterprise/perfil/configuracion" class="side-link">Configuración</a></li>
+                    <li class="nav-item mb-4"><a href="/enterprise/perfil/vacantes"
+                            class="side-link active-link">Vacantes</a></li>
+                    <li class="nav-item mb-4"><a href="/enterprise/perfil/configuracion"
+                            class="side-link">Configuración</a></li>
                     <li class="nav-item mb-4"><a href="/iniciar-sesion" class="side-link">Cerrar Sesión</a></li>
                 </ul>
             </div>
             <!--Content-->
             <div class="col-10">
-                Vacantes
+                <div class="row m-0 mb-4 justify-content-between align-items-center">
+                    <div class="col-auto">
+                        <h2>Vacantes</h2>
+                    </div>
+                    <div class="col-3">
+                        <button class="w-100 primary-button" onclick="createVacancy()">Crear vacante</button>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <tr class="table-dark">
+                        <th>Puesto</th>
+                        <th>Número de aplicaciones</th>
+                        <th></th>
+                    </tr>
+                    {% for vacancy in vacancies %}
+                    <tr>
+                        <td class="py-3">{{ vacancy[1] }}</td>
+                        <td class="py-3">{{ vacancy[2] }}</td>
+                        <td class="py-3">
+                            <button class="icon-button text-dark" onclick="seeVacancy('{{ vacancy[0] }}')">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button class="icon-button text-dark ps-2" onclick="seeApplicants('{{ vacancy[0] }}')">
+                                <i class="fa-solid fa-users"></i>
+                            </button>
+                            <button class="icon-button text-dark ps-2" onclick="editVacancy('{{ vacancy[0] }}')">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button class="icon-button text-dark ps-2" onclick="deleteVacancy('{{ vacancy[0] }}')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
@@ -65,6 +147,88 @@
     </footer>
 
     <script>
+        function createVacancy() {
+            window.location.href = "/enterprise/perfil/crear-vacante";
+        }
+
+        function seeVacancy(id) {
+            fetch("/get-vacancy-information/" + id)
+                .then(response => response.json())
+                .then(data => {
+                    let vacancy = data.message;
+                    document.getElementById("vacancy-title").textContent = vacancy[1];
+                    document.getElementById("vacancy-txt1").textContent = vacancy[2];
+                    document.getElementById("vacancy-txt2").textContent = vacancy[3];
+                    document.getElementById("vacancy-txt3").textContent = vacancy[4];
+                    document.getElementById("vacancy-txt4").textContent = vacancy[5];
+                    document.getElementById("vacancy-txt5").textContent = vacancy[6];
+                    let responsibilities = document.getElementById("vacancy-res-list");
+                    responsibilities.innerHTML = "";
+                    vacancy[7].forEach((responsibility) => {
+                        let li = document.createElement("li");
+                        li.innerHTML = "<strong>" + responsibility[0] + ":</strong> " + responsibility[1];
+                        responsibilities.appendChild(li);
+                    });
+                    var myModal = new bootstrap.Modal(document.getElementById("see-vacancy-modal"));
+                    myModal.show();
+                })
+        }
+
+        function seeApplicants(id) {
+            fetch("/get-vacancy-applicants/" + id)
+                .then(response => response.json())
+                .then(data => {
+                    let applicants = data.message;
+                    const applicantsContainer = document.getElementById("applicants-container");
+                    applicantsContainer.innerHTML = "<h4 class='mb-3'>Aplicantes</h4>";
+                    applicants.forEach((applicant) => {
+                        const row = document.createElement("row");
+                        row.className = "row m-0 justify-content-between align-items-center";
+
+                        const colLeft = document.createElement("div");
+                        colLeft.className = "col-auto";
+                        const title = document.createElement("h5");
+                        title.textContent = applicant[1];
+                        const description = document.createElement("p");
+                        description.textContent = applicant[2] + " | " + applicant[3];
+                        colLeft.appendChild(title);
+                        colLeft.appendChild(description);
+
+                        const colRight = document.createElement("div");
+                        colRight.className = "col-auto";
+                        const button = document.createElement("button");
+                        button.className = "transparent-btn cta-txt";
+                        button.onclick = function () {
+                            goStudentDetail(applicant[5]);
+                        };
+                        button.innerHTML = "Detalles&nbsp;<i class='fa-solid fa-chevron-right'></i>";
+                        colRight.appendChild(button);
+
+                        const hr = document.createElement("hr");
+
+                        row.appendChild(colLeft);
+                        row.appendChild(colRight);
+                        row.appendChild(hr);
+                        applicantsContainer.appendChild(row);
+                    });
+                    var myModal = new bootstrap.Modal(document.getElementById("see-applicants-modal"));
+                    myModal.show();
+                })
+        }
+
+        function goStudentDetail(id) {
+            window.location.href = "/enterprise/detalle-estudiante/" + id;
+        }
+
+        function editVacancy(id) {
+            window.location.href = "/enterprise/perfil/crear-vacante";
+        }
+
+        function deleteVacancy(id) {
+            var toast = new bootstrap.Toast(document.getElementById("deleted-toast"));
+            toast.show();
+        }
+
         // Redirections
         function goHome() { window.location.href = "/enterprise/"; }
         function goJobs() { window.location.href = "/enterprise/trabajos"; }

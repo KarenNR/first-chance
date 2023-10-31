@@ -1,0 +1,186 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear una vacante</title>
+
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <script src="https://kit.fontawesome.com/98c42d1474.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Success modal-->
+    {% for mess in get_flashed_messages() %}
+    <div class="modal fade" tabindex="-1" id="success-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-10 text-center">
+                            <h2 class="mb-4">{{ mess }}</h2>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <header class="container-fluid px-0 mb-3">
+        <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
+            <div class="col-auto">
+                <h3><span class="primary">First</span> Chance</h3>
+            </div>
+            <div class="col-auto">
+                <nav>
+                    <button class="icon-button" onclick="goHome()"><i class="fas fa-home"></i></button>
+                    <button class="icon-button" onclick="goJobs()"><i class="fas fa-suitcase"></i></button>
+                    <button class="icon-button" onclick="goChat()"><i class="fas fa-comment-alt"></i></button>
+                    <button class="icon-button" onclick="goProfile()"><i class="fas fa-user-circle"></i></button>
+                </nav>
+            </div>
+        </div>
+        <div id="subheader-2" class="row m-0 justify-content-end">
+            <div class="col-4">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <button class="input-group-text search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container px-0">
+        <div class="row m-0 mb-2">
+            <h1>Publicar vacante</h1>
+        </div>
+        <form action="/create-vacancy" method="POST">
+            <div class="row m-0 mb-4">
+                <h3 class="mb-3">1. Detalles generales</h3>
+                <div class="col-6 mb-3">
+                    <input type="text" placeholder="Título de la vacante" class="w-100" name="title">
+                </div>
+                <div class="col-6 mb-3">
+                    <input type="text" placeholder="Ubicación" class="w-100" name="location">
+                </div>
+                <div class="col-6 mb-3">
+                    <input type="text" placeholder="Modalidad" class="w-100" name="mode">
+                </div>
+                <div class="col-6 mb-3">
+                    <input type="text" placeholder="Tiempo" class="w-100" name="time">
+                </div>
+            </div>
+            <div class="row m-0 mb-4">
+                <h3 class="mb-3">2. Rango de remuneración</h3>
+                <div class="col-6 mb-3">
+                    <input type="number" placeholder="Mínimo" class="w-100" name="min-remuneration">
+                </div>
+                <div class="col-6 mb-3">
+                    <input type="number" placeholder="Máximo" class="w-100" name="max-remuneration">
+                </div>
+            </div>
+            <div class="row m-0 mb-4">
+                <h3 class="mb-3">3. Descripción del puesto</h3>
+                <div class="col-12">
+                    <textarea name="description" class="w-100" rows="5"
+                        placeholder="Escribe una breve descripción del empleo."></textarea>
+                </div>
+            </div>
+            <div class="row m-0 mb-4" id="responsibilities-container">
+                <div class="row m-0 mb-3 align-items-center">
+                    <div class="col-auto px-0">
+                        <h3 class="mb-0">Responsabilidades</h3>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="w-auto icon-button-form" onclick="addResponsibility()">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="responsibility row m-0 mb-2 px-0 align-items-center">
+                    <div class="col-4">
+                        <input type="text" placeholder="Nombre" class="w-100" name="responsibility-name">
+                    </div>
+                    <div class="col-7">
+                        <textarea name="responsibility-description" class="w-100" rows="1"
+                            placeholder="Describe detalladamente esta responsabilidad."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="col-3">
+                    <button type="submit" class="w-100 primary-button">Terminar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="text-center">
+        First Chance
+    </footer>
+
+    <script>
+        // Add responsibility field
+        function addResponsibility() {
+            var clone = document.querySelector(".responsibility").cloneNode(true);
+
+            // Clean cloned fields
+            clone.querySelector("input[name='responsibility-name']").value = "";
+            clone.querySelector("textarea[name='responsibility-description']").value = "";
+
+            // Add delete button
+            const col = document.createElement("div");
+            col.className = "col-auto";
+
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "<i class='fa-solid fa-trash'></i>";
+            deleteButton.type = "button";
+            deleteButton.className = "w-100 icon-delete";
+            deleteButton.onclick = function () {
+                deleteSection(this, "responsibilities-container");
+            };
+
+            col.appendChild(deleteButton);
+            clone.appendChild(col);
+
+            // Add clone to container
+            document.getElementById("responsibilities-container").appendChild(clone);
+        }
+
+        // Delete section
+        function deleteSection(button, idElement) {
+            let container = document.getElementById(idElement);
+            let section = button.parentNode.parentNode;
+            let index = section.getAttribute("data-index");
+            let numb = container.childElementCount;
+            container.removeChild(section);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var myModal = new bootstrap.Modal(document.getElementById("success-modal"));
+            myModal.show();
+        });
+
+        // Redirections
+        function goHome() { window.location.href = "/"; }
+        function goJobs() { window.location.href = "/trabajos"; }
+        function goNetwork() { window.location.href = "/solicitudes"; }
+        function goChat() { window.location.href = "/chat"; }
+        function goProfile() { window.location.href = "/perfil"; }
+    </script>
+</body>
+
+</html>

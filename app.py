@@ -176,9 +176,63 @@ def loadProfileEnterprise():
 
 @app.route('/enterprise/perfil/vacantes')
 def loadVacanciesEnterprise():
-    return render_template('/enterprise/vacantes.html')
+    vacancies = variablesEnterprise.vacancies
+    return render_template('/enterprise/vacantes.html', vacancies=vacancies)
+
+
+@app.route('/enterprise/perfil/crear-vacante')
+def loadCreateVacancy():
+    return render_template('/enterprise/crear-vacante.html')
+
+
+@app.route('/create-vacancy', methods=['POST'])
+def createVacancy():
+    title = request.form["title"]
+    location = request.form["location"]
+    mode = request.form["mode"]
+    time = request.form["time"]
+    minRem = request.form["min-remuneration"]
+    maxRem = request.form["max-remuneration"]
+    description = request.form["description"]
+    resName = request.form.getlist("responsibility-name")
+    resDesc = request.form.getlist("responsibility-description")
+
+    print(title)
+    print(location, mode, time)
+    print("${:,.2f} - ${:,.2f}".format(int(minRem), int(maxRem)))
+    print(description)
+    for n, d in zip(resName, resDesc):
+        print(n,d)
+
+    flash("Vacante creada exitosamente")
+    return redirect('/enterprise/perfil/crear-vacante')
+
+
+@app.route('/get-vacancy-information/<int:id>')
+def getVacancyInformation(id):
+    data = variablesEnterprise.vacanciesInfo
+    for item in data:
+        if item[0] == id:
+            return jsonify({"message": item})
+
+
+@app.route('/get-vacancy-applicants/<int:id>')
+def getVacancyApplicants(id):
+    data = variablesEnterprise.vacanciesApplicants
+    applicants = []
+    for item in data:
+        if item[4] == id:
+            applicants.append(item)
+    return jsonify({"message": applicants})
 
 
 @app.route('/enterprise/perfil/configuracion')
 def loadProfileConfigurationEnterprise():
-    return render_template('/enterprise/configuracion.html')
+    email = variablesEnterprise.email
+    username = variablesEnterprise.username
+    return render_template('/enterprise/configuracion.html', email=email, username=username)
+
+
+@app.route('/enterprise/detalle-estudiante/<int:id>')
+def loadStudentDetail(id):
+    return render_template('/enterprise/detalle-estudiante.html')

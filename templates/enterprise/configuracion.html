@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vacantes</title>
+    <title>Configuración</title>
 
     <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -18,6 +18,31 @@
 </head>
 
 <body>
+    <!--Change password modal-->
+    <div class="modal fade" tabindex="-1" id="change-password-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3 class="mb-3">Cambiar contraseña</h3>
+                    <form>
+                        <input type="password" placeholder="Escribe tu contraseña actual" class="w-100 mb-3"
+                            name="oldPassword">
+                        <input type="password" placeholder="Escribe tu contraseña nueva" class="w-100 mb-3"
+                            name="newPassword">
+                        <div class="row m-0 mt-2 justify-content-end">
+                            <div class="col-4 px-1">
+                                <button type="submit" data-bs-dismiss="modal" class="primary-button w-100">Modificar</button>
+                            </div>
+                            <div class="col-4 px-1">
+                                <button type="button" data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -49,13 +74,33 @@
                 <ul class="navbar-nav">
                     <li class="nav-item mb-4"><a href="/enterprise/perfil" class="side-link">Perfil</a></li>
                     <li class="nav-item mb-4"><a href="/enterprise/perfil/vacantes" class="side-link">Vacantes</a></li>
-                    <li class="nav-item mb-4"><a href="/enterprise/perfil/configuracion" class="side-link active-link">Configuración</a></li>
+                    <li class="nav-item mb-4"><a href="/enterprise/perfil/configuracion"
+                            class="side-link active-link">Configuración</a></li>
                     <li class="nav-item mb-4"><a href="/iniciar-sesion" class="side-link">Cerrar Sesión</a></li>
                 </ul>
             </div>
             <!--Content-->
             <div class="col-10">
-                Configuración
+                <form>
+                    <div class="row m-0 gy-3">
+                        <h2>Configuración</h2>
+                        <div class="col-12">
+                            <input type="text" placeholder="Correo electrónico" class="w-75" value="{{ email }}">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" placeholder="Nombre de usuario" class="w-75" value="{{ username }}">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="tertiary-button" onclick="openPassword()">Cambiar
+                                contraseña</button>
+                        </div>
+                    </div>
+                    <div class="row m-0 mt-3 justify-content-end">
+                        <div class="col-3">
+                            <input type="submit" value="Guardar información" class="primary-button w-100">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -65,6 +110,11 @@
     </footer>
 
     <script>
+        function openPassword() {
+            var myModal = new bootstrap.Modal(document.getElementById("change-password-modal"));
+            myModal.show();
+        }
+
         // Redirections
         function goHome() { window.location.href = "/enterprise/"; }
         function goJobs() { window.location.href = "/enterprise/trabajos"; }
