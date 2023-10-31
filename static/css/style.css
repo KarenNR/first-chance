@@ -114,6 +114,10 @@ footer {
     border: none;
 }
 
+#report:hover {
+    color: #FF0000;
+}
+
 /* FORMS */
 
 input,

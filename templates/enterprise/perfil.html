@@ -18,6 +18,51 @@
 </head>
 
 <body>
+    <!--Create post modal-->
+    <div class="modal fade" tabindex="-1" id="post-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3>Crear post</h3>
+                    <form>
+                        <input type="text" placeholder="Título" class="w-100 mb-2">
+                        <textarea placeholder="Contenido" class="w-100 mb-2"></textarea>
+                        <input type="file" id="image" class="w-100 mb-2" accept="image/*">
+                        <div class="row m-0 mt-2 justify-content-end">
+                            <div class="col-3">
+                                <button type="submit" class="primary-button w-100">Crear</button>
+                            </div>
+                            <div class="col-3">
+                                <button type="button" data-bs-dismiss="modal"
+                                    class="tertiary-button w-100">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Report modal-->
+    <div class="modal fade" tabindex="-1" id="report-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3>Reportar reseña</h3>
+                    <p>¿Desea reportar esta reseña? Se enviará a los administradores para su revisión.</p>
+                    <div class="row m-0 mt-2 justify-content-end">
+                        <div class="col-4">
+                            <button data-bs-dismiss="modal" class="primary-button w-100">Crear</button>
+                        </div>
+                        <div class="col-4">
+                            <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -82,15 +127,20 @@
                         <h3 class="mb-3">Acerca de</h3>
                         <h5>Descripción de la empresa</h5>
                         <p>
-                            Somos una empresa líder en el sector de tecnología comprometida con la creación de soluciones 
-                            innovadoras y la mejora de la vida de las personas a través de la tecnología. Fundada en 1995, 
-                            nuestra empresa ha estado a la vanguardia de la innovación tecnológica, desarrollando productos y 
+                            Somos una empresa líder en el sector de tecnología comprometida con la creación de
+                            soluciones
+                            innovadoras y la mejora de la vida de las personas a través de la tecnología. Fundada en
+                            1995,
+                            nuestra empresa ha estado a la vanguardia de la innovación tecnológica, desarrollando
+                            productos y
                             servicios que marcan la diferencia en la industria.
                         </p>
                         <h5>Cultura corporativa</h5>
                         <p>
-                            Valoramos la diversidad, la creatividad y la innovación. Nuestra cultura fomenta el aprendizaje 
-                            continuo, el crecimiento profesional y la pasión por la tecnología. Creemos en empoderar a nuestros 
+                            Valoramos la diversidad, la creatividad y la innovación. Nuestra cultura fomenta el
+                            aprendizaje
+                            continuo, el crecimiento profesional y la pasión por la tecnología. Creemos en empoderar a
+                            nuestros
                             empleados para que alcancen su máximo potencial y contribuyan al éxito de la empresa.
                         </p>
                     </div>
@@ -153,7 +203,128 @@
                         {% endfor %}
                     </div>
                     <div id="reviews" class="tabcontent">
-                        <h3>Reseñas</h3>
+                        <div class="row m-0">
+                            <h3 class="mb-3">Reseñas</h3>
+                            <div class="col-4">
+                                <p class="mb-2">Calificación promedio: <strong><i class="fa-solid fa-star profile-icon"
+                                            style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5</strong>
+                                </p>
+                                <p class="mb-4"><small class="fst-italic">{{ totalRatings }} evaluaciones</small></p>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        5&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating5 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating5 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating5 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        4&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating4 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating4 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating4 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        3&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating3 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating3 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating3 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        2&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating2 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating2 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-0">
+                                    {{ rating2 }}
+                                </div>
+                            </div>
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    1&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating1 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating1 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-0">
+                                    {{ rating1 }}
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-8">
+                                {% for rating in ratings %}
+                                <div class="row m-0 mb-4">
+                                    <div class="col-12">
+                                        <div class="card p-3">
+                                            <div class="row m-0 px-0 justify-content-between">
+                                                <div class="col-auto px-0">
+                                                    <h4>{{ rating[2] }}</h4> 
+                                                </div>
+                                                <div class="col-auto px-0">
+                                                    <button class="transparent-btn" id="report" onclick="openReport('{{ rating[0] }}')">
+                                                        <i class="fa-solid fa-flag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <p class="mb-0">{{ rating[3] }}</p>
+                                            <p class="text-end mb-0">{{ rating[1] }}&nbsp;<i class="fa-solid fa-star profile-icon"
+                                                style="color: #F2F0AB;"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,6 +348,16 @@
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+
+        function createPost() {
+            var myModal = new bootstrap.Modal(document.getElementById("post-modal"));
+            myModal.show();
+        }
+
+        function openReport(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("report-modal"));
+            myModal.show();
         }
 
         // Redirections

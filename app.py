@@ -161,7 +161,17 @@ def loadChatEnterprise():
 @app.route('/enterprise/perfil')
 def loadProfileEnterprise():
     posts = variablesEnterprise.posts
-    return render_template('/enterprise/perfil.html', posts=posts)
+    ratings = variablesEnterprise.ratings
+    rating1 = 10
+    rating2 = 15
+    rating3 = 15
+    rating4 = 210
+    rating5 = 150
+    totalRatings = rating1 + rating2 + rating3 + rating4 + rating5
+    average = ((1*rating1) + (2*rating2) + (3*rating3) +
+               (4*rating4) + (5*rating5)) / totalRatings
+    return render_template('/enterprise/perfil.html', posts=posts, totalRatings=totalRatings, average=average, ratings=ratings, 
+                           rating1=rating1, rating2=rating2, rating3=rating3, rating4=rating4, rating5=rating5)
 
 
 @app.route('/enterprise/perfil/vacantes')
