@@ -117,7 +117,7 @@ students = (
 studentDescription = (
     (
         0,
-        "Pablo Guitérrez",
+        "Pablo Gutiérrez",
         "/static/images/student-profile.png",
         "Ingeniería en Tecnologías Computacionales",
         "Universidad de Monterrey",
@@ -181,7 +181,7 @@ studentDescription = (
 # Get saved students - loadSavedEnterprise
 saved = (
     (
-        0, "Pablo Guitérrez", "/static/images/student-profile.png", 
+        0, "Pablo Gutiérrez", "/static/images/student-profile.png", 
         "Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey",
     ),
     (
