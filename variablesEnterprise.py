@@ -95,13 +95,104 @@ vacanciesInfo = (
 # Get vacancies applicants - getVacancyApplicants
 vacanciesApplicants = (
     (0, "Pablo Gutiérrez", "Estudiante de Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey", 0, 0),
-    (1, "Regina Álvarez", "Estudiante de Diseño Gráfico", "Universidad de Monterrey", 0, 1),
+    (1, "Regina Álvarez", "Estudiante de Diseño Gráfico", "Universidad Autónoma", 0, 1),
     (2, "Layla Martínez", "Estudiante de Ingeniería en Sistemas", "Universidad Tecnológica", 1, 2),
     (3, "Pablo Gutiérrez", "Estudiante de Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey", 1, 0),
     (4, "Luis López", "Estudiante de Ingeniería en Sistemas Digitales", "Universidad Valle Alto", 1, 3),
-    (5, "Mantra Alejandra", "Estudiante de Ciberseguridad", "Universidad de Monterrey", 2, 4),
+    (5, "Mantra Alejandra", "Estudiante de Ciberseguridad", "Universidad de la Montaña", 2, 4),
 )
 
 # Get user information - loadProfileConfigurationEnterprise
 email = "rrhh@neorem.com"
 username = "neorem.fc"
+
+# Get students - loadJobsEnterprise
+students = (
+    (0, "Pablo Gutiérrez", "Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey", 7, "/static/images/student-profile.png"),
+    (1, "Regina Álvarez", "Contaduría y Finanzas", "Universidad Autónoma", 6, "/static/images/student-profile2.png"),
+    (2, "Mantra Alejandra", "Ciberseguridad", "Universidad de la Montaña", 5, "/static/images/student-profile3.png"),
+)
+
+# Get student description
+studentDescription = (
+    (
+        0,
+        "Pablo Guitérrez",
+        "/static/images/student-profile.png",
+        "Ingeniería en Tecnologías Computacionales",
+        "Universidad de Monterrey",
+        7,
+        "pgutierrez.com",
+        [
+            "Apasionado por la programación y la resolución de problemas tecnológicos.",
+            "Buscando oportunidades para aprender y crecer en el mundo de la tecnología.",
+            "Abierto a pasantías y colaboraciones en proyectos de software."
+        ],
+        [
+            "Inteligencia Artificial y Aprendizaje Automático",
+            "Desarrollo de Aplicaciones Web y Móviles",
+            "Ciberseguridad y Protección de Datos"
+        ]
+    ),
+    (
+        1,
+        "Regina Álvarez",
+        "/static/images/student-profile2.png",
+        "Contaduría y Finanzas",
+        "Universidad Autónoma",
+        6,
+        "reginaalvarez.com",
+        [
+            "Apasionada por los números y la gestión financiera.",
+            "Buscando oportunidades para aprender y aplicar mis conocimientos contables.",
+            "Abierta a oportunidades de pasantía y prácticas en el campo de las finanzas."
+        ],
+        [
+            "Contabilidad y Auditoría",
+            "Análisis Financiero",
+            "Gestión de Riesgos",
+            "Impuestos y Legislación Fiscal",
+            "Finanzas Corporativas"
+        ]
+    ),
+    (
+        2,
+        "Mantra Alejandra",
+        "/static/images/student-profile3.png",
+        "Ciberseguridad",
+        "Universidad de la Montaña",
+        5,
+        "mantraalejandra.com",
+        [
+            "Apasionada por la seguridad informática y la protección de datos.",
+            "Buscando oportunidades para aprender y aplicar mis conocimientos en ciberseguridad.",
+            "Abierta a oportunidades de pasantía y colaboraciones en proyectos de seguridad cibernética."
+        ],
+        [
+            "Seguridad de Redes",
+            "Ciberataques y Defensa",
+            "Criptografía y Seguridad de la Información",
+            "Cumplimiento de Normativas y Auditoría de Seguridad",
+            "Prevención y Respuesta ante Incidentes de Seguridad"
+        ]
+    )
+)
+
+# Get saved students - loadSavedEnterprise
+saved = (
+    (
+        0, "Pablo Guitérrez", "/static/images/student-profile.png", 
+        "Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey",
+    ),
+    (
+        1, "Regina Álvarez", "/static/images/student-profile2.png",
+        "Contaduría y Finanzas", "Universidad Autónoma",
+    ),
+    (
+        2, "Mantra Alejandra", "/static/images/student-profile3.png",
+        "Ciberseguridad", "Universidad de la Montaña",
+    )
+)
+
+# Get recent searches - loadRecentSearchesEnterprise
+recentSearches = ("Ingenierías", "9no Semestre", "Ciberseguridad", "Universidad de Monterrey")

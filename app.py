@@ -150,17 +150,33 @@ def loadIndexEnterprise():
 
 @app.route('/enterprise/trabajos')
 def loadJobsEnterprise():
-    return render_template('/enterprise/trabajos.html')
+    students = variablesEnterprise.students
+    return render_template('/enterprise/trabajos.html', students=students)
+
+
+@app.route('/get-student-description/<int:id>')
+def getStudentDescription(id):
+    data = variablesEnterprise.studentDescription
+    for item in data:
+        if item[0] == id:
+            return jsonify({"message": item})
+
+ 
+@app.route('/enterprise/estudiante-cv/<int:id>')
+def loadStudentCV(id):
+    return render_template('/enterprise/cv-estudiante.html')
 
 
 @app.route('/enterprise/trabajos/guardados')
 def loadSavedEnterprise():
-    return render_template('/enterprise/guardados.html')
+    saved = variablesEnterprise.saved
+    return render_template('/enterprise/guardados.html', saved=saved)
 
 
 @app.route('/enterprise/trabajos/busquedas-recientes')
-def loadRecenSearchesEnterprise():
-    return render_template('/enterprise/busquedas-recientes.html')
+def loadRecentSearchesEnterprise():
+    recentSearches = variablesEnterprise.recentSearches
+    return render_template('/enterprise/busquedas-recientes.html', recentSearches=recentSearches)
 
 
 @app.route('/enterprise/chat')

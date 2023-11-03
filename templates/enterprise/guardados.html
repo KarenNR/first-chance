@@ -18,23 +18,12 @@
 </head>
 
 <body>
-    <!--Saved modal-->
-    <div class="modal fade" tabindex="-1" id="saved-modal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body container p-5">
-                    <div class="row m-0 justify-content-center">
-                        <div class="col-12 text-center">
-                            <h2 class="mb-4">Oportunidad guardada exitosamente</h2>
-                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.
-                            </p>
-                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
-                        </div>
-                    </div>
-                </div>
+    <!--Deleted from saved toast-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="deleted-toast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">Eliminado de guardados.</div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
     </div>
@@ -78,9 +67,36 @@
             <!--Content-->
             <div class="col-10">
 
-                <div class="row m-0 mb-2">
-                    <h2>Guardados</h2>
-                    <p>PENDIENTE</p>
+                <div class="row m-0">
+                    <h2 class="mb-3">Guardados</h2>
+                    {% for student in saved %}
+                    <div class="col-12 card p-3 mb-4">
+                        <div class="row m-0 align-items-start">
+                            <h4>{{ student[1] }}</h4>
+                            <div class="col-1">
+                                <img src="{{ student[2] }}" class="w-100">
+                            </div>
+                            <div class="col-11">
+                                <p class="mb-0">Estudiante de {{ student[3] }}</p>
+                                <p class="mb-0">{{ student[4] }}</p>
+                            </div>
+                        </div>
+                        <div class="row m-0 justify-content-end">
+                            <div class="col-2">
+                                <button class="primary-button w-100" onclick="cv('{{ student[0] }}')">CV</button>
+                            </div>
+                            <div class="col-2">
+                                <button class="secondary-button w-100"
+                                    onclick="profile('{{ student[0] }}')">Perfil</button>
+                            </div>
+                            <div class="col-2">
+                                <button class="tertiary-button w-100 icon-letter" onclick="deleteSaved('{{ student[0] }}')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
 
             </div>
@@ -92,6 +108,18 @@
     </footer>
 
     <script>
+        function cv(id) {
+            window.location.href = "/enterprise/estudiante-cv/" + id;
+        }
+
+        function profile(id) {
+            window.location.href = "/enterprise/detalle-estudiante/" + id;
+        }
+
+        function chat(id) {
+            window.location.href = "/enterprise/chat";
+        }
+
         // Redirections
         function goHome() { window.location.href = "/enterprise/"; }
         function goJobs() { window.location.href = "/enterprise/trabajos"; }
