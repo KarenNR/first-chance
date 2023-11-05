@@ -185,6 +185,11 @@
                             <h4>Intereses</h4>
                             <ol class="ms-2" id="interests"></ol>
                         </div>
+                        <div class="row m-0">
+                            <div class="col-4">
+                                <button class="primary-button w-100" id="student-profile">Ver perfil</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -218,6 +223,9 @@
                     document.getElementById("chat").onclick = function () {
                         chat(student[0]);
                     }
+                    document.getElementById("student-profile").onclick = function () {
+                        profile(student[0]);
+                    }
                     let summary = document.getElementById("summary");
                     summary.innerHTML = "";
                     student[7].forEach((item) => {
@@ -246,6 +254,10 @@
 
         function chat(id) {
             window.location.href = "/enterprise/chat";
+        }
+
+        function profile(id) {
+            window.location.href = "/enterprise/detalle-estudiante/" + id;
         }
 
         // Redirections
