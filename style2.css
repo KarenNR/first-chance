@@ -148,6 +148,11 @@ textarea {
     padding: 5px;
 }
 
+.card-header {
+    background-color: #3942B7 !important;
+    color: white !important;
+}
+
 /* LINKS */
 
 .side-link {
@@ -272,7 +277,11 @@ textarea {
     z-index: 10000;
 }
 
-
+.container {
+    padding-top: 20%;
+    align-items: center;
+    justify-content: center;
+}
 /* CHIPS */
 
 .chip {
