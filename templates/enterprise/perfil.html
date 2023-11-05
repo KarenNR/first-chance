@@ -51,12 +51,26 @@
                     <p>¿Desea reportar esta reseña? Se enviará a los administradores para su revisión.</p>
                     <div class="row m-0 mt-2 justify-content-end">
                         <div class="col-4">
-                            <button data-bs-dismiss="modal" class="primary-button w-100">Crear</button>
+                            <button data-bs-dismiss="modal" class="primary-button w-100">Reportar</button>
                         </div>
                         <div class="col-4">
                             <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Image modal-->
+    <div class="modal fade" tabindex="-1" id="image-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container">
+                    <img id="big-img" class="w-100">
                 </div>
             </div>
         </div>
@@ -163,7 +177,7 @@
                                         <p class="card-text">{{ post[1] }}</p>
                                     </div>
                                     <div class="col-6">
-                                        <img src="{{ post[2] }}" class="w-100" id="modal-image">
+                                        <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
                                     </div>
                                     {% else %}
                                     <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
@@ -356,6 +370,12 @@
 
         function openReport(id) {
             var myModal = new bootstrap.Modal(document.getElementById("report-modal"));
+            myModal.show();
+        }
+
+        function openImg() {
+            document.getElementById("big-img").src = document.getElementById("modal-image").src;
+            var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
             myModal.show();
         }
 
