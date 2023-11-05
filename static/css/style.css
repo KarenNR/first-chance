@@ -150,6 +150,10 @@ textarea {
 
 /* IMAGES */
 
+#modal-image {
+    cursor: pointer;
+}
+
 .image-container {
     position: relative;
     overflow: hidden;
