@@ -1,10 +1,8 @@
-import os
-from flask import Flask, render_template, redirect, request, session, flash, jsonify
-from flask_mysqldb import MySQL
+from flask import Flask, render_template, redirect, request, flash, jsonify
 import variables
 import variablesEnterprise
 from flask_socketio import SocketIO, emit
-import json
+from datetime import datetime
 
 app = Flask(__name__)
 socketio_rec = SocketIO(app, cors_allowed_origins="*")
@@ -102,7 +100,7 @@ def loadProfile():
 @app.route('/chancebot')
 def loadChancebot():
     messages = (
-        (0, "Hola, ¿en qué puedo ayudarte el día de hoy?", "12:20pm"),
+        (0, "Hola, ¿en qué puedo ayudarte el día de hoy?", datetime.now().strftime('%H:%M')),
     )
     return render_template('/student/chancebot.html', messages=messages)
 
