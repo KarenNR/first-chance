@@ -3,15 +3,29 @@ import variables
 import variablesEnterprise
 from flask_socketio import SocketIO, emit
 from datetime import datetime
+import openai
 
 app = Flask(__name__)
 socketio_rec = SocketIO(app, cors_allowed_origins="*")
 app.secret_key = 'f1rstch4nc3'
+openai.api_key = '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'
+
+# Context for ChatGPT
+messages = [ {"role": "system", "content": "You are a helpful assistant."} ]
 
 @socketio_rec.on("chat")
 def chat(message):
-    print(message)
-    emit("chat_response", "Recibido")
+    if message: 
+        messages.append( 
+            {"role": "user", "content": message}, 
+        ) 
+        chat = openai.ChatCompletion.create( 
+            model="gpt-3.5-turbo", messages=messages 
+        ) 
+    reply = chat.choices[0].message.content 
+    print(f"ChatGPT: {reply}") 
+    messages.append({"role": "assistant", "content": reply})
+    emit("chat_response", reply)
 
 
 @app.route('/iniciar-sesion')

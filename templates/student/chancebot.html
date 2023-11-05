@@ -58,14 +58,14 @@
             <div id="chat-messages">
                 {% for message in messages %}
                 {% if message[0]==0 %}
-                <div class="left-message row m-0 justify-content-start">
+                <div class="left-message row m-0 justify-content-start mb-2">
                     <div class="col-auto left-chat p-2">
                         <p class="mb-0">{{ message[1] }}</p>
                         <p class="text-end mb-0"><small>{{ message[2] }}</small></p>
                     </div>
                 </div>
                 {% else %}
-                <div class="right-message row m-0 justify-content-end">
+                <div class="right-message row m-0 justify-content-end mb-2">
                     <div class="col-auto right-chat p-2">
                         <p class="mb-0">{{ message[1] }}</p>
                         <p class="text-end mb-0"><small>{{ message[2] }}</small></p>
@@ -73,6 +73,17 @@
                 </div>
                 {% endif %}
                 {% endfor %}
+            </div>
+            <div id="loading">
+                <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
         <div class="chat-bar row m-0 px-0">
@@ -95,12 +106,14 @@
         var socket = io.connect("http://" + document.domain + ":5000");
 
         socket.on("chat_response", (response) => {
-            setTimeout(() => {
-                createMessageDialog(response, 0);
-            }, 500);
+            document.getElementById("loading").style.display = "none";
+            createMessageDialog(response, 0);
         })
 
         function sendMessage() {
+            // Initialize loader
+            document.getElementById("loading").style.display = "block";
+
             // Get input value
             let inputMessage = document.getElementById("chat-input").value;
 
@@ -128,15 +141,23 @@
             }
             const mess = document.createElement("p");
             mess.className = "mb-0";
-            mess.textContent = message;
+            message = message.replace(/\n/g, "<br>");
+            mess.innerHTML = message;
             const hour = document.createElement("p");
             hour.className = "text-end mb-0";
-            hour.innerHTML = "<small>" + new Date().toLocaleTimeString('en-US', {hour12: false, hour: '2-digit', minute: '2-digit'}) + "</small>";
+            hour.innerHTML = "<small>" + new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }) + "</small>";
             col.appendChild(mess);
             col.appendChild(hour);
             div.appendChild(col);
             chatMessages.appendChild(div);
         }
+
+        document.getElementById("chat-input").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        })
 
         // Redirections
         function goHome() { window.location.href = "/"; }

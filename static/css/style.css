@@ -330,7 +330,8 @@ textarea {
 
 /* JOBS STYLES */
 
-#job-description, #student-description {
+#job-description,
+#student-description {
     height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -384,4 +385,10 @@ textarea {
     float: right;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* LOADING */
+
+#loading {
+    display: none;
 }
