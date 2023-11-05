@@ -196,3 +196,119 @@ saved = (
 
 # Get recent searches - loadRecentSearchesEnterprise
 recentSearches = ("Ingenierías", "9no Semestre", "Ciberseguridad", "Universidad de Monterrey")
+
+# Get posts - loadStudentDetail
+posts = (
+    (
+        0, "Reconocimiento Alumno Distinguido PR2023",
+        '''Orgulloso de haber recibido este reconocimiento que se le otorga al 1% de la carrera. Este tipo de premios
+        me motivan a seguir dando lo mejor de mí mismo y a aplicar todo lo que sé en buscando ser un agente de cambio.''',
+        "/static/images/post1.jpg",
+        "25/10/2023", 12, 5
+    ),
+    (
+        0, "Un pensamiento",
+        "Una interfaz es como un chiste. Si tienes que explicarlo, no es bueno.",
+        None,
+        "24/10/2023", 25, 10
+    ),
+    (
+        1, "Proyecto de Investigación en Auditoría",
+        '''Estoy emocionada de anunciar que estoy trabajando en un proyecto de investigación sobre auditoría y fiscalización. 
+        Es una oportunidad emocionante para aplicar mis conocimientos y contribuir al campo de las Finanzas.''',
+        None,
+        "27/10/2023", 42, 7
+    ),
+    (
+        1, "Conferencia sobre Finanzas y Contabilidad",
+        '''Excelente experiencia asistir a la conferencia sobre tendencias actuales en Finanzas y Contabilidad. 
+        Aprendí mucho y estoy emocionada por lo que depara el futuro en mi campo.''',
+        "/static/images/post3.jpg",
+        "24/10/2023", 30, 5
+    ),
+    (
+        2, "Frase del mes",
+        '''"Ciberseguridad no es sólo proteger los datos, es proteger el negocio. - Steve Durbin''',
+        None,
+        "27/10/2023", 20, 10
+    ),
+    (
+        2, "Concurso de Ciberseguridad",
+        '''El 10 de noviembre tendremos un concurso sobre prácticas de ciberseguridad en mi universidad. ¡Es abierto a 
+        todo el público! Envíame mensaje directo para conocer más :D''',
+        None,
+        "20/10/2023", 30, 20
+    ),
+)
+
+# Get education items - loadStudentDetail
+education = ((0, 'UDEM', 'ITC', 2023),
+             (0, 'Regio Cumbres', 'Preparatoria', 2020),
+             (1, 'Universidad Autónoma', 'Contaduría y Finanzas', 2023),
+             (1, 'Universidad Autónoma', 'Diplomado Administración', 2020),
+             (2, 'Universidad de la Montaña', 'Ciberseguridad', 2023))
+
+# Get projects - loadStudentDetail
+projects = (
+    (0, "Aplicación First Chance",
+     "Plataforma de búsqueda de empleos para estudiantes universitarios.",
+     "https://github.com/KarenNR/first-chance"),
+    (0, "Aplicación web para registro de asistencias de profesores",
+     "Proyecto realizado para la UDEM. Utilicé tecnologías como HTML, JavaScript, ASP.NET y React.",
+     "https://github.com/emi7595/integrador-front"),
+    (1, "Proyecto de Análisis de Datos Financieros",
+     "Análisis de datos financieros de la empresa La Mexicana utilizando Tableau para identificar patrones, tendencias y oportunidades financieras.",
+     "https://www.google.com.mx/?hl=es"),
+    (1, "Investigación de mercado financiero",
+     "Investigación que hice sobre el mercado de bienes raíces para analizar tendencias, factores económicos y riesgos asociados a ese mercado.",
+     "https://www.google.com.mx/?hl=es"),
+    (2, "Pruebas de penetración éticas",
+     "Con este proyecto, en colaboración con mi profesor asesor aprendí a identificar vulnerabilidades y a mejorar la seguridad de sistemas. ¡Mantenernos un paso adelante de los atacantes es crucial!",
+     "https://www.google.com.mx/?hl=es"),
+    (2, "Seguridad en línea para niños",
+     "Colaboro en un proyecto para enseñar a los niños sobre la seguridad en línea. Proteger a las futuras generaciones es esencial. ¡Los niños también deben conocer los riesgos y cómo mantenerse seguros!",
+     "https://www.google.com.mx/?hl=es"),
+    (2, "Análisis de seguridad en microempresa",
+     "En este proyecto ayudé a la empresa Milagros a fortalecer la seguridad de los sistemas que utilizan a diario.",
+     "https://www.google.com.mx/?hl=es"),
+)
+
+# Get student CV - loadStudentCV
+studentCV = (
+    (
+        0,
+        "/static/images/student-profile.png",
+        "Pablo", "Gutiérrez", "pablo.gtz@udem.edu", "1234567890", "pgutierrez.com",
+        "Soy un estudiante de Ingeniería en Tecnologías Computacionales apasionado por la programación y la resolución de problemas.",
+        ("Regio", "UDEM"),
+        ("Preparatoria", "ITC"),
+        (2020, 2023),
+        ("Resiliencia", "Dedicación", "Esfuerzo", "Organización"),
+        ("Idiomas",),
+        ("Alemán A2 | Inglés C1",)
+    ),
+    (
+        1,
+        "/static/images/student-profile2.png",
+        "Regina", "Álvarez", "regina.aa@uam.edu", "8129657430", "reginaalvarez.com",
+        "¡Hola! Soy Regina y día a día intento lo mejor para convertirme en la mejor contadora.",
+        ("Universidad Autónoma", "Universidad Autónoma"),
+        ("Contaduría y Finanzas", "Diplomado Administración"),
+        (2023, 2020),
+        ("Disciplina", "Pasión", "Dedicación", "Integridad", "Respeto"),
+        ("Herramientas", "Cursos"),
+        ("Word, PowerPoint, Excel", "Contabilidad para principiantes, Retos Financieros en el 2023")
+    ),
+    (
+        2,
+        "/static/images/student-profile3.png",
+        "Mantra", "Alejandra", "mantra.alejandra@udem.edu", "1295637820", "mantraalejandra.com",
+        "Desde pequeña me ha encantado la tecnología. Decidí estudiar ciberseguridad porque pienso que, de este modo, hago que la tecnología sea realmente beneficiosa para todos.",
+        ("Universidad de la Montaña",),
+        ("Ciberseguridad",),
+        (2023,),
+        ("Conciencia de seguridad", "Ética", "Pensamiento Analítico", "Pensamiento crítico", "Trabajo en equipo", "Resolución de problemas", "Liderazgo"),
+        ("Lenguajes de programación", "Concursos"),
+        ("Python, Java, C++", "1er lugar en Concurso de Hacking Ético - 2do lugar en Concurso Nacional de Vulnerabilidades")
+    ),
+)

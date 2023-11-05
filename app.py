@@ -164,7 +164,8 @@ def getStudentDescription(id):
  
 @app.route('/enterprise/estudiante-cv/<int:id>')
 def loadStudentCV(id):
-    return render_template('/enterprise/cv-estudiante.html')
+    cv = variablesEnterprise.studentCV[id]
+    return render_template('/enterprise/cv-estudiante.html', cv=cv, zip=zip)
 
 
 @app.route('/enterprise/trabajos/guardados')
@@ -261,4 +262,8 @@ def loadProfileConfigurationEnterprise():
 
 @app.route('/enterprise/detalle-estudiante/<int:id>')
 def loadStudentDetail(id):
-    return render_template('/enterprise/detalle-estudiante.html')
+    studentDescription = variablesEnterprise.studentDescription[id]
+    posts = [post for post in variablesEnterprise.posts if post[0] == id]
+    education = [education for education in variablesEnterprise.education if education[0] == id]
+    projects = [project for project in variablesEnterprise.projects if project[0] == id]
+    return render_template('/enterprise/detalle-estudiante.html', studentDescription=studentDescription, posts=posts, education=education, projects=projects)
