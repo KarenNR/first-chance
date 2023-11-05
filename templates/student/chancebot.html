@@ -44,9 +44,39 @@
     </header>
 
     <div class="container px-0">
-        <h1>Pendiente</h1>
-        <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg">
-        <p>Chat con API ChatGPT</p>
+        <div class="chat-container p-3 mb-4">
+            <div id="chat-header" class="row m-0">
+                <div class="col-1 chat-logo text-center p-3">
+                    <i class="fa-solid fa-robot w-100"></i>
+                </div>
+                <div class="col-11">
+                    <h2>Chancebot</h2>
+                </div>
+            </div>
+            <hr>
+            <div id="chat-messages">
+                <div class="left-message row m-0 justify-content-start">
+                    <div class="col-auto left-chat p-2">
+                        MENSAJE BOT
+                    </div>
+                </div>
+                <div class="right-message row m-0 justify-content-end">
+                    <div class="col-auto right-chat p-2">
+                        MENSAJE USUARIO
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-bar row m-0 px-0">
+            <div class="col-10 px-0">
+                <input type="text" class="w-100" placeholder="Escribe un mensaje" id="chat-input">
+            </div>
+            <div class="col-2 pe-0">
+                <button class="primary-button w-100 chat-send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <footer class="text-center">
