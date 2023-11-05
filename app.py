@@ -265,7 +265,7 @@ def loadProfileConfigurationEnterprise():
 @app.route('/enterprise/detalle-estudiante/<int:id>')
 def loadStudentDetail(id):
     studentDescription = variablesEnterprise.studentDescription[id]
-    posts = [post for post in variablesEnterprise.posts if post[0] == id]
-    education = [education for education in variablesEnterprise.education if education[0] == id]
-    projects = [project for project in variablesEnterprise.projects if project[0] == id]
+    posts = [post for post in variablesEnterprise.studentPosts if post[0] == id]
+    education = [education for education in variablesEnterprise.studentEducation if education[0] == id]
+    projects = [project for project in variablesEnterprise.studentProjects if project[0] == id]
     return render_template('/enterprise/detalle-estudiante.html', studentDescription=studentDescription, posts=posts, education=education, projects=projects)

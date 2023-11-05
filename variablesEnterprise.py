@@ -198,7 +198,7 @@ saved = (
 recentSearches = ("Ingenierías", "9no Semestre", "Ciberseguridad", "Universidad de Monterrey")
 
 # Get posts - loadStudentDetail
-posts = (
+studentPosts = (
     (
         0, "Reconocimiento Alumno Distinguido PR2023",
         '''Orgulloso de haber recibido este reconocimiento que se le otorga al 1% de la carrera. Este tipo de premios
@@ -242,14 +242,14 @@ posts = (
 )
 
 # Get education items - loadStudentDetail
-education = ((0, 'UDEM', 'ITC', 2023),
+studentEducation = ((0, 'UDEM', 'ITC', 2023),
              (0, 'Regio Cumbres', 'Preparatoria', 2020),
              (1, 'Universidad Autónoma', 'Contaduría y Finanzas', 2023),
              (1, 'Universidad Autónoma', 'Diplomado Administración', 2020),
              (2, 'Universidad de la Montaña', 'Ciberseguridad', 2023))
 
 # Get projects - loadStudentDetail
-projects = (
+studentProjects = (
     (0, "Aplicación First Chance",
      "Plataforma de búsqueda de empleos para estudiantes universitarios.",
      "https://github.com/KarenNR/first-chance"),
