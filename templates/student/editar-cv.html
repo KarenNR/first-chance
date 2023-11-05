@@ -39,6 +39,18 @@
     </div>
     {% endfor %}
 
+    <!--Upload image modal-->
+    <div class="modal fade" tabindex="-1" id="upload-img-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <input type="file" id="image" class="w-100 mb-2" accept="image/*">
+                    <button data-bs-dismiss="modal" class="primary-button w-100">Subir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -72,7 +84,16 @@
             <div class="row m-0 mb-4">
                 <h3 class="mb-3">Datos personales y de contacto</h3>
                 <div class="col-2">
-                    <img src="/static/images/perfil.png" class="w-100">
+                    <div class="image-container">
+                        <label for="image-upload" class="image-label">
+                            <img src="/static/images/perfil.png" class="w-100 editable-img" id="profile-image">
+                            <div class="dark-overlay"></div>
+                            <div class="edit-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                        </label>
+                        <input type="file" id="image-upload" accept="image/*" style="display: none;" name="cv-image">
+                    </div>
                 </div>
                 <div class="col-8">
                     <div class="row m-0">
@@ -270,6 +291,16 @@
             // Selecciona el modal por su ID y lo muestra
             var myModal = new bootstrap.Modal(document.getElementById("success-modal"));
             myModal.show();
+        });
+
+        document.getElementById("image-upload").addEventListener("change", function () {
+            // La imagen seleccionada se puede acceder a través de this.files[0]
+            const selectedImage = this.files[0];
+        
+            if (selectedImage) {
+                const profileImage = document.getElementById("profile-image");
+                profileImage.src = URL.createObjectURL(selectedImage);
+            }
         });
 
         // Redirections

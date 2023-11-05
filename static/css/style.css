@@ -148,6 +148,57 @@ textarea {
     padding: 5px;
 }
 
+/* IMAGES */
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.editable-img {
+    transition: transform 0.3s;
+}
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+}
+
+.image-container:hover .dark-overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.image-container:hover .edit-icon {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#profile-image {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 /* LINKS */
 
 .side-link {

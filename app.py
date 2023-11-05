@@ -117,6 +117,7 @@ def loadCVForm():
 
 @app.route('/design-cv', methods=['POST'])
 def designCV():
+    image = request.form["cv-image"]
     name = request.form["name"]
     lastname = request.form["lastname"]
     email = request.form["email"]
@@ -130,6 +131,7 @@ def designCV():
     extraTitles = request.form.getlist("extra-section-title")
     extraDescriptions = request.form.getlist("extra-section-description")
 
+    print(image)
     print(name, lastname, email, phone, website)
     print(profile)
     for i, g, y in zip(institutionList, gradeList, yearList):
