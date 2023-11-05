@@ -3,10 +3,17 @@ from flask import Flask, render_template, redirect, request, session, flash, jso
 from flask_mysqldb import MySQL
 import variables
 import variablesEnterprise
+from flask_socketio import SocketIO, emit
 import json
 
 app = Flask(__name__)
+socketio_rec = SocketIO(app, cors_allowed_origins="*")
 app.secret_key = 'f1rstch4nc3'
+
+@socketio_rec.on("chat")
+def chat(message):
+    print(message)
+    emit("chat_response", "Recibido")
 
 
 @app.route('/iniciar-sesion')
@@ -94,7 +101,10 @@ def loadProfile():
 
 @app.route('/chancebot')
 def loadChancebot():
-    return render_template('/student/chancebot.html')
+    messages = (
+        (0, "Hola, ¿en qué puedo ayudarte el día de hoy?", "12:20pm"),
+    )
+    return render_template('/student/chancebot.html', messages=messages)
 
 
 @app.route('/perfil/cv')
