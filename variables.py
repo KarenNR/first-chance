@@ -272,3 +272,7 @@ interests = ("Frontend", "Apps Móviles")
 
 # Get recent searches - loadRecentSearches
 recentSearches = ("Desarrollo Web", "Aplicaciones Móviles", "Ciberseguridad")
+
+studentMessages = ("Hola", "Gracias")
+
+enterpriseMessages = ("hola mi nombre es maria fernanda vazquez", "Hola")

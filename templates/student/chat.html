@@ -44,8 +44,29 @@
     </header>
 
     <div class="container px-0">
-        <h1>Pendiente</h1>
-        <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg">
+        <div class="chat-container p-3 mb-4">
+            <div id="chat-header" class="row m-0">
+                <div class="col-1 chat-logo text-center p-3">
+                    <i class="fa-solid fa-robot w-100"></i>
+                </div>
+                <div class="col-11">
+                    <h2>Empresa 1</h2>
+                </div>
+            </div>
+            <hr>
+            <div id="chat-messages">
+            </div>
+        </div>
+        <div class="chat-bar row m-0 px-0">
+            <div class="col-10 px-0">
+                <input type="text" class="w-100" placeholder="Escribe un mensaje" id="chat-input">
+            </div>
+            <div class="col-2 pe-0">
+                <button class="primary-button w-100 chat-send" onclick="sendMessage()">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
     <footer class="text-center">
@@ -53,6 +74,85 @@
     </footer>
 
     <script>
+        var predefinedMessages = {{ enterpriseMessages | tojson | safe }};
+        var messageIndex = 0;
+        function sendMessage() {
+            var message = document.getElementById('chat-input').value;
+            if (message.trim() !== '') {
+                var chatMessages = document.getElementById('chat-messages');
+    
+                var newMessage = document.createElement('div');
+                newMessage.classList.add('right-message', 'row', 'm-0', 'justify-content-end', 'mb-2');
+    
+                var messageContainer = document.createElement('div');
+                messageContainer.classList.add('col-auto', 'right-chat', 'p-2');
+    
+                var messageText = document.createElement('p');
+                messageText.classList.add('mb-0');
+                messageText.innerText = message;
+    
+                var messageTime = document.createElement('p');
+                messageTime.classList.add('text-end', 'mb-0');
+                var now = new Date();
+                var hours = now.getHours().toString().padStart(2, '0');
+                var minutes = now.getMinutes().toString().padStart(2, '0');
+                messageTime.innerHTML = '<small>' + hours + ':' + minutes + '</small>';
+    
+                messageContainer.appendChild(messageText);
+                messageContainer.appendChild(messageTime);
+                newMessage.appendChild(messageContainer);
+                chatMessages.appendChild(newMessage);
+    
+                document.getElementById('chat-input').value = '';
+    
+                setTimeout(receiveMessage, 1000); // Simulate a response after 1 second
+            }
+        }
+
+        function receiveMessage() {
+            var chatMessages = document.getElementById('chat-messages');
+        
+            if (messageIndex >= predefinedMessages.length) {
+                messageIndex = 0; // Reset to the beginning if all messages have been used
+            }
+        
+            var message = predefinedMessages[messageIndex];
+        
+            var newMessage = document.createElement('div');
+            newMessage.classList.add('left-message', 'row', 'm-0', 'justify-content-start', 'mb-2');
+        
+            var col = document.createElement('div');
+            col.className = "col-auto left-chat p-2";
+        
+            var messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+        
+            var messageText = document.createElement('p');
+            messageText.classList.add('mb-0'); // Add this class to remove margin-bottom
+            messageText.textContent = message;
+        
+            var messageTime = document.createElement('p');
+            messageTime.classList.add('text-end', 'mb-0');
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            messageTime.innerHTML = '<small>' + hours + ':' + minutes + '</small>';
+        
+            messageContainer.appendChild(messageText);
+            messageContainer.appendChild(messageTime);
+            col.appendChild(messageContainer);
+            newMessage.appendChild(col);
+        
+            chatMessages.appendChild(newMessage);
+        
+            messageIndex++;
+        }
+        
+        
+        
+
+
+        
         // Redirections
         function goHome() { window.location.href = "/"; }
         function goJobs() { window.location.href = "/trabajos"; }

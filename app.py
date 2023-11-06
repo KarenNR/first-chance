@@ -92,7 +92,9 @@ def loadRequests():
 
 @app.route('/chat')
 def loadChat():
-    return render_template('/student/chat.html')
+    enterpriseMessages = ("hola mi nombre es maria fernanda vazquez", "Hola")
+    return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages)
+
 
 
 @app.route('/detalle/<int:id>')
@@ -206,7 +208,10 @@ def loadRecentSearchesEnterprise():
 
 @app.route('/enterprise/chat')
 def loadChatEnterprise():
-    return render_template('/enterprise/chat.html')
+    enterpriseMessages = (
+        (0, "Hola, ¿en qué puedo ayudarte el día de hoy?"),
+    )
+    return render_template('/enterprise/chat.html', enterpriseMessages=enterpriseMessages)
 
 
 @app.route('/enterprise/perfil')
