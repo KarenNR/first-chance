@@ -174,6 +174,59 @@ jobDescription = (
          ["Adaptación a Múltiples Plataformas", "Aprende a desarrollar aplicaciones móviles para múltiples plataformas, como Android e iOS, y comprende las diferencias en la programación y diseño de cada plataforma."],
          ["Investigación y Aprendizaje", " Realiza investigaciones independientes para mantenerte al tanto de las mejores prácticas y las tendencias actuales en el desarrollo de aplicaciones móviles."]]
     ),
+  ( 9,
+        "Practicante Ingeniero de Software",
+        "/static/images/armazen.png",
+        "Armazen",
+        4.7,
+        "Monterrey, Nuevo León",
+        "Híbrido",
+        "Tiempo completo",
+        "$7,000 - $9,000",
+        True,
+        '''Como Practicante Desarrollador de Aplicaciones Móviles, tendrás la emocionante oportunidad de aprender y adquirir experiencia práctica en el mundo del desarrollo de aplicaciones móviles. 
+        Trabajarás en estrecha colaboración con un equipo de desarrollo experimentado y contribuirás al diseño, implementación y prueba de aplicaciones móviles innovadoras.
+            ''',
+        [["Desarrollo de código", "Colaborar en la escritura de código para nuevas características y mejoras en aplicaciones móviles."],
+         ["Optimización de Rendimiento","Trabajar en la mejora del rendimiento de las aplicaciones móviles, identificando y resolviendo cuellos de botella y optimizando el uso de recursos."],
+         ["Integración de Tecnologías Emergentes","Explorar y experimentar con tecnologías emergentes, como realidad aumentada (AR) o inteligencia artificial (AI), para incorporar innovaciones en las aplicaciones móviles."],
+         ["Colaboración en Diseño de Interfaces Avanzadas",   "Colaborar en la creación de interfaces de usuario avanzadas y en el diseño de experiencias de usuario interactivas y de alto impacto."]]),
+         ( 10,
+            "Practicante de TI",
+            "/static/images/neorem.png",
+            "Neorem",
+            4.5,
+            "Monterrey, Nuevo León",
+            "Presencial",
+            "Medio tiempo",
+            "$4,500 - $6,000",
+            True,
+            '''
+            Como Practicante en Soporte de Tecnologías de la Información (TI), tendrás la oportunidad de adquirir experiencia práctica en la gestión y solución de problemas relacionados con sistemas y tecnologías de la información.
+            Trabajarás en colaboración con el equipo de TI y brindarás soporte a los usuarios para garantizar la disponibilidad y el rendimiento de los sistemas.
+                ''',
+            [["Soporte de usuarios", "Brindar asistencia a los usuarios internos para resolver problemas técnicos, incluyendo hardware, software y conectividad."],
+            ["Mantenimiento y Configuración de Hardware","Colaborar en la instalación, configuración y mantenimiento de hardware de computadoras, impresoras y otros dispositivos."],
+            ["Mantenimiento de Software","Participar en la instalación, actualización y mantenimiento de software, incluyendo sistemas operativos y aplicaciones empresariales."],
+            ["Seguridad de TI", "Contribuir a la seguridad de la red y sistemas, asegurando que las políticas y medidas de seguridad se cumplan."]]),
+        ( 11,
+            "Practicante de Redes",
+            "/static/images/cisce.png",
+            "Cisce",
+            4.5,
+            "Escobedo, Nuevo León",
+            "Presencial",
+            "Tiempo completo",
+            "$7,500 - $9,000",
+            True,
+            '''
+                Como Practicante de Redes, tendrás la oportunidad de aprender y adquirir experiencia práctica en la gestión y mantenimiento de infraestructuras de redes. 
+                Colaborarás con el equipo de TI y tendrás un papel fundamental en asegurar la conectividad y la disponibilidad de los sistemas de red.
+                ''',
+            [["Configuración y Mantenimiento de Equipos de Red", "Participar en la configuración y mantenimiento de routers, switches, firewalls y otros dispositivos de red."],
+            ["Resolución de Problemas de Conectividad","Brindar soporte para la resolución de problemas de conectividad de red, identificando y solucionando fallos y cuellos de botella."],
+            ["Seguridad en la Red","Contribuir a la implementación y mantenimiento de medidas de seguridad de red, como cortafuegos, sistemas de detección de intrusiones y políticas de acceso."],
+            ["Monitorización y Análisis de Rendimiento", "Ayudar en la configuración y uso de herramientas de monitorización de red para supervisar el rendimiento y la disponibilidad de la red."]])
 )
 
 # Get applications - loadApplications
@@ -272,3 +325,127 @@ interests = ("Frontend", "Apps Móviles")
 
 # Get recent searches - loadRecentSearches
 recentSearches = ("Desarrollo Web", "Aplicaciones Móviles", "Ciberseguridad")
+
+# Get enterprise descriptions - loadEnterpriseProfile
+enterpriseDescription=(
+    (1,
+     "Armazen",
+      "/static/images/Armazen.png",
+        "Apodaca, Nuevo León",
+        "armazen.com",
+     ''' Somos una empresa líder en tecnología que se ha destacado en el desarrollo de software y 
+         soluciones tecnológicas innovadoras. Fundada en 2005, la empresa se enfoca en satisfacer 
+         las necesidades de sus clientes a través de una amplia gama de servicios, desde aplicaciones móviles 
+         hasta consultoría en ciberseguridad e inteligencia artificial.
+        ''',
+    ''' En Armazen, la innovación constante es un pilar fundamental. 
+        Los empleados son alentados a buscar soluciones creativas y a estar al tanto de las últimas tendencias
+        tecnológicas. Además, la empresa promueve la colaboración, la orientación al cliente y el aprendizaje 
+        continuo, mientras valora la diversidad, la responsabilidad social, y el equilibrio entre el trabajo y la vida personal como parte de su cultura.'''),
+    (2,
+     "Neorem",
+     "/static/images/Neorem.png",
+     "Monterrey, Nuevo León",
+     "neorem.com",
+     '''Somos una empresa líder en el sector de tecnología comprometida con la creación desoluciones
+        innovadoras y la mejora de la vida de las personas a través de la tecnología. Fundada en 1995,
+        nuestra empresa ha estado a la vanguardia de la innovación tecnológica, desarrollando productos y
+        servicios que marcan la diferencia en la industria.''', 
+    '''Valoramos la diversidad, la creatividad y la innovación. Nuestra cultura fomenta el aprendizaje
+        continuo, el crecimiento profesional y la pasión por la tecnología. Creemos en empoderar a
+        nuestros empleados para que alcancen su máximo potencial y contribuyan al éxito de la empresa.'''),
+    (3,
+     "Cisce",
+      "/static/images/Cisce.png",
+      "Escobedo, Nuevo León",
+      "cisce.com",
+     ''' 
+        Somos una empresa de tecnología puntera en el desarrollo de hardware y software de vanguardia. 
+        Desde su fundación en 2010, se ha centrado en ofrecer soluciones tecnológicas de calidad que 
+        van desde dispositivos inteligentes hasta sistemas de gestión de datos de última generación,
+        abriendo nuevas fronteras en la industria.
+        ''',
+    ''' La cultura corporativa en Cisce se basa en la creatividad y el compromiso. 
+        La innovación es el núcleo de la empresa, y se alienta a los empleados a pensar de manera disruptiva
+        y a enfrentar desafíos con soluciones innovadoras. La colaboración es esencial, 
+        ya que se promueve la sinergia entre equipos interdisciplinarios para impulsar el progreso.''')
+)
+
+# Get ratings - loadEnterpriseProfile
+enterpriseRatings =  (
+    ((0,5,"Excelente ambiente de trabajo",
+         "Armazen proporciona un ambiente de trabajo excepcional. Fomenta la colaboración, la innovación y el desarrollo profesional."),
+     (1, 3, "Oportunidades de crecimiento",
+          "La empresa ofrece oportunidades claras para el crecimiento profesional. Se nos anima a desarrollar nuevas habilidades y avanzar en nuestra carrera."),
+     (2,4,"Flexibilidad laboral",
+          "Agradezco la flexibilidad que la empresa brinda en cuanto a horarios de trabajo y opciones de trabajo remoto."),
+     (3,5,"Apoyo a la formación continua",
+          "La empresa respalda la formación continua y la educación. He tenido acceso a recursos y cursos para mejorar mis habilidades.")),
+    ((0, 3, "Responsabilidad social corporativa",
+        "La empresa se preocupa por su impacto en la comunidad y el medio ambiente."),
+    (1, 4, "Crecimiento y estabilidad",
+        "La empresa tiene un historial sólido de crecimiento y estabilidad financiera."),
+    (2, 5, "Innovación y desafíos constantes",
+        "Si te gustan los desafíos y la resolución de problemas, este es el lugar ideal para ti."),
+    (3, 4, "Excelente oportunidad de crecimiento",
+        "Neorem me ayudó a aprender bastante sobre mi carrera.")),
+    ((0,4,"Énfasis en la innovación",
+           "La empresa está constantemente buscando formas de innovar y mejorar sus productos y servicios"),
+    (1,5,"Reconocimiento y recompensas",
+          "Me siento apreciado por mi trabajo. Cisce reconoce y recompensa el desempeño sobresaliente."),
+    (2,5,"Herramientas y recursos adecuados",
+           "La empresa proporciona las herramientas y recursos necesarios para realizar el trabajo de manera eficiente."),
+    (3,5,"Equilibrio entre vida laboral y personal",
+           "La empresa valora el equilibrio entre vida laboral y personal, lo que contribuye a un ambiente de trabajo saludable.")))
+
+# Get posts - loadEnterpriseProfile
+enterprisePosts = (
+    (("Firma de Convenio Armazen - Techno Inc.", 
+      "Estamos emocionados de anunciar nuestra colaboración con Techno Inc., un acuerdo que fortalecerá nuestra capacidad para brindar soluciones innovadoras y un servicio excepcional a nuestros clientes en conjunto. ",
+      "/static/images/post1-armazen.jpg",
+      "11/6/2023", 105, 55),
+      ("¿Sabias qué...?",
+       "En 2021, se vendieron más de 1.3 mil millones de smartphones en todo el mundo, lo que equivale a aproximadamente 40 dispositivos por segundo.",
+       None,
+       "11/1/2023", 25, 3),
+      ("Nuestra Pasión por la Innovación Tecnológica",
+       "Creemos que la tecnología puede cambiar vidas. Estamos comprometidos a crear soluciones que hagan del mundo un lugar mejor. Únete a nosotros en esta emocionante travesía hacia un futuro más inteligente y conectado. #TecnologíaParaElCambio",
+       None,
+       "27/10/2023", 65, 14)),
+    (("Valor del mes",
+      "Un valor de Neorem es la resiliencia. Como diría H.G. Wells: 'Si caíste ayer, levántate hoy'.",
+       None,
+       "28/10/2023", 25, 10),
+      ("Evento Ciberseguridad",
+       '''El viernes pasado tuvimos la gran oportunidad de ser anfitriones del evento más grande de ciberseguridad de México.
+        Este evento nos permitió aprender mucho sobre la ciberseguridad, sus desafíos actuales y el futuro de ésta.''',
+        "/static/images/post2.jpg",
+        "24/10/2023", 12, 5),
+      ("Aniversario de Neorem",
+        "¡Neorem está de fiesta! Hoy cumplimos 5 años creando soluciones digitales de valor para nuestros clientes.",
+        None,
+        "01/10/2023", 50, 20)),
+    (("Celebrando a Nuestros Valiosos Empleados",
+       "El motor de nuestro éxito son nuestros increíbles empleados. Hoy, queremos rendir homenaje a su arduo trabajo y dedicación. ¡Gracias por su constante esfuerzo en impulsar la innovación!",
+       "/static/images/post1-cisce.jpg",
+       "11/7/2023", 125, 45),
+        ("Mantente Seguro en Línea: Mes de la Conciencia Cibernética",
+         "La seguridad cibernética es una prioridad. Este mes, nos unimos a la lucha por una internet más segura. Compartiremos consejos y recursos para proteger tu información en línea.",
+         None,
+         "10/31/2023", 37,14),
+        ("No te Pierdas Nuestro Webinar : Big Data y Análisis Predictivo:",
+         "Únete a nosotros para nuestro próximo webinar gratuito sobre Big Data y Análisis Predictivo. Aprenderás de expertos de la industria y obtendrás información valiosa. Regístrate ahora y reserva tu lugar. #Webinar #AprendizajeTecnológico",
+         "/static/images/post3-cisce.jpg",
+          "10/23/2023", 42,26)))
+
+
+# Get vacancies - loadEnterpriseProfile
+vacancies = (
+         ((1, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo", "/static/images/jobOffer1.png"),
+          (9, "Practicante Ingeniero de Software", "Armazen", "Apodaca, Nuevo León", "Híbrido", "Tiempo completo", "/static/images/jobOffer1.png")),
+         ((2, "Practicante Desarrollo de Software", "Neorem", "Monterrey, Nuevo León",
+          "Remoto", "Tiempo completo", "/static/images/jobOffer2.png"),
+          (10, "Practicante de TI", "Neorem", "Monterrey, Nuevo León",
+          "Presencial", "Medio tiempo", "/static/images/jobOffer2.png")),
+         ((3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png"),
+          (11, "Practicante de Redes", "Cisce", "Escobedo, Nuevo León", "Presencial", "Tiempo completo", "/static/images/jobOffer3.png")))
