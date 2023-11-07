@@ -278,7 +278,7 @@
                                     <p class="card-text">{{ post[1] }}</p>
                                 </div>
                                 <div class="col-6">
-                                    <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
+                                    <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg('{{ post[2] }}')">
                                 </div>
                                 {% else %}
                                 <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
@@ -491,7 +491,6 @@
                 .then(response => response.json())
                 .then(data => {
                     let job = data.message;
-                    document.getElementById("big-img").src = job[2];
                     document.getElementById("modal-title").textContent = job[1];
                     document.getElementById("modal-img").src = job[2];
                     document.getElementById("modal-txt1").textContent = job[3];
@@ -538,7 +537,8 @@
             myModal.show();
         }
 
-        function openImg() {
+        function openImg(imgSrc) {
+            document.getElementById("big-img").src = imgSrc;
             var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
             myModal.show();
         }
