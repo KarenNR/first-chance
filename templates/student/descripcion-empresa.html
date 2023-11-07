@@ -19,7 +19,7 @@
 
 <body>
 
-  <!--Apply modal-->
+    <!--Apply modal-->
     <div class="modal fade" tabindex="-1" id="apply-modal" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -85,8 +85,8 @@
         </div>
     </div>
 
-     <!--Saved modal-->
-     <div class="modal fade" tabindex="-1" id="saved-modal">
+    <!--Saved modal-->
+    <div class="modal fade" tabindex="-1" id="saved-modal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -96,7 +96,8 @@
                     <div class="row m-0 justify-content-center">
                         <div class="col-12 text-center">
                             <h2 class="mb-4">Oportunidad guardada exitosamente</h2>
-                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.</p>
+                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.
+                            </p>
                             <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
                         </div>
                     </div>
@@ -105,8 +106,8 @@
         </div>
     </div>
 
-     <!--Evaluate modal-->
-     <div class="modal fade" tabindex="-1" id="evaluate-modal">
+    <!--Evaluate modal-->
+    <div class="modal fade" tabindex="-1" id="evaluate-modal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body container p-5">
@@ -115,45 +116,46 @@
                             <h2 class="mb-4">Escribir una reseña</h2>
                         </div>
                         <div class="col-12">
-                                <div class="row m-0">
-                                    <div class="rating">
-                                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                                      </div>
-                                </div>
-                                <br>
-                                <div class="row m-0">
-                                        <input type="text" placeholder="Asunto" class="w-100" name="title">
-                                </div>
-
-                                <br>
-                                
-                                <div class="row m-0">
-                                        <input type="text" placeholder="Descripción" class="w-100" name="description" style="height: 80px;">                                   
-                                </div>
-
-                                <br>
-                            </div>
-                                                        
-                            <div class="row m-0 mt-2 justify-content-end">
-                                <div class="col-4">
-                                    <button data-bs-dismiss="modal" class="primary-button w-100">Enviar</button>
-                                </div>
-                                <div class="col-4">
-                                    <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                            <div class="row m-0">
+                                <div class="rating">
+                                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
                                 </div>
                             </div>
+                            <br>
+                            <div class="row m-0">
+                                <input type="text" placeholder="Asunto" class="w-100" name="title">
+                            </div>
+
+                            <br>
+
+                            <div class="row m-0">
+                                <input type="text" placeholder="Descripción" class="w-100" name="description"
+                                    style="height: 80px;">
+                            </div>
+
+                            <br>
+                        </div>
+
+                        <div class="row m-0 mt-2 justify-content-end">
+                            <div class="col-4">
+                                <button data-bs-dismiss="modal" class="primary-button w-100">Enviar</button>
+                            </div>
+                            <div class="col-4">
+                                <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-     <!--Followed modal-->
-     <div class="modal fade" tabindex="-1" id="followed-modal">
+    <!--Followed modal-->
+    <div class="modal fade" tabindex="-1" id="followed-modal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -233,177 +235,177 @@
     <div class="container px-0">
         <div class="row m-0 mt-4">
             <!--Content-->
-
-                <div class="row m-0 align-items-center">
-                    <div class="col-2">
-                        <img src="{{ enterpriseDescription[2] }}" class="w-100">
-                    </div>
-                    <div class="col-10">
-                        <h2>{{ enterpriseDescription[1] }}</h2>
-                        <p class="mb-0"><i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;&nbsp;{{ enterpriseDescription[3] }}</p>
-                        <p class="mb-0"><i class="fa-solid fa-globe profile-icon"></i>&nbsp;{{ enterpriseDescription[4] }}</p>
-                        <p class="mb-2"><i class="fa-solid fa-star profile-icon"
-                            style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5
-                        </p>
-                        <div class="row m-0 mt-2">
-                            <div class="col-3 ps-0">
-                                <button class="primary-button w-100" onclick="follow('{{ enterpriseDescription[0] }}')">Seguir</button>
-                            </div>
-                            <div class="col-3 ps-0">
-                                <button class="tertiary-button w-100" onclick="chat('{{ enterpriseDescription[0] }}')">
-                                    <i class="fa-solid fa-message icon-letter"></i>
-                                </button>
-                            </div>
+            <div class="row m-0 align-items-center">
+                <div class="col-2">
+                    <img src="{{ enterpriseDescription[2] }}" class="w-100">
+                </div>
+                <div class="col-10">
+                    <h2>{{ enterpriseDescription[1] }}</h2>
+                    <p class="mb-0"><i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;&nbsp;{{
+                        enterpriseDescription[3] }}</p>
+                    <p class="mb-0"><i class="fa-solid fa-globe profile-icon"></i>&nbsp;{{ enterpriseDescription[4] }}
+                    </p>
+                    <p class="mb-2"><i class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i>&nbsp;{{
+                        "%.2f"|format(average) }}/5
+                    </p>
+                    <div class="row m-0 mt-2">
+                        <div class="col-3 ps-0">
+                            <button class="primary-button w-100"
+                                onclick="follow('{{ enterpriseDescription[0] }}')">Seguir</button>
+                        </div>
+                        <div class="col-3 ps-0">
+                            <button class="tertiary-button w-100" onclick="chat('{{ enterpriseDescription[0] }}')">
+                                <i class="fa-solid fa-message icon-letter"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-                <div class="row m-0 mt-4">
-                    <!--Tab-->
-                    <div class="tab mb-3">
-                        <button class="tablinks active" onclick="openSection(event, 'about')">Acerca de</button>
-                        <button class="tablinks" onclick="openSection(event, 'posts')">Posts</button>
-                        <button class="tablinks" onclick="openSection(event, 'vacancies')">Vacantes</button>
-                        <button class="tablinks" onclick="openSection(event, 'reviews')">Reseñas</button>
-                    </div>
-                    <!--Content-->
-                    <div id="about" class="tabcontent" style="display: block;">
-                        <h3 class="mb-3">Acerca de</h3>
-                        <h5>Descripción de la empresa</h5>
-                        <p>
-                            {{ enterpriseDescription[5] }}
-                        </p>
-                        <h5>Cultura corporativa</h5>
-                        <p>
-                            {{ enterpriseDescription[6] }}
-                        </p>
-                    </div>
-                    <div id="posts" class="tabcontent">
-                        <div class="row m-0 mb-4 justify-content-between align-items-center">
-                            <div class="col-auto">
-                                <h3 class="mb-0">Posts</h3>
-                            </div>
-                            
+            <div class="row m-0 mt-4">
+                <!--Tab-->
+                <div class="tab mb-3">
+                    <button class="tablinks active" onclick="openSection(event, 'about')">Acerca de</button>
+                    <button class="tablinks" onclick="openSection(event, 'posts')">Posts</button>
+                    <button class="tablinks" onclick="openSection(event, 'vacancies')">Vacantes</button>
+                    <button class="tablinks" onclick="openSection(event, 'reviews')">Reseñas</button>
+                </div>
+                <!--Content-->
+                <div id="about" class="tabcontent" style="display: block;">
+                    <h3 class="mb-3">Acerca de</h3>
+                    <h5>Descripción de la empresa</h5>
+                    <p>
+                        {{ enterpriseDescription[5] }}
+                    </p>
+                    <h5>Cultura corporativa</h5>
+                    <p>
+                        {{ enterpriseDescription[6] }}
+                    </p>
+                </div>
+                <div id="posts" class="tabcontent">
+                    <div class="row m-0 mb-4 justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <h3 class="mb-0">Posts</h3>
                         </div>
-                        {% for post in posts %}
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="row m-0 mb-3">
-                                    {% if post[2] %}
-                                    <div class="col-6">
-                                        <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
-                                        <h5 class="card-title">{{ post[0] }}</h5>
-                                        <p class="card-text">{{ post[1] }}</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
-                                    </div>
-                                    {% else %}
+                    </div>
+                    {% for post in posts %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row m-0 mb-3">
+                                {% if post[2] %}
+                                <div class="col-6">
                                     <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
                                     <h5 class="card-title">{{ post[0] }}</h5>
                                     <p class="card-text">{{ post[1] }}</p>
-                                    {% endif %}
                                 </div>
-                                <div class="row m-0 justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp;{{ post[4] }} me gusta
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fa-solid fa-message profile-icon"></i>&nbsp;{{ post[5] }} comentarios
-                                    </div>
+                                <div class="col-6">
+                                    <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
                                 </div>
-                                <hr>
-                                <div class="row m-0">
-                                    <div class="col-4 border-end text-center">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
-                                        </button>
-                                    </div>
-                                    <div class="col-4 border-end">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-message"></i>&nbsp;Comentar
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
-                                        </button>
-                                    </div>
+                                {% else %}
+                                <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
+                                <h5 class="card-title">{{ post[0] }}</h5>
+                                <p class="card-text">{{ post[1] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="row m-0 justify-content-between">
+                                <div class="col-auto">
+                                    <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp;{{ post[4] }} me gusta
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa-solid fa-message profile-icon"></i>&nbsp;{{ post[5] }} comentarios
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row m-0">
+                                <div class="col-4 border-end text-center">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
+                                    </button>
+                                </div>
+                                <div class="col-4 border-end">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-message"></i>&nbsp;Comentar
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
-                    <div id="reviews" class="tabcontent">
-                        <div class="row m-0">
-                            <h3 class="mb-3">Reseñas</h3>
-                            <div class="col-4">
-                                <p class="mb-2">Calificación promedio: <strong><i class="fa-solid fa-star profile-icon"
-                                            style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5</strong>
-                                </p>
-                                <p class="mb-4"><small class="fst-italic">{{ totalRatings }} evaluaciones</small></p>
-                                <div class="row m-0 mb-3 align-items-center">
-                                    <div class="col-auto px-0">
-                                        5&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                aria-label="Warning example"
-                                                style="width: {{ rating5 / totalRatings*100 }}%"
-                                                aria-valuenow="{{ rating5 }}" aria-valuemin="0"
-                                                aria-valuemax="{{ totalRatings }}">
-                                            </div>
+                    {% endfor %}
+                </div>
+                <div id="reviews" class="tabcontent">
+                    <div class="row m-0">
+                        <h3 class="mb-3">Reseñas</h3>
+                        <div class="col-4">
+                            <p class="mb-2">Calificación promedio: <strong><i class="fa-solid fa-star profile-icon"
+                                        style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5</strong>
+                            </p>
+                            <p class="mb-4"><small class="fst-italic">{{ totalRatings }} evaluaciones</small></p>
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    5&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating5 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating5 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
                                         </div>
                                     </div>
-                                    <div class="col-auto px-0">
-                                        {{ rating5 }}
-                                    </div>
                                 </div>
-                                <div class="row m-0 mb-3 align-items-center">
-                                    <div class="col-auto px-0">
-                                        4&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                aria-label="Warning example"
-                                                style="width: {{ rating4 / totalRatings*100 }}%"
-                                                aria-valuenow="{{ rating4 }}" aria-valuemin="0"
-                                                aria-valuemax="{{ totalRatings }}">
-                                            </div>
+                                <div class="col-auto px-0">
+                                    {{ rating5 }}
+                                </div>
+                            </div>
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    4&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating4 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating4 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
                                         </div>
                                     </div>
-                                    <div class="col-auto px-0">
-                                        {{ rating4 }}
-                                    </div>
                                 </div>
-                                <div class="row m-0 mb-3 align-items-center">
-                                    <div class="col-auto px-0">
-                                        3&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
-                                                aria-label="Warning example"
-                                                style="width: {{ rating3 / totalRatings*100 }}%"
-                                                aria-valuenow="{{ rating3 }}" aria-valuemin="0"
-                                                aria-valuemax="{{ totalRatings }}">
-                                            </div>
+                                <div class="col-auto px-0">
+                                    {{ rating4 }}
+                                </div>
+                            </div>
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    3&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating3 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating3 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
                                         </div>
                                     </div>
-                                    <div class="col-auto px-0">
-                                        {{ rating3 }}
-                                    </div>
                                 </div>
-                                <div class="row m-0 mb-3 align-items-center">
-                                    <div class="col-auto px-0">
-                                        2&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar"
+                                <div class="col-auto px-0">
+                                    {{ rating3 }}
+                                </div>
+                            </div>
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    2&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
                                             aria-label="Warning example"
                                             style="width: {{ rating2 / totalRatings*100 }}%"
                                             aria-valuenow="{{ rating2 }}" aria-valuemin="0"
@@ -434,83 +436,84 @@
                                     {{ rating1 }}
                                 </div>
                             </div>
-
                             <div class="row m-0 mt-2">
                                 <div class="col-6 ps-0">
                                     <button class="primary-button w-100" onclick="eval()"> Escribir una reseña</button>
                                 </div>
+                            </div>
                         </div>
-
-                        </div>
-                            <div class="col-8">
-                                {% for rating in ratings %}
-                                <div class="row m-0 mb-4">
-                                    <div class="col-12">
-                                        <div class="card p-3">
-                                            <div class="row m-0 px-0 justify-content-between">
-                                                <div class="col-auto px-0">
-                                                    <h4>{{ rating[2] }}</h4> 
-                                                </div>
-                                                <div class="col-auto px-0">
-                                                    <button class="transparent-btn" id="report" onclick="openReport('{{ rating[0] }}')">
-                                                        <i class="fa-solid fa-flag"></i>
-                                                    </button>
-                                                </div>
+                        <div class="col-8">
+                            {% for rating in ratings %}
+                            <div class="row m-0 mb-4">
+                                <div class="col-12">
+                                    <div class="card p-3">
+                                        <div class="row m-0 px-0 justify-content-between">
+                                            <div class="col-auto px-0">
+                                                <h4>{{ rating[2] }}</h4>
                                             </div>
-                                            <p class="mb-0">{{ rating[3] }}</p>
-                                            <p class="text-end mb-0">{{ rating[1] }}&nbsp;<i class="fa-solid fa-star profile-icon"
-                                                style="color: #F2F0AB;"></i></p>
+                                            <div class="col-auto px-0">
+                                                <button class="transparent-btn" id="report"
+                                                    onclick="openReport('{{ rating[0] }}')">
+                                                    <i class="fa-solid fa-flag"></i>
+                                                </button>
+                                            </div>
                                         </div>
+                                        <p class="mb-0">{{ rating[3] }}</p>
+                                        <p class="text-end mb-0">{{ rating[1] }}&nbsp;<i
+                                                class="fa-solid fa-star profile-icon" style="color: #F2F0AB;"></i></p>
                                     </div>
                                 </div>
-                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="vacancies" class="tabcontent">
+                    <div class="row m-0">
+                        <h3 class="mb-3">Vacantes</h3>
+                        {% for job in saved %}
+                        <div class="col-12 card p-3 mb-4">
+                            <div class="row m-0 align-items-start">
+                                <h4>{{ job[1] }} | {{ job[2] }}</h4>
+                                <div class="col-1">
+                                    <img src="{{ job[6] }}" class="w-100">
+                                </div>
+                                <div class="col-11">
+                                    <p class="mb-0">{{ job[3] }}</p>
+                                    <p class="mb-0">{{ job[4] }}, {{ job[5] }}</p>
+                                </div>
+                            </div>
+                            <div class="row m-0 justify-content-end">
+                                <div class="col-2">
+                                    <button class="primary-button w-100"
+                                        onclick="apply('{{ job[0] }}')">Aplicar</button>
+                                </div>
+                                <div class="col-2">
+                                    <button class="secondary-button w-100"
+                                        onclick="openDetail('{{ job[0] }}')">Detalles</button>
+                                </div>
+                                <div class="col-2">
+                                    <button class="tertiary-button w-100 icon-letter" id="save">
+                                        <i class="fa-regular fa-bookmark icon-letter"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
 
-                    <div id="vacancies" class="tabcontent">
-                        <div class="row m-0">
-                            <h3 class="mb-3">Vacantes</h3>
-                            {% for job in saved %}
-                    <div class="col-12 card p-3 mb-4">
-                        <div class="row m-0 align-items-start">
-                            <h4>{{ job[1] }} | {{ job[2] }}</h4>
-                            <div class="col-1">
-                                <img src="{{ job[6] }}" class="w-100">
-                            </div>
-                            <div class="col-11">
-                                <p class="mb-0">{{ job[3] }}</p>
-                                <p class="mb-0">{{ job[4] }}, {{ job[5] }}</p>
-                            </div>
-                        </div>
-                        <div class="row m-0 justify-content-end">
-                            <div class="col-2">
-                                <button class="primary-button w-100" onclick="apply('{{ job[0] }}')">Aplicar</button>
-                            </div>
-                            <div class="col-2">
-                                <button class="secondary-button w-100"
-                                    onclick="openDetail('{{ job[0] }}')">Detalles</button>
-                            </div>
-                            <div class="col-2">
-                                <button class="tertiary-button w-100 icon-letter" id="save">
-                                    <i class="fa-regular fa-bookmark icon-letter"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    </div>
-
-                </div>  
+                </div>
+            </div>
         </div>
     </div>
 
     <footer class="text-center">
         First Chance
     </footer>
-    <script>
 
-function apply(id) {
+    <script>
+        function apply(id) {
             fetch("/get-job-description/" + id)
                 .then(response => response.json())
                 .then(data => {
@@ -553,7 +556,7 @@ function apply(id) {
         }
 
         document.getElementById("save").onclick = function () {
-                        save();
+            save();
         }
 
         function save(id) {
@@ -592,7 +595,7 @@ function apply(id) {
         function goNetwork() { window.location.href = "/solicitudes"; }
         function goChat() { window.location.href = "/chat"; }
         function goProfile() { window.location.href = "/perfil"; }
-        
+
     </script>
 </body>
 
