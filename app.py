@@ -291,3 +291,23 @@ def loadStudentDetail(id):
     education = [education for education in variablesEnterprise.studentEducation if education[0] == id]
     projects = [project for project in variablesEnterprise.studentProjects if project[0] == id]
     return render_template('/enterprise/detalle-estudiante.html', studentDescription=studentDescription, posts=posts, education=education, projects=projects)
+
+@app.route('/descripcion-empresa/<int:id>')
+def loadEnterpriseProfile(id):
+    enterpriseDescription= variables.enterpriseDescription[id-1]
+    posts = variables.enterprisePosts[id-1]
+    ratings = variables.enterpriseRatings[id-1]
+    saved = variables.vacancies[id-1]
+    rating1 = 10
+    rating2 = 15
+    rating3 = 15
+    rating4 = 210
+    rating5 = 150
+    totalRatings = rating1 + rating2 + rating3 + rating4 + rating5
+    average = ((1*rating1) + (2*rating2) + (3*rating3) +
+               (4*rating4) + (5*rating5)) / totalRatings
+    return render_template('/student/descripcion-empresa.html',saved=saved,enterpriseDescription=enterpriseDescription, posts=posts, totalRatings=totalRatings, average=average, ratings=ratings, 
+                           rating1=rating1, rating2=rating2, rating3=rating3, rating4=rating4, rating5=rating5)
+
+
+
