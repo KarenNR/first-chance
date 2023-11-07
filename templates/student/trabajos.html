@@ -268,6 +268,11 @@
                             <h4>Responsabilidades</h4>
                             <ol class="ms-2" id="job-responsibilities"></ol>
                         </div>
+                         <div class="row m-0">
+                            <div class="col-4">
+                                <button class="primary-button w-100" id="enterprise-profile">Ver perfil</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -310,6 +315,9 @@
                     document.getElementById("chat").onclick = function () {
                         chat(job[0]);
                     }
+                    document.getElementById("enterprise-profile").onclick = function () {
+                        profile(job[0]);
+                    }
                     document.getElementById("job-detail").textContent = job[10];
                     let jobResponsibilities = document.getElementById("job-responsibilities");
                     jobResponsibilities.innerHTML = "";
@@ -349,6 +357,9 @@
         function sendApplication(id) {
             var myModal = new bootstrap.Modal(document.getElementById("success-application-modal"));
             myModal.show();
+        }
+         function profile(id) {
+            window.location.href = "/descripcion-empresa/" + id;
         }
 
         // Redirections
