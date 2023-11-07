@@ -8,7 +8,7 @@ import openai
 app = Flask(__name__)
 socketio_rec = SocketIO(app, cors_allowed_origins="*")
 app.secret_key = 'f1rstch4nc3'
-openai.api_key = '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'
+openai.api_key = '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'
 
 # Context for ChatGPT
 messages = [ {"role": "system", "content": "You are a helpful assistant."} ]
