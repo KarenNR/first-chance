@@ -1,0 +1,599 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ enterpriseDescription[1] }}</title>
+
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <script src="https://kit.fontawesome.com/98c42d1474.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!--Apply modal-->
+    <div class="modal fade" tabindex="-1" id="apply-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Confirmar aplicación</h2>
+                            <p>¿Estás seguro de aplicar a la siguiente vacante?</p>
+                            <h5 id="modal-title"></h5>
+                            <div class="row m-0 justify-content-center">
+                                <div class="col-7">
+                                    <div class="row m-0">
+                                        <div class="col-5">
+                                            <img src="" id="modal-img" class="w-100">
+                                        </div>
+                                        <div class="col-7">
+                                            <p class="mb-0 text-start" id="modal-txt1"></p>
+                                            <p class="mb-0 text-start" id="modal-txt2"></p>
+                                            <p class="mb-0 text-start" id="modal-txt3"></p>
+                                            <p class="mb-0 text-start" id="modal-txt4"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3">Se enviarán los datos de contacto de tu perfil y tu Currículum Vitae.</p>
+                            <div class="row m-0 justify-content-center">
+                                <div class="col-6">
+                                    <div class="row m-0">
+                                        <div class="col-6">
+                                            <button type="button" data-bs-dismiss="modal" id="modal-applybtn"
+                                                class="primary-button w-100">Aplicar</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" data-bs-dismiss="modal"
+                                                class="tertiary-button w-100">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Successful application modal-->
+    <div class="modal fade" tabindex="-1" id="success-application-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-10 text-center">
+                            <h2 class="mb-4">Aplicación enviada exitosamente</h2>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!--Saved modal-->
+     <div class="modal fade" tabindex="-1" id="saved-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Oportunidad guardada exitosamente</h2>
+                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.</p>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!--Evaluate modal-->
+     <div class="modal fade" tabindex="-1" id="evaluate-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Escribir una reseña</h2>
+                        </div>
+                        <div class="col-12">
+                                <div class="row m-0">
+                                    <div class="rating">
+                                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                      </div>
+                                </div>
+                                <br>
+                                <div class="row m-0">
+                                        <input type="text" placeholder="Asunto" class="w-100" name="title">
+                                </div>
+
+                                <br>
+                                
+                                <div class="row m-0">
+                                        <input type="text" placeholder="Descripción" class="w-100" name="description" style="height: 80px;">                                   
+                                </div>
+
+                                <br>
+                            </div>
+                                                        
+                            <div class="row m-0 mt-2 justify-content-end">
+                                <div class="col-4">
+                                    <button data-bs-dismiss="modal" class="primary-button w-100">Enviar</button>
+                                </div>
+                                <div class="col-4">
+                                    <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!--Followed modal-->
+     <div class="modal fade" tabindex="-1" id="followed-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Seguiste a {{enterpriseDescription[1]}}</h2>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Report modal-->
+    <div class="modal fade" tabindex="-1" id="report-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body container p-5">
+                    <h3>Reportar reseña</h3>
+                    <p>¿Desea reportar esta reseña? Se enviará a los administradores para su revisión.</p>
+                    <div class="row m-0 mt-2 justify-content-end">
+                        <div class="col-4">
+                            <button data-bs-dismiss="modal" class="primary-button w-100">Reportar</button>
+                        </div>
+                        <div class="col-4">
+                            <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Image modal-->
+    <div class="modal fade" tabindex="-1" id="image-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container">
+                    <img id="big-img" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="container-fluid px-0 mb-3">
+        <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
+            <div class="col-auto">
+                <h3><span class="primary">First</span> Chance</h3>
+            </div>
+            <div class="col-auto">
+                <nav>
+                    <button class="icon-button" onclick="goHome()"><i class="fas fa-home"></i></button>
+                    <button class="icon-button" onclick="goJobs()"><i class="fas fa-suitcase"></i></button>
+                    <button class="icon-button" onclick="goNetwork()"><i class="fas fa-user-friends"></i></button>
+                    <button class="icon-button" onclick="goChat()"><i class="fas fa-comment-alt"></i></button>
+                    <button class="icon-button" onclick="goProfile()"><i class="fas fa-user-circle"></i></button>
+                </nav>
+            </div>
+        </div>
+        <div id="subheader-2" class="row m-0 justify-content-end">
+            <div class="col-4">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <button class="input-group-text search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container px-0">
+        <div class="row m-0 mt-4">
+            <!--Content-->
+
+                <div class="row m-0 align-items-center">
+                    <div class="col-2">
+                        <img src="{{ enterpriseDescription[2] }}" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <h2>{{ enterpriseDescription[1] }}</h2>
+                        <p class="mb-0"><i class="fa-solid fa-location-dot profile-icon"></i>&nbsp;&nbsp;{{ enterpriseDescription[3] }}</p>
+                        <p class="mb-0"><i class="fa-solid fa-globe profile-icon"></i>&nbsp;{{ enterpriseDescription[4] }}</p>
+                        <p class="mb-2"><i class="fa-solid fa-star profile-icon"
+                            style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5
+                        </p>
+                        <div class="row m-0 mt-2">
+                            <div class="col-3 ps-0">
+                                <button class="primary-button w-100" onclick="follow('{{ enterpriseDescription[0] }}')">Seguir</button>
+                            </div>
+                            <div class="col-3 ps-0">
+                                <button class="tertiary-button w-100" onclick="chat('{{ enterpriseDescription[0] }}')">
+                                    <i class="fa-solid fa-message icon-letter"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row m-0 mt-4">
+                    <!--Tab-->
+                    <div class="tab mb-3">
+                        <button class="tablinks active" onclick="openSection(event, 'about')">Acerca de</button>
+                        <button class="tablinks" onclick="openSection(event, 'posts')">Posts</button>
+                        <button class="tablinks" onclick="openSection(event, 'vacancies')">Vacantes</button>
+                        <button class="tablinks" onclick="openSection(event, 'reviews')">Reseñas</button>
+                    </div>
+                    <!--Content-->
+                    <div id="about" class="tabcontent" style="display: block;">
+                        <h3 class="mb-3">Acerca de</h3>
+                        <h5>Descripción de la empresa</h5>
+                        <p>
+                            {{ enterpriseDescription[5] }}
+                        </p>
+                        <h5>Cultura corporativa</h5>
+                        <p>
+                            {{ enterpriseDescription[6] }}
+                        </p>
+                    </div>
+                    <div id="posts" class="tabcontent">
+                        <div class="row m-0 mb-4 justify-content-between align-items-center">
+                            <div class="col-auto">
+                                <h3 class="mb-0">Posts</h3>
+                            </div>
+                            
+                        </div>
+                        {% for post in posts %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row m-0 mb-3">
+                                    {% if post[2] %}
+                                    <div class="col-6">
+                                        <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
+                                        <h5 class="card-title">{{ post[0] }}</h5>
+                                        <p class="card-text">{{ post[1] }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
+                                    </div>
+                                    {% else %}
+                                    <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
+                                    <h5 class="card-title">{{ post[0] }}</h5>
+                                    <p class="card-text">{{ post[1] }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="row m-0 justify-content-between">
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp;{{ post[4] }} me gusta
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa-solid fa-message profile-icon"></i>&nbsp;{{ post[5] }} comentarios
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row m-0">
+                                    <div class="col-4 border-end text-center">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
+                                        </button>
+                                    </div>
+                                    <div class="col-4 border-end">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-message"></i>&nbsp;Comentar
+                                        </button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="w-100 transparent-btn">
+                                            <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="reviews" class="tabcontent">
+                        <div class="row m-0">
+                            <h3 class="mb-3">Reseñas</h3>
+                            <div class="col-4">
+                                <p class="mb-2">Calificación promedio: <strong><i class="fa-solid fa-star profile-icon"
+                                            style="color: #F2F0AB;"></i>&nbsp;{{ "%.2f"|format(average) }}/5</strong>
+                                </p>
+                                <p class="mb-4"><small class="fst-italic">{{ totalRatings }} evaluaciones</small></p>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        5&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating5 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating5 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating5 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        4&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating4 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating4 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating4 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        3&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                aria-label="Warning example"
+                                                style="width: {{ rating3 / totalRatings*100 }}%"
+                                                aria-valuenow="{{ rating3 }}" aria-valuemin="0"
+                                                aria-valuemax="{{ totalRatings }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-0">
+                                        {{ rating3 }}
+                                    </div>
+                                </div>
+                                <div class="row m-0 mb-3 align-items-center">
+                                    <div class="col-auto px-0">
+                                        2&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating2 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating2 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-0">
+                                    {{ rating2 }}
+                                </div>
+                            </div>
+
+                            <div class="row m-0 mb-3 align-items-center">
+                                <div class="col-auto px-0">
+                                    1&nbsp;<i class="fa-solid fa-star profile-icon" style="color: #FFC107;"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                            aria-label="Warning example"
+                                            style="width: {{ rating1 / totalRatings*100 }}%"
+                                            aria-valuenow="{{ rating1 }}" aria-valuemin="0"
+                                            aria-valuemax="{{ totalRatings }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto px-0">
+                                    {{ rating1 }}
+                                </div>
+                            </div>
+
+                            <div class="row m-0 mt-2">
+                                <div class="col-6 ps-0">
+                                    <button class="primary-button w-100" onclick="eval()"> Escribir una reseña</button>
+                                </div>
+                        </div>
+
+                        </div>
+                            <div class="col-8">
+                                {% for rating in ratings %}
+                                <div class="row m-0 mb-4">
+                                    <div class="col-12">
+                                        <div class="card p-3">
+                                            <div class="row m-0 px-0 justify-content-between">
+                                                <div class="col-auto px-0">
+                                                    <h4>{{ rating[2] }}</h4> 
+                                                </div>
+                                                <div class="col-auto px-0">
+                                                    <button class="transparent-btn" id="report" onclick="openReport('{{ rating[0] }}')">
+                                                        <i class="fa-solid fa-flag"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <p class="mb-0">{{ rating[3] }}</p>
+                                            <p class="text-end mb-0">{{ rating[1] }}&nbsp;<i class="fa-solid fa-star profile-icon"
+                                                style="color: #F2F0AB;"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vacancies" class="tabcontent">
+                        <div class="row m-0">
+                            <h3 class="mb-3">Vacantes</h3>
+                            {% for job in saved %}
+                    <div class="col-12 card p-3 mb-4">
+                        <div class="row m-0 align-items-start">
+                            <h4>{{ job[1] }} | {{ job[2] }}</h4>
+                            <div class="col-1">
+                                <img src="{{ job[6] }}" class="w-100">
+                            </div>
+                            <div class="col-11">
+                                <p class="mb-0">{{ job[3] }}</p>
+                                <p class="mb-0">{{ job[4] }}, {{ job[5] }}</p>
+                            </div>
+                        </div>
+                        <div class="row m-0 justify-content-end">
+                            <div class="col-2">
+                                <button class="primary-button w-100" onclick="apply('{{ job[0] }}')">Aplicar</button>
+                            </div>
+                            <div class="col-2">
+                                <button class="secondary-button w-100"
+                                    onclick="openDetail('{{ job[0] }}')">Detalles</button>
+                            </div>
+                            <div class="col-2">
+                                <button class="tertiary-button w-100 icon-letter" id="save">
+                                    <i class="fa-regular fa-bookmark icon-letter"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+                </div>  
+        </div>
+    </div>
+
+    <footer class="text-center">
+        First Chance
+    </footer>
+    <script>
+
+function apply(id) {
+            fetch("/get-job-description/" + id)
+                .then(response => response.json())
+                .then(data => {
+                    let job = data.message;
+                    document.getElementById("modal-title").textContent = job[1];
+                    document.getElementById("modal-img").src = job[2];
+                    document.getElementById("modal-txt1").textContent = job[3];
+                    document.getElementById("modal-txt2").textContent = job[5];
+                    document.getElementById("modal-txt3").textContent = job[6];
+                    document.getElementById("modal-txt4").textContent = job[7];
+                    document.getElementById("modal-applybtn").onclick = function () {
+                        sendApplication(job[0]);
+                    }
+                });
+            var myModal = new bootstrap.Modal(document.getElementById("apply-modal"));
+            myModal.show();
+        }
+
+        function sendApplication(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("success-application-modal"));
+            myModal.show();
+        }
+
+        function openDetail(id) {
+            window.location.href = "/detalle/" + id;
+        }
+
+        function openSection(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("save").onclick = function () {
+                        save();
+        }
+
+        function save(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("saved-modal"));
+            myModal.show();
+        }
+
+        function openReport(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("report-modal"));
+            myModal.show();
+        }
+
+        function openImg() {
+            document.getElementById("big-img").src = document.getElementById("modal-image").src;
+            var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
+            myModal.show();
+        }
+
+        function follow(id) {
+            var myModal = new bootstrap.Modal(document.getElementById("followed-modal"));
+            myModal.show();
+        }
+
+        function chat(id) {
+            window.location.href = "/chat";
+        }
+
+        function eval() {
+            var myModal = new bootstrap.Modal(document.getElementById("evaluate-modal"));
+            myModal.show();
+        }
+
+        // Redirections
+        function goHome() { window.location.href = "/"; }
+        function goJobs() { window.location.href = "/trabajos"; }
+        function goNetwork() { window.location.href = "/solicitudes"; }
+        function goChat() { window.location.href = "/chat"; }
+        function goProfile() { window.location.href = "/perfil"; }
+        
+    </script>
+</body>
+
+</html>
