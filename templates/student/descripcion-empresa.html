@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
     <!--Apply modal-->
     <div class="modal fade" tabindex="-1" id="apply-modal" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -166,26 +165,6 @@
                         <div class="col-12 text-center">
                             <h2 class="mb-4">Seguiste a {{enterpriseDescription[1]}}</h2>
                             <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Report modal-->
-    <div class="modal fade" tabindex="-1" id="report-modal" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body container p-5">
-                    <h3>Reportar reseña</h3>
-                    <p>¿Desea reportar esta reseña? Se enviará a los administradores para su revisión.</p>
-                    <div class="row m-0 mt-2 justify-content-end">
-                        <div class="col-4">
-                            <button data-bs-dismiss="modal" class="primary-button w-100">Reportar</button>
-                        </div>
-                        <div class="col-4">
-                            <button data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
                         </div>
                     </div>
                 </div>
@@ -451,12 +430,6 @@
                                             <div class="col-auto px-0">
                                                 <h4>{{ rating[2] }}</h4>
                                             </div>
-                                            <div class="col-auto px-0">
-                                                <button class="transparent-btn" id="report"
-                                                    onclick="openReport('{{ rating[0] }}')">
-                                                    <i class="fa-solid fa-flag"></i>
-                                                </button>
-                                            </div>
                                         </div>
                                         <p class="mb-0">{{ rating[3] }}</p>
                                         <p class="text-end mb-0">{{ rating[1] }}&nbsp;<i
@@ -564,11 +537,6 @@
             myModal.show();
         }
 
-        function openReport(id) {
-            var myModal = new bootstrap.Modal(document.getElementById("report-modal"));
-            myModal.show();
-        }
-
         function openImg() {
             document.getElementById("big-img").src = document.getElementById("modal-image").src;
             var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
@@ -595,7 +563,6 @@
         function goNetwork() { window.location.href = "/solicitudes"; }
         function goChat() { window.location.href = "/chat"; }
         function goProfile() { window.location.href = "/perfil"; }
-
     </script>
 </body>
 
