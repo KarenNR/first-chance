@@ -177,7 +177,7 @@
                                         <p class="card-text">{{ post[1] }}</p>
                                     </div>
                                     <div class="col-6">
-                                        <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg()">
+                                        <img src="{{ post[2] }}" class="w-100" id="modal-image" onclick="openImg('{{ post[2] }}')">
                                     </div>
                                     {% else %}
                                     <p class="text-end"><small class="fst-italic">{{ post[3] }}</small></p>
@@ -373,8 +373,8 @@
             myModal.show();
         }
 
-        function openImg() {
-            document.getElementById("big-img").src = document.getElementById("modal-image").src;
+        function openImg(imgSrc) {
+            document.getElementById("big-img").src = imgSrc;
             var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
             myModal.show();
         }

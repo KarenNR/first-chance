@@ -149,7 +149,7 @@
                                     <p class="card-text">{{ post[2] }}</p>
                                 </div>
                                 <div class="col-6">
-                                    <img src="{{ post[3] }}" class="w-100" id="modal-image" onclick="openImg()">
+                                    <img src="{{ post[3] }}" class="w-100" id="modal-image" onclick="openImg('{{ post[3] }}')">
                                 </div>
                                 {% else %}
                                 <p class="text-end"><small class="fst-italic">{{ post[4] }}</small></p>
@@ -253,8 +253,8 @@
             window.location.href = "/enterprise/chat";
         }
 
-        function openImg() {
-            document.getElementById("big-img").src = document.getElementById("modal-image").src;
+        function openImg(imgSrc) {
+            document.getElementById("big-img").src = imgSrc;
             var myModal = new bootstrap.Modal(document.getElementById("image-modal"));
             myModal.show();
         }
