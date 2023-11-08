@@ -276,3 +276,11 @@ recentSearches = ("Desarrollo Web", "Aplicaciones Móviles", "Ciberseguridad")
 studentMessages = ("Hola", "Gracias")
 
 enterpriseMessages = ("hola mi nombre es maria fernanda vazquez", "Hola")
+
+users = [
+    ('mafer', '333', 'student'),
+    ('karen', '333', 'student'),
+    ('admin1', '123', 'company'),
+    ('admin2', '321', 'company')
+]
+

@@ -148,6 +148,11 @@ textarea {
     padding: 5px;
 }
 
+.card-header {
+    background-color: #3942B7 !important;
+    color: white !important;
+}
+
 /* IMAGES */
 
 #modal-image {
@@ -362,6 +367,12 @@ textarea {
 
 .spinner-container {
     z-index: 10000;
+}
+
+.container {
+    padding-top: 10%;
+    align-items: center;
+    justify-content: center;
 }
 
 

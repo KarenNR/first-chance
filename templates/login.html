@@ -18,16 +18,41 @@
 </head>
 
 <body>
-    <div class="container-fluid px-0 mb-3" style="background-color:blue;">
-        <h1>Hola como estas</h1>
-        
-        <button onclick="goIndex()">Iniciar sesión</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Iniciar sesión</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/login" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" style="background-color:#37E4AE; border:#37E4AE; color:white">Acceder</button>
+                        </form>
+
+                        {% if message %}
+                            <p>{{ message }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         function goIndex() {
+            console.log("Button clicked");
             window.location.href = "/";
         }
+        
     </script>
 </body>
 

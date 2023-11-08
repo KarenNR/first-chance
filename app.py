@@ -57,7 +57,24 @@ def loadApplications():
     applications = variables.applications
     return render_template('/student/aplicaciones.html', applications=applications)
 
+@app.route('/login',methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
 
+    for user in users:
+        if user[0] == username and user[1] == password:
+            role = user[2]
+            if role == 'student':
+                return render_template('student/index.html')
+            elif role == 'company':
+                return render_template('/enterprise/index.html')
+
+    message = "Usuario o contraseña incorrecta"
+    return render_template('login.html', message=message)
+
+    
+users = variables.users
 @app.route('/get-application-info/<int:id>')
 def getApplicationInfo(id):
     data = variables.applicationInfo
