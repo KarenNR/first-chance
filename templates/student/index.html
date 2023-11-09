@@ -48,10 +48,12 @@
                                 <div class="col-6">
                                     <div class="row m-0">
                                         <div class="col-6">
-                                            <button type="button" data-bs-dismiss="modal" id="modal-applybtn" class="primary-button w-100">Aplicar</button>
+                                            <button type="button" data-bs-dismiss="modal" id="modal-applybtn"
+                                                class="primary-button w-100">Aplicar</button>
                                         </div>
                                         <div class="col-6">
-                                            <button type="button" data-bs-dismiss="modal" class="tertiary-button w-100">Cancelar</button>
+                                            <button type="button" data-bs-dismiss="modal"
+                                                class="tertiary-button w-100">Cancelar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +95,8 @@
                     <div class="row m-0 justify-content-center">
                         <div class="col-12 text-center">
                             <h2 class="mb-4">Oportunidad guardada exitosamente</h2>
-                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.</p>
+                            <p>Consúltala cuando quieras en la sección de <a href="/trabajos/guardados">Guardados</a>.
+                            </p>
                             <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
                         </div>
                     </div>
@@ -128,93 +131,92 @@
     </header>
 
     <div class="container px-0">
-            <!--Content-->
-            <div class="col">
-                <div class="row">
-                    <div class="col-2">
-                      
-                    </div>
-                    <div class="col">
-                        <h2>Estos empleos te pueden interesar</h2>
-                        {% for job in jobOffers %}
-                        <div class="card p-3 mb-2">
-                            <div class="row m-0 align-items-center">
-                                <button class="stretched-link card-title transparent-btn text-start"
-                                    onclick="showDetail('{{ job[0] }}')">
-                                    <h4>{{ job[1] }}</h4>
-                                </button>
-                                <div class="col-3">
-                                    <img src="{{ job[6] }}" class="w-100">
-                                </div>
-                                <div class="col-9">
-                                    <p class="mb-0">{{ job[2] }}</p>
-                                    <p class="mb-0">{{ job[3] }}</p>
-                                    <p class="mb-0">{{ job[4] }}</p>
-                                    <p class="mb-0">{{ job[5] }}</p>
-                                </div>
+        <!--Content-->
+        <div class="col">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col">
+                    <h2>Estos empleos te pueden interesar</h2>
+                    {% for job in jobOffers %}
+                    <div class="card p-3 mb-2">
+                        <div class="row m-0 align-items-center">
+                            <button class="stretched-link card-title transparent-btn text-start"
+                                onclick="showDetail('{{ job[0] }}')">
+                                <h4>{{ job[1] }}</h4>
+                            </button>
+                            <div class="col-2">
+                                <img src="{{ job[6] }}" class="w-100">
+                            </div>
+                            <div class="col-10">
+                                <p class="mb-0">{{ job[2] }}</p>
+                                <p class="mb-0">{{ job[3] }}</p>
+                                <p class="mb-0">{{ job[4] }}</p>
+                                <p class="mb-0">{{ job[5] }}</p>
                             </div>
                         </div>
-                        {% endfor %}
-                        <br>
-                        <br>
-                        <h2>Sugerencias para ti </h2>
-                        {% for student in feed %}
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="d-flex flex-row align-items-center feed-text px-6 ml-2">
-                                    <img class="rounded-circle" src={{student[1]}} width="60">
-                                    <div class="m-2">
-                                        
-                                    </div>
-                                    <div class="d-flex flex-column flex-wrap ml-2">
-                                        <h5 class="font-weight-bold"> {{student[0]}}</h5><span class="text-black-50 time">{{student[4]}}</span>
-                                    </div>
-                                </div>
-                                <br>
-                                <p>{{student[2]}}</p>
-                                <div class="row m-0 justify-content-between">
-                                    <img src={{student[3]}}  class="w-100">
-                                    <div class="col-auto">
-                                        <h5 class="card-title"></h5>
-                                    </div>
-                                </div>
-                                <div class="row m-0 justify-content-between">
-                                    <div class="col-auto">
-                                        <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp; {{student[5]}} me gusta
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fa-solid fa-message profile-icon"></i>&nbsp; {{student[6]}} comentarios
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row m-0">
-                                    <div class="col-4 border-end text-center">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
-                                        </button>
-                                    </div>
-                                    <div class="col-4 border-end">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-message"></i>&nbsp;Comentar
-                                        </button>
-                                    </div>
-                                    <div class="col-4">
-                                        <button class="w-100 transparent-btn">
-                                            <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        {% endfor %}
                     </div>
-                    <div class="col-2">
-                      
-                    </div>
-                  </div>
+                    {% endfor %}
+                    <br>
+                    <br>
+                    <h2>Sugerencias para ti </h2>
+                    {% for student in feed %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex flex-row align-items-center feed-text px-6 ml-2">
+                                <img class="rounded-circle" src={{student[1]}} width="60">
+                                <div class="m-2">
 
+                                </div>
+                                <div class="d-flex flex-column flex-wrap ml-2">
+                                    <h5 class="font-weight-bold"> {{student[0]}}</h5><span
+                                        class="text-black-50 time">{{student[4]}}</span>
+                                </div>
+                            </div>
+                            <br>
+                            <p>{{student[2]}}</p>
+                            <div class="row m-0 justify-content-between">
+                                <img src={{student[3]}} class="w-100">
+                                <div class="col-auto">
+                                    <h5 class="card-title"></h5>
+                                </div>
+                            </div>
+                            <div class="row m-0 justify-content-between">
+                                <div class="col-auto">
+                                    <i class="fa-solid fa-thumbs-up profile-icon"></i>&nbsp; {{student[5]}} me gusta
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa-solid fa-message profile-icon"></i>&nbsp; {{student[6]}} comentarios
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row m-0">
+                                <div class="col-4 border-end text-center">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-thumbs-up"></i>&nbsp;Me gusta
+                                    </button>
+                                </div>
+                                <div class="col-4 border-end">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-message"></i>&nbsp;Comentar
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="w-100 transparent-btn">
+                                        <i class="fa-regular fa-share-from-square"></i>&nbsp;Compartir
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-2">
+
+                </div>
             </div>
+
+        </div>
     </div>
 
     <footer class="text-center">
@@ -260,7 +262,7 @@
                         li.innerHTML = "<strong>" + responsibility[0] + ":</strong> " + responsibility[1];
                         jobResponsibilities.appendChild(li);
                     });
-                    
+
                     // Set modal information
                     document.getElementById("modal-title").textContent = job[1];
                     document.getElementById("modal-img").src = job[2];
