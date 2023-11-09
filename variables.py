@@ -2,7 +2,8 @@
 jobOffers = ((1, "Practicante Diseño UI/UX", "Armazen", "Apodaca, Nuevo León", "Remoto", "Medio tiempo", "/static/images/jobOffer1.png"),
              (2, "Practicante Desarrollo de Software", "Neorem", "Monterrey, Nuevo León",
               "Remoto", "Tiempo completo", "/static/images/jobOffer2.png"),
-             (3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png"))
+             (3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png")
+             )
 
 # Get job description - getJobDescription
 jobDescription = (
@@ -326,6 +327,34 @@ interests = ("Frontend", "Apps Móviles")
 
 # Get recent searches - loadRecentSearches
 recentSearches = ("Desarrollo Web", "Aplicaciones Móviles", "Ciberseguridad")
+
+studentMessages = ("Hola", "Gracias")
+
+enterpriseMessages = ("hola mi nombre es maria fernanda vazquez", "Hola")
+
+users = [
+    ('mafer', '333', 'student'),
+    ('karen', '333', 'student'),
+    ('admin1', '123', 'company'),
+    ('admin2', '321', 'company')
+]
+
+friendRequest = (
+    (3, "Efrain Gutiérrez", "Ingeniería en Tecnologías Computacionales", "Universidad de Monterrey", 7, "/static/images/student-profile4.png"),
+    (4, "Isela Matrinez", "Contaduría y Finanzas", "Universidad Autónoma", 6, "/static/images/student-profile5.png"),
+    (5, "Monica Mendez", "Ciberseguridad", "Universidad de la Montaña", 5, "/static/images/student-profile6.png"),
+)
+
+feed = (("Efrain Gutiérrez", "/static/images/student-profile4.png", '''Presente en curso: "Intelogencia Artificial."''',
+        "/static/images/post2.jpg", 
+        "Hace 1 hora",20, 5),
+    ("Isela Matrinez", "/static/images/student-profile5.png", '''Comenzando nuevo trabajo!!''',
+            "/static/images/post3.jpg", 
+            "Justo ahora", 15, 3)
+
+        
+)
+
 
 # Get enterprise descriptions - loadEnterpriseProfile
 enterpriseDescription=(

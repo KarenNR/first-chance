@@ -153,61 +153,6 @@ textarea {
     color: white !important;
 }
 
-/* IMAGES */
-
-#modal-image {
-    cursor: pointer;
-}
-
-.image-container {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.editable-img {
-    transition: transform 0.3s;
-}
-
-.dark-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.3s;
-    border-radius: 5px;
-}
-
-.image-container:hover .dark-overlay {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.edit-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.image-container:hover .edit-icon {
-    opacity: 1;
-    cursor: pointer;
-}
-
-#profile-image {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
 /* LINKS */
 
 .side-link {
@@ -279,7 +224,7 @@ textarea {
     font-size: var(--icon--size);
 }
 
-/* BOT - CHAT */
+/* BOT */
 
 #chancebot {
     position: fixed;
@@ -297,46 +242,9 @@ textarea {
     font-size: 30px;
 }
 
-.chat-container {
-    border: 1px solid #C5C5C5;
-    border-radius: 10px;
-}
-
-.chat-logo {
-    background-color: #3942B7;
-    border-radius: 10px;
-}
-
-.chat-logo i {
-    color: #FFFFFF;
-    font-size: 40px;
-}
-
-.chat-send {
-    height: 50px;
-    font-size: 20px;
-}
-
-.chat-container hr {
-    margin: 1em -16px;
-}
-
-.left-chat {
-    background-color: #48C2D3;
-    color: #FFFFFF;
-    border-radius: 10px;
-}
-
-.right-chat {
-    background-color: #37E4AE;
-    color: #FFFFFF;
-    border-radius: 10px;
-}
-
 /* JOBS STYLES */
 
-#job-description,
-#student-description {
+#job-description {
     height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -370,12 +278,10 @@ textarea {
 }
 
 .container {
-    padding-top: 10%;
+    padding-top: 20%;
     align-items: center;
     justify-content: center;
 }
-
-
 /* CHIPS */
 
 .chip {
@@ -398,45 +304,3 @@ textarea {
     font-size: 20px;
     cursor: pointer;
 }
-
-/* LOADING */
-
-#loading {
-    display: none;
-}
-
-/*WRITE OPINION*/
-.rating {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-  }
-  
-  .rating > input{ display:none;}
-  
-  .rating > label {
-    position: relative;
-      width: 1em;
-      font-size: 3vw; 
-      color: #FFD600;
-      cursor: pointer;
-  }
-  .rating > label::before{ 
-    content: "\2605";
-    position: absolute;
-    opacity: 0;
-  }
-  .rating > label:hover:before,
-  .rating > label:hover ~ label:before {
-    opacity: 1 !important;
-
-  }
-  
-  .rating > input:checked ~ label:before{
-    opacity:1;
-  }
-  
-  .rating:hover > input:checked ~ label:before{ opacity: 0.4; }
-  
-
-  
