@@ -3,6 +3,10 @@ body {
     min-height: 100vh;
 }
 
+#login {
+    background-color: #b5baff;
+}
+
 /* HEADERS AND TEXT */
 
 #subheader-1 {

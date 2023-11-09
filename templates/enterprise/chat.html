@@ -27,7 +27,6 @@
                 <nav>
                     <button class="icon-button" onclick="goHome()"><i class="fas fa-home"></i></button>
                     <button class="icon-button" onclick="goJobs()"><i class="fas fa-suitcase"></i></button>
-                    <button class="icon-button" onclick="goNetwork()"><i class="fas fa-user-friends"></i></button>
                     <button class="icon-button" onclick="goChat()"><i class="fas fa-comment-alt"></i></button>
                     <button class="icon-button" onclick="goProfile()"><i class="fas fa-user-circle"></i></button>
                 </nav>
@@ -151,17 +150,11 @@
             messageIndex++;
         }
         
-        
-        
-
-
-        
         // Redirections
-        function goHome() { window.location.href = "/"; }
-        function goJobs() { window.location.href = "/trabajos"; }
-        function goNetwork() { window.location.href = "/solicitudes"; }
-        function goChat() { window.location.href = "/chat"; }
-        function goProfile() { window.location.href = "/perfil"; }
+        function goHome() { window.location.href = "/enterprise/"; }
+        function goJobs() { window.location.href = "/enterprise/trabajos"; }
+        function goChat() { window.location.href = "/enterprise/chat"; }
+        function goProfile() { window.location.href = "/enterprise/perfil"; }
     </script>
 </body>
 

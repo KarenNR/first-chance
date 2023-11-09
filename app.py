@@ -32,11 +32,13 @@ def chat(message):
 def loadLogin():
     return render_template('login.html')
 
+
 @app.route('/login',methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
 
+    users = variables.users
     for user in users:
         if user[0] == username and user[1] == password:
             role = user[2]
@@ -47,6 +49,7 @@ def login():
 
     message = "Usuario o contraseña incorrecta"
     return render_template('login.html', message=message)
+
 
 @app.route('/')
 def loadIndex():
@@ -68,15 +71,13 @@ def getJobDescription(id):
         if item[0] == id:
             return jsonify({"message": item})
 
+
 @app.route('/trabajos/aplicaciones')
 def loadApplications():
     applications = variables.applications
     return render_template('/student/aplicaciones.html', applications=applications)
 
 
-
-    
-users = variables.users
 @app.route('/get-application-info/<int:id>')
 def getApplicationInfo(id):
     data = variables.applicationInfo
@@ -115,7 +116,6 @@ def loadChat():
     enterpriseMessages = ("Buenas tardes, gracias por contactarnos, ¿ya has enviado tu CV?", "Perfecto, entonces está en revisión, quedamos al pendiente.")
     jobOffers = variables.jobOffers
     return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages, jobOffers=jobOffers)
-
 
 
 @app.route('/detalle/<int:id>')
