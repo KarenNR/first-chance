@@ -252,7 +252,7 @@
                         save(job[0]);
                     }
                     document.getElementById("chat").onclick = function () {
-                        chat(job[0]);
+                        chat(job[0], job[3]);
                     }
                     document.getElementById("job-detail").textContent = job[10];
                     let jobResponsibilities = document.getElementById("job-responsibilities");
@@ -286,8 +286,8 @@
             myModal.show();
         }
 
-        function chat(id) {
-            window.location.href = "/chat";
+        function chat(id, name) {
+            window.location.href = "/chat?id=" + id + "&name=" + name;
         }
 
         function sendApplication(id) {
@@ -299,7 +299,7 @@
         function goHome() { window.location.href = "/"; }
         function goJobs() { window.location.href = "/trabajos"; }
         function goNetwork() { window.location.href = "/solicitudes"; }
-        function goChat() { window.location.href = "/chat"; }
+        function goChat() { window.location.href = "/chat-index"; }
         function goProfile() { window.location.href = "/perfil"; }
     </script>
 </body>

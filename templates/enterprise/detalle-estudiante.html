@@ -104,7 +104,7 @@
                             </button>
                         </div>
                         <div class="col-3 ps-0">
-                            <button class="tertiary-button w-100" onclick="chat('{{ studentDescription[0] }}')">
+                            <button class="tertiary-button w-100" onclick="chat('{{ studentDescription[0] }}', '{{ studentDescription[1] }}')">
                                 <i class="fa-solid fa-message icon-letter"></i>
                             </button>
                         </div>
@@ -249,8 +249,8 @@
             myModal.show();
         }
 
-        function chat(id) {
-            window.location.href = "/enterprise/chat";
+        function chat(id, name) {
+            window.location.href = "/enterprise/chat?id=" + id + "&name=" + name;
         }
 
         function openImg(imgSrc) {
@@ -262,7 +262,7 @@
         // Redirections
         function goHome() { window.location.href = "/enterprise/"; }
         function goJobs() { window.location.href = "/enterprise/trabajos"; }
-        function goChat() { window.location.href = "/enterprise/chat"; }
+        function goChat() { window.location.href = "/enterprise/chat-index"; }
         function goProfile() { window.location.href = "/enterprise/perfil"; }
     </script>
 </body>

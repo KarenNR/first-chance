@@ -479,3 +479,9 @@ vacancies = (
           "Presencial", "Medio tiempo", "/static/images/jobOffer2.png")),
          ((3, "Practicante de Ciberseguridad", "Cisce", "Escobedo, Nuevo León", "Presencial", "Medio tiempo", "/static/images/jobOffer3.png"),
           (11, "Practicante de Redes", "Cisce", "Escobedo, Nuevo León", "Presencial", "Tiempo completo", "/static/images/jobOffer3.png")))
+
+# Get chat information - loadChatIndex
+chats = (
+    (1, "Neorem", "/static/images/neorem.png"),
+    (2, "Armazen", "/static/images/armazen.png"),
+)

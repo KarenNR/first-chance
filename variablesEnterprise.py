@@ -312,3 +312,9 @@ studentCV = (
         ("Python, Java, C++", "1er lugar en Concurso de Hacking Ético - 2do lugar en Concurso Nacional de Vulnerabilidades")
     ),
 )
+
+# Get chat information - loadChatIndexEnterprise
+chats = (
+    (1, "Pablo Gutiérrez", "/static/images/student-profile.png"),
+    (2, "Mantra Alejandra", "/static/images/student-profile3.png"),
+)

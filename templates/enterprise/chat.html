@@ -45,15 +45,9 @@
     <div class="container px-0">
         <div class="chat-container p-3 mb-4">
             <div id="chat-header" class="row m-0">
-                {% for job in jobOffers %}
-                    <div class="col-1 chat-logo text-center p-3">
-                        <img src="{{ job[6] }}" alt="Job Image">
-                    </div>
-
-                    <div class="col-11">
-                        <h2>{{ job[2] }}</h2>
-                    </div>
-                {% endfor %}
+                <div class="col-11">
+                    <h2 id="chat-title"></h2>
+                </div>
             </div>
             <hr>
             <div id="chat-messages">
@@ -78,6 +72,14 @@
     <script>
         var predefinedMessages = {{ studentMessages | tojson | safe }};
         var messageIndex = 0;
+
+        document.getElementById("chat-input").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        })
+
         function sendMessage() {
             var message = document.getElementById('chat-input').value;
             if (message.trim() !== '') {
@@ -149,11 +151,18 @@
         
             messageIndex++;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id');
+            var name = urlParams.get('name');
+            document.getElementById("chat-title").innerHTML = "Chat con " + name;
+        });
         
         // Redirections
         function goHome() { window.location.href = "/enterprise/"; }
         function goJobs() { window.location.href = "/enterprise/trabajos"; }
-        function goChat() { window.location.href = "/enterprise/chat"; }
+        function goChat() { window.location.href = "/enterprise/chat-index"; }
         function goProfile() { window.location.href = "/enterprise/perfil"; }
     </script>
 </body>

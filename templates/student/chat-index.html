@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Búsquedas recientes</title>
+    <title>Chat</title>
 
     <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -44,39 +44,28 @@
     </header>
 
     <div class="container px-0">
-        <div class="row m-0">
-            <!--Sidebar-->
-            <div class="col-2">
-                <ul class="navbar-nav">
-                    <li class="nav-item mb-4"><a href="/trabajos" class="side-link">Explorar</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/aplicaciones" class="side-link">Aplicaciones</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/guardados" class="side-link">Guardados</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/alertas-empleo" class="side-link">Alertas de empleo</a></li>
-                    <li class="nav-item mb-4"><a href="/trabajos/busquedas-recientes" class="side-link active-link">Búsquedas recientes</a></li>
-                </ul>
-            </div>
-            <!--Content-->
-            <div class="col-10">
-
-                <div class="row m-0">
-                    <h2 class="mb-4">Búsquedas recientes</h2>
-                    {% for term in recentSearches %}
-                    <div class="row m-0 mb-2 mt-2 justify-content-between">
-                        <div class="col-auto px-0">
-                            <p>{{ term }}</p>
-                        </div>
-                        <div class="col-auto px-0">
-                            <button class="transparent-btn cta-txt" onclick="goJobs()">
-                                Continuar recorrido&nbsp;<i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                        </div>
+        <h2>Mensajes</h2>
+        <table class="table table-bordered">
+        {% for chat in chats %}
+        <tr>
+            <td>
+                <div class="row m-0 align-items-center">
+                    <div class="col-1">
+                        <img src="{{ chat[2] }}" class="w-100">
                     </div>
-                    <hr>
-                    {% endfor %}
+                    <div class="col-10">
+                        {{ chat[1] }}
+                    </div>
+                    <div class="col-1 text-end">
+                        <button onclick="chat('{{ chat[0] }}', '{{ chat[1] }}')" class="transparent-btn">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
-                
-            </div>
-        </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </table>
     </div>
 
     <footer class="text-center">
@@ -84,6 +73,10 @@
     </footer>
 
     <script>
+        function chat(id, name) {
+            window.location.href = "/chat?id=" + id + "&name=" + name;
+        }
+
         // Redirections
         function goHome() { window.location.href = "/"; }
         function goJobs() { window.location.href = "/trabajos"; }

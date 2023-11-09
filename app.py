@@ -8,7 +8,7 @@ import openai
 app = Flask(__name__)
 socketio_rec = SocketIO(app, cors_allowed_origins="*")
 app.secret_key = 'f1rstch4nc3'
-openai.api_key = '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'
+openai.api_key = 'REPLACE_AFTER_COMMIT'
 
 # Context for ChatGPT
 messages = [ {"role": "system", "content": "You are a helpful assistant."} ]
@@ -111,11 +111,16 @@ def loadRequests():
     return render_template('/student/solicitudes.html', friendRequest=friendRequest)
 
 
+@app.route('/chat-index')
+def loadChatIndex():
+    chats = variables.chats
+    return render_template('/student/chat-index.html', chats=chats)
+
+
 @app.route('/chat')
 def loadChat():
     enterpriseMessages = ("Buenas tardes, gracias por contactarnos, ¿ya has enviado tu CV?", "Perfecto, entonces está en revisión, quedamos al pendiente.")
-    jobOffers = variables.jobOffers
-    return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages, jobOffers=jobOffers)
+    return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages)
 
 
 @app.route('/detalle/<int:id>')
@@ -227,6 +232,12 @@ def loadSavedEnterprise():
 def loadRecentSearchesEnterprise():
     recentSearches = variablesEnterprise.recentSearches
     return render_template('/enterprise/busquedas-recientes.html', recentSearches=recentSearches)
+
+
+@app.route('/enterprise/chat-index')
+def loadChatIndexEnterprise():
+    chats = variablesEnterprise.chats
+    return render_template('/enterprise/chat-index.html', chats=chats)
 
 
 @app.route('/enterprise/chat')
