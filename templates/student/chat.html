@@ -46,12 +46,14 @@
     <div class="container px-0">
         <div class="chat-container p-3 mb-4">
             <div id="chat-header" class="row m-0">
-                <div class="col-1 chat-logo text-center p-3">
-                    <i class="fa-solid fa-robot w-100"></i>
-                </div>
-                <div class="col-11">
-                    <h2>Empresa 1</h2>
-                </div>
+                
+                    <!--<div class="col-1 chat-logo text-center p-3">
+                        <img src="{jobOffers[6]}" alt="Job Image">
+                    </div>-->
+                    <div class="col-11">
+                        <h2 id="job-title"></h2>
+                    </div>
+                
             </div>
             <hr>
             <div id="chat-messages">
@@ -147,9 +149,19 @@
         
             messageIndex++;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id');
+            if (id) {
+                // Do something with the id
+                console.log('Received id:', id);
+            } else {
+                console.error('No id parameter found in the URL');
+            }
+        });
         
-        
-        
+
 
 
         

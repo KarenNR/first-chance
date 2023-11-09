@@ -18,6 +18,42 @@
 </head>
 
 <body>
+    <div class="modal fade" tabindex="-1" id="acept-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Solicitud Aceptada</h2>
+                            <i class="fa-solid fa-circle-check" style="color: #37E4AE; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="delete-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container p-5">
+                    <div class="row m-0 justify-content-center">
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Solicitud Eliminada</h2>
+                            <i class="fa-solid fa-circle-xmark" style="color: red; font-size: 100px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="container-fluid px-0 mb-3">
         <div id="subheader-1" class="row m-0 justify-content-between align-items-center">
             <div class="col-auto">
@@ -44,15 +80,85 @@
     </header>
 
     <div class="container px-0">
-        <h1>Pendiente</h1>
-        <img src="https://pbs.twimg.com/media/ExCVNaHXIAIXGAs.jpg">
+        <div class="col">
+            <div class="row">
+                <div class="col-2">
+                  
+                </div>
+                <div class="col">
+                    <h2>Solicitudes</h2>
+            {% for student in friendRequest %}
+                <div class="card p-3 mb-2">
+                    <div class="row m-0 align-items-center">
+                        <div class="col">
+                            <div class="d-flex flex-row align-items-center feed-text px-6 ml-2">
+                                <img class="rounded-circle" src={{ student[5] }} width="120">
+                                <div class="m-2">
+                                </div>
+                                <div class="d-flex flex-column flex-wrap ml-2">
+                                    <h5 class="font-weight-bold"> {{ student[1] }}</h5>
+                                    <span class="text-black-50 time">{{ student[2] }}</span>
+                                    <span class="text-black-50 time">{{ student[3] }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="row m-0">
+                                <div class="col-6">
+                                    <button type="button" data-bs-dismiss="modal" id="save" class="primary-button w-100">Aceptar</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" data-bs-dismiss="modal" id="delete" class="tertiary-button w-100">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                <div class="col-2">
+                    
+                  </div>
+        </div>
     </div>
+</div>
 
     <footer class="text-center">
         First Chance
     </footer>
 
     <script>
+// Assuming you have an array of card elements, for example:
+        var cards = document.querySelectorAll('.card');
+
+        cards.forEach(function(card) {
+            var acceptButton = card.querySelector('.primary-button');
+            var deleteButton = card.querySelector('.tertiary-button');
+
+            acceptButton.addEventListener('click', function() {
+                var modal = new bootstrap.Modal(document.getElementById('acept-modal'));
+                modal.show();
+                card.style.display = 'none';
+            });
+
+            deleteButton.addEventListener('click', function() {
+                var modal = new bootstrap.Modal(document.getElementById('delete-modal'));
+                modal.show();
+                card.style.display = 'none';
+            });
+        });
+
+
+
+        document.getElementById('delete').addEventListener('click', function() {
+            var modal = new bootstrap.Modal(document.getElementById('delete-modal'));
+            modal.show();
+        });
+        
+
         // Redirections
         function goHome() { window.location.href = "/"; }
         function goJobs() { window.location.href = "/trabajos"; }

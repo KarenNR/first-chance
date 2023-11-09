@@ -253,7 +253,7 @@
                                         </button>
                                     </div>
                                     <div class="col-4 ps-0">
-                                        <button class="tertiary-button w-100" id="chat">
+                                        <button onclick="chat(id)" class="tertiary-button w-100" id="chat">
                                             <i class="fa-solid fa-message icon-letter"></i>
                                         </button>
                                     </div>
@@ -309,6 +309,7 @@
                     }
                     document.getElementById("chat").onclick = function () {
                         chat(job[0]);
+                        
                     }
                     document.getElementById("job-detail").textContent = job[10];
                     let jobResponsibilities = document.getElementById("job-responsibilities");
@@ -342,9 +343,10 @@
             myModal.show();
         }
 
-        function chat(id) {
-            window.location.href = "/chat";
+        function chat() {
+            window.location.href = "/chat?id=" + encodeURIComponent(job[0]);
         }
+        
 
         function sendApplication(id) {
             var myModal = new bootstrap.Modal(document.getElementById("success-application-modal"));

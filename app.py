@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, flash, jsonify
+from flask import Flask, render_template, redirect, request, flash, jsonify, url_for
 import variables
 import variablesEnterprise
 from flask_socketio import SocketIO, emit
@@ -32,10 +32,27 @@ def chat(message):
 def loadLogin():
     return render_template('login.html')
 
+@app.route('/login',methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+
+    for user in users:
+        if user[0] == username and user[1] == password:
+            role = user[2]
+            if role == 'student':
+                return redirect(url_for('loadIndex'))
+            elif role == 'company':
+                return redirect(url_for('loadIndexEnterprise'))
+
+    message = "Usuario o contraseña incorrecta"
+    return render_template('login.html', message=message)
 
 @app.route('/')
 def loadIndex():
-    return render_template('student/index.html')
+    jobOffers = variables.jobOffers
+    feed=variables.feed
+    return render_template('/student/index.html', jobOffers=jobOffers, feed=feed)
 
 
 @app.route('/trabajos')
@@ -51,27 +68,12 @@ def getJobDescription(id):
         if item[0] == id:
             return jsonify({"message": item})
 
-
 @app.route('/trabajos/aplicaciones')
 def loadApplications():
     applications = variables.applications
     return render_template('/student/aplicaciones.html', applications=applications)
 
-@app.route('/login',methods=['POST'])
-def login():
-    username = request.form['username']
-    password = request.form['password']
 
-    for user in users:
-        if user[0] == username and user[1] == password:
-            role = user[2]
-            if role == 'student':
-                return render_template('student/index.html')
-            elif role == 'company':
-                return render_template('/enterprise/index.html')
-
-    message = "Usuario o contraseña incorrecta"
-    return render_template('login.html', message=message)
 
     
 users = variables.users
@@ -104,13 +106,15 @@ def loadRecentSearches():
 
 @app.route('/solicitudes')
 def loadRequests():
-    return render_template('/student/solicitudes.html')
+    friendRequest=variables.friendRequest
+    return render_template('/student/solicitudes.html', friendRequest=friendRequest)
 
 
 @app.route('/chat')
 def loadChat():
-    enterpriseMessages = ("hola mi nombre es maria fernanda vazquez", "Hola")
-    return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages)
+    enterpriseMessages = ("Buenas tardes, gracias por contactarnos, ¿ya has enviado tu CV?", "Perfecto, entonces está en revisión, quedamos al pendiente.")
+    jobOffers = variables.jobOffers
+    return render_template('/student/chat.html', enterpriseMessages=enterpriseMessages, jobOffers=jobOffers)
 
 
 
@@ -188,7 +192,9 @@ def designCV():
 
 @app.route('/enterprise/')
 def loadIndexEnterprise():
-    return render_template('/enterprise/index.html')
+    students = variablesEnterprise.students
+    feed=variables.feed
+    return render_template('/enterprise/index.html', students=students, feed=feed)
 
 
 @app.route('/enterprise/trabajos')
@@ -225,10 +231,9 @@ def loadRecentSearchesEnterprise():
 
 @app.route('/enterprise/chat')
 def loadChatEnterprise():
-    enterpriseMessages = (
-        (0, "Hola, ¿en qué puedo ayudarte el día de hoy?"),
-    )
-    return render_template('/enterprise/chat.html', enterpriseMessages=enterpriseMessages)
+    studentMessages = ("Tengo oportunidad a las 13:00, ¿está bien?", "Perfecto, en unas horas nos vemos, ¡gracias por la oportunidad!")
+
+    return render_template('/enterprise/chat.html', studentMessages=studentMessages)
 
 
 @app.route('/enterprise/perfil')
